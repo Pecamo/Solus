@@ -1,0 +1,2686 @@
+{
+  "items": [
+    {
+      "tags": [
+        "c++",
+        "arrays",
+        "cdecl"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 1252,
+            "user_id": 4057102,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/50429f44272e21a5b54ea574de5816c7?s=128&d=identicon&r=PG&f=1",
+            "display_name": "Chris A",
+            "link": "https://stackoverflow.com/users/4057102/chris-a"
+          },
+          "is_accepted": true,
+          "score": 1,
+          "last_activity_date": 1467848837,
+          "last_edit_date": 1467848837,
+          "creation_date": 1467848698,
+          "answer_id": 38235569,
+          "question_id": 38235537,
+          "body_markdown": "It is a pointer to an array of 5 elements.\r\n\r\n    //Standard array\r\n    char array[5];\r\n    \r\n    //pointer to array\r\n    char (*arr)[5];\r\n    \r\n    //Assign pointer of array to arr\r\n    arr = &amp;array;\r\n    \r\n    //Dereference arr and use it.\r\n    (*arr)[1] = 4;\r\n\r\n\r\nPointers and references to arrays are useful for passing arrays to functions, as well as returning them. Do not return local non-static arrays though as their life time ends on return.\r\n\r\nTo reference an array you can use this declaration:\r\n`char (&amp;arr)[5] = array;`"
+        }
+      ],
+      "owner": {
+        "reputation": 1744,
+        "user_id": 4561887,
+        "user_type": "registered",
+        "accept_rate": 73,
+        "profile_image": "https://www.gravatar.com/avatar/1ecb6a74fca21551bd8157504ad47faf?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Gabriel Staples",
+        "link": "https://stackoverflow.com/users/4561887/gabriel-staples"
+      },
+      "is_answered": true,
+      "view_count": 40,
+      "accepted_answer_id": 38235569,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1471471126,
+      "creation_date": 1467848518,
+      "last_edit_date": 1471471126,
+      "question_id": 38235537,
+      "body_markdown": "Go here: http://cdecl.org/\r\n\r\nInput:\r\n\r\n    char (*arr)[5]\r\n\r\nOutput:\r\n\r\n&gt; declare arr as pointer to array 5 of char\r\n\r\nWhat is an &quot;array 5&quot;? Does this simply mean an array with 5 elements?\r\n",
+      "link": "https://stackoverflow.com/questions/38235537/cdecl-clarification-required-what-is-an-array-5",
+      "title": "cdecl clarification required: what is an &quot;array 5?&quot;"
+    },
+    {
+      "tags": [
+        "c"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 89923,
+            "user_id": 1687119,
+            "user_type": "registered",
+            "accept_rate": 75,
+            "profile_image": "https://www.gravatar.com/avatar/f9c3036c1979d65847da3bdc271bb5b9?s=128&d=identicon&r=PG",
+            "display_name": "dbush",
+            "link": "https://stackoverflow.com/users/1687119/dbush"
+          },
+          "is_accepted": true,
+          "score": 4,
+          "last_activity_date": 1447971045,
+          "last_edit_date": 1447971045,
+          "creation_date": 1447966679,
+          "answer_id": 33814240,
+          "question_id": 33814185,
+          "body_markdown": "An array is not an assignable lvalue, which means it can&#39;t appear on the left side of an assignment or otherwise be modified.  Array elements, however, are assignable lvalues.\r\n\r\nEDIT:\r\n\r\nAn lvalue has an address and can be referenced in multiple places.  So something like `const int foo = 12;` is still an lvalue, but not a modifiable one.\r\n\r\nIn contrast, a constant such as 7 or &quot;hello&quot; is an rvalue, meaning it cannot be referenced beyond that expression.  Expressions such as `a + b` or `a + 1` are also rvalues."
+        }
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 156458,
+        "user_type": "registered",
+        "accept_rate": 47,
+        "profile_image": "https://i.stack.imgur.com/9yP4S.png?s=128&g=1",
+        "display_name": "Tim",
+        "link": "https://stackoverflow.com/users/156458/tim"
+      },
+      "is_answered": true,
+      "view_count": 75,
+      "accepted_answer_id": 33814240,
+      "answer_count": 1,
+      "score": -4,
+      "last_activity_date": 1447971045,
+      "creation_date": 1447966471,
+      "last_edit_date": 1447966726,
+      "question_id": 33814185,
+      "body_markdown": " K&amp;R   says array name is not a variable and it cannot be used in constructions like `a=pa` or `a++`. \r\n\r\nThen what is an array name? A constant?",
+      "link": "https://stackoverflow.com/questions/33814185/what-is-an-array-name-in-c-constant",
+      "title": "What is an array name in C? Constant?"
+    },
+    {
+      "tags": [
+        "c++",
+        "c++11",
+        "c++14"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 173532,
+            "user_id": 2069064,
+            "user_type": "registered",
+            "accept_rate": 73,
+            "profile_image": "https://i.stack.imgur.com/e4V2X.jpg?s=128&g=1",
+            "display_name": "Barry",
+            "link": "https://stackoverflow.com/users/2069064/barry"
+          },
+          "is_accepted": true,
+          "score": 6,
+          "last_activity_date": 1441135533,
+          "creation_date": 1441135533,
+          "answer_id": 32339430,
+          "question_id": 32338988,
+          "body_markdown": "&gt; ... the type of an array to objects is `T (&amp;) [N]` ...\r\n\r\nNo. The type of an array is `T[N]`. The type of `a` is `A[1]`. What you are describing is a *reference* to an array, and your original example involves passing a *pointer* to an array, which has type `A(*)[1]`. The other rule you are running into is that an array can decay into a pointer. In other words, an object of type `T[N]` can be implicitly converted to an object of type `T*`. \r\n\r\nIt&#39;s because of that implicit conversion that your second example fails. The relevant overloads are simply:\r\n\r\n    template &lt;typename T&gt; void func(T (&amp;)[1]); // (1)\r\n    template &lt;typename T&gt; void func(T* );      // (2)\r\n\r\nBoth overloads are viable. The first is an exact match, whereas the second involves an array-to-pointer conversion. But according to the table in [over.ics.rank], the way to determine which viable candidate is better involves selecting conversion sequences thusly:\r\n\r\n&gt;  - Standard conversion sequence `S1` is a better conversion sequence than standard conversion sequence  `S2` if\r\n&gt;    - `S1` is a proper subsequence of `S2` (comparing the conversion sequences in the canonical form  defined by 13.3.3.1.1, **excluding\r\n&gt; any Lvalue Transformation**; the identity conversion sequence is considered to be a subsequence of any non-identity conversion\r\n&gt; sequence) or, if not that,\r\n&gt; \r\n&gt;    - the rank of `S1` is better than the rank of `S2`, or `S1` and `S2` have the same rank and are distinguishable by the rules in the paragraph below, or, if not that,\r\n&gt; \r\n&gt;    - [..]\r\n\r\nThe array-to-pointer conversion is an lvalue transformation, so it&#39;s excluded from that bullet point. Thus, neither conversion sequence is considered better, so we have to move onto the other tiebreakers. Yet, both functions are templates, and neither is more specialized than the other. That&#39;s why it&#39;s ambiguous. "
+        }
+      ],
+      "owner": {
+        "user_type": "does_not_exist",
+        "display_name": "user4386938"
+      },
+      "is_answered": true,
+      "view_count": 216,
+      "accepted_answer_id": 32339430,
+      "answer_count": 1,
+      "score": 3,
+      "last_activity_date": 1441135586,
+      "creation_date": 1441133807,
+      "last_edit_date": 1441135586,
+      "question_id": 32338988,
+      "body_markdown": "I am asking this question with reference to the following code\r\n\r\n    #include &lt;iostream&gt;\r\n    using namespace std;\r\n    \r\n    class A {\r\n        void foo(){}\r\n    };\r\n    \r\n    template &lt;typename T&gt;\r\n    void func(T (&amp;a) [1]) {cout &lt;&lt; &quot;In array type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T (*a) [1]) {cout &lt;&lt; &quot;In pointer to array type &quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T* a) {cout &lt;&lt; &quot;in pointer type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T** a) {cout &lt;&lt; &quot;In pointer pointer type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(...) {}\r\n    \r\n    int foo(int a) {return 1;}\r\n    int foo1() {return 1;}\r\n    \r\n    int main() {\r\n        A a[1];\r\n        func&lt;A&gt;(&amp;a);    \r\n    \r\n        return 0;\r\n    }\r\n\r\nWhat is the type of an array? From the following code I can tell that when you take the address of an array with the `&amp;` operator the function call resolves to the one with `T (*a) [1]` and the call is not ambiguous, but the when I change the code to the following\r\n\r\n    #include &lt;iostream&gt;\r\n    using namespace std;\r\n    \r\n    class A {\r\n        void foo(){}\r\n    };\r\n    \r\n    template &lt;typename T&gt;\r\n    void func(T (&amp;a) [1]) {cout &lt;&lt; &quot;In array type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T (*a) [1]) {cout &lt;&lt; &quot;In pointer to array type &quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T* a) {cout &lt;&lt; &quot;in pointer type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(T** a) {cout &lt;&lt; &quot;In pointer pointer type&quot; &lt;&lt; endl;}\r\n    template &lt;typename T&gt;\r\n    void func(...) {}\r\n    \r\n    int foo(int a) {return 1;}\r\n    int foo1() {return 1;}\r\n    \r\n    int main() {\r\n        A a[1];\r\n        func&lt;A&gt;(a);  // &lt;-- CHANGE HERE  \r\n    \r\n        return 0;\r\n    }\r\nI get an error, saying that the call to the function is ambiguous. So the imaginary `type_of(a)` and `T*` are equivalent. How then are the types of `&amp;a` and `T**` not equivalent?\r\n\r\nThe way I am trying to explain this to myself is that the type of an array to objects is `T (&amp;) [N]` and the type of an array of objects of type `T` is `T (*) [N]`. And that the standard allows implicit conversion from the first (i.e. from `T (&amp;a) [N]` to `T*`) but when you take the address of an array it does not implicitly go from a `T (*) [N]` to a `T**`. Am I correct? Or am I inferring what `T (*) [N]` is wrongly? \r\n\r\nFurther how do you go about reading the meaning of syntax like this. Is there a document I can refer to?\r\n\r\nThanks!\r\n",
+      "link": "https://stackoverflow.com/questions/32338988/what-type-is-an-array",
+      "title": "What type is an array?"
+    },
+    {
+      "tags": [
+        "arrays",
+        "data-structures",
+        "definition"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 1087,
+            "user_id": 1850203,
+            "user_type": "registered",
+            "accept_rate": 96,
+            "profile_image": "https://i.stack.imgur.com/PKrYK.jpg?s=128&g=1",
+            "display_name": "Muneeb Zulfiqar",
+            "link": "https://stackoverflow.com/users/1850203/muneeb-zulfiqar"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1391342451,
+          "creation_date": 1391342451,
+          "answer_id": 21510323,
+          "question_id": 21510201,
+          "body_markdown": "Unbounded Arrays are basically dynamic, but dynamic arrays can be a little different in terms. As you can dynamically bound an array. In simple for unbounded array/list there is no limit, yes you can push/pop enqueue/dequeue or add/delete from any unbounded list or array. Hope my answer clears your question. \r\n\r\n   \r\n\r\n    int userInput = 0;\r\n     Array dynamic_arr = new Array[userinput];//example of dynamic array\r\n    List&lt;string&gt; unbounded_arr = new List&lt;string&gt;(); // example of unbounded array"
+        },
+        {
+          "owner": {
+            "reputation": 14491,
+            "user_id": 319204,
+            "user_type": "registered",
+            "accept_rate": 91,
+            "profile_image": "https://www.gravatar.com/avatar/5ac798dda7d9e0f89955e82961156912?s=128&d=identicon&r=PG",
+            "display_name": "TheCodeArtist",
+            "link": "https://stackoverflow.com/users/319204/thecodeartist"
+          },
+          "is_accepted": true,
+          "score": 2,
+          "last_activity_date": 1391344685,
+          "last_edit_date": 1495535200,
+          "creation_date": 1391342651,
+          "answer_id": 21510361,
+          "question_id": 21510201,
+          "body_markdown": "Unbounded arrays can be (and usually are) statically allocated.\r\n\r\nThe primary concern when implementing an unbounded array is to provide dynamic-array like freedom to decide the array size during run-time without the performance penalties of run-time memory allocation.\r\n\r\nThe following excerpt from an **[excellent article on unbounded arrays][1]** explains it succinctly -\r\n\r\n&gt;The general implementation strategy is as follows. We maintain an array of a fixed length **`limit`** and an internal index **`size`** which tracks how many elements are actually in the array. When we add a new element we increment **`size`**, when we remove an element we decrement **`size`**. The tricky issue is how to proceed when we are already at the **`limit`** and want to add another element. At that point, we allocate a new array with a larger **`limit`** and copy the elements we already have to the new array. \r\n\r\nNotice that during run-time, until `size` exceeds the initial value of `limit` there is no dynamic allocation involved with an unbounded array.\r\n\r\nSome **features** (design requirements) of an unbounded array :\r\n\r\n- Getting or setting the value at a particular index (constant time)\r\n- Iterating over the elements in order (linear time, good cache performance)\r\n- Inserting or deleting an element at the end of the array (constant amortized time)\r\n\r\n\r\nKeeping performance in mind, the only additional operations(compared to regular arrays) associated with unbounded arrays are :\r\n\r\n- `add_to_end()`\r\n- `delete_from_end()`\r\n\r\nto allow modifying the size of the unbounded array.\r\n\r\nOperations like `Insert_in_middle()` and `Delete_in_middle()` are NOT provided keep in mind the primary design principle of an unbounded array i.e. performance.\r\n\r\nFor more details, checkout the answers to this [question][2].\r\n\r\n&lt;sub&gt; NOTE : Though the question specifically mentions **dynamically allocated arrays**, probably you might also want to checkout [**dynamic arrays**][3]. A good example of a dynamic-array is the [`C++ std::vector`][4] itself which addresses several of the same design principles as that of an unbounded array.\r\n&lt;/sub&gt;\r\n\r\n\r\n  [1]: http://www.cs.cmu.edu/~fp/courses/15122-s11/lectures/12-ubarrays.pdf\r\n  [2]: https://stackoverflow.com/q/2710844/319204\r\n  [3]: http://en.wikipedia.org/wiki/Dynamic_array\r\n  [4]: http://en.wikipedia.org/wiki/Vector_%28C++%29"
+        },
+        {
+          "owner": {
+            "reputation": 10077,
+            "user_id": 746754,
+            "user_type": "registered",
+            "accept_rate": 53,
+            "profile_image": "https://i.stack.imgur.com/TGGHo.png?s=128&g=1",
+            "display_name": "acarlon",
+            "link": "https://stackoverflow.com/users/746754/acarlon"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1391343414,
+          "last_edit_date": 1391343414,
+          "creation_date": 1391342839,
+          "answer_id": 21510386,
+          "question_id": 21510201,
+          "body_markdown": "A **dynamically allocated** array is a fixed-size array where the size is fixed when the array is created. It is the allocation that is dynamic when the array is created. Once it is created it is fixed. \r\n\r\nNote that **dynamically allocated** is different from **dynamic**.\r\n\r\nWith an **unbounded array**, the size of the array can grow and shrink arbitrarily as you add items to and remove items from the array. An unbounded array often uses dynamically allocated arrays in the background. Essentially creating chunks / pools of memory using dynamically allocated arrays as an efficiency gain instead of continually resizing when a new item is added. \r\n\r\nLooking at the code for an unbounded array from the article linked by TheCodeArtist: \r\n\r\n    struct ubarray {\r\n        int limit; /* limit &gt; 0 */\r\n        int size; /* 0 &lt;= size &amp;&amp; size &lt;= limit */\r\n        elem[] A; /* \\length(A) == limit */\r\n    };\r\n\r\nNote that this array will grow as needed (when limit is reached), and that it is backed by a dynamically allocated array: \r\n\r\n    elem[] A; /* \\length(A) == limit */\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 18584,
+            "user_id": 968969,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/0802303aaa5f03f4cec652171dffcbc7?s=128&d=identicon&r=PG",
+            "display_name": "Tony Hopkinson",
+            "link": "https://stackoverflow.com/users/968969/tony-hopkinson"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1391343416,
+          "creation_date": 1391343416,
+          "answer_id": 21510467,
+          "question_id": 21510201,
+          "body_markdown": "Two different concepts really.\r\nA statically or dynamically defined array is bounded as in the code that uses it needs to know  what the bounds are.\r\nWith an unbound array the code needs some way to discover the bounds from the array itself.\r\n\r\ne.g\r\n\r\n    sArray = Array[2..10] Of Integer\r\n    dArray = Array[x..y] Of Integer\r\n    \r\n    void DoSomethingToArray(Array Of Integer : myArray)\r\n    {\r\n       for(int i = myArray.LowerBound; i &lt;= myArray.UpperBound; i++)\r\n       {\r\n          // twiddle with it.\r\n       }\r\n    } \r\n\r\nYou could pass sArray or dArray to the function and it would be quite happy.\r\n\r\nLower and UpperBound are an option, While !Stack.Empty, List.Count &gt; 0, an Enumerator, even Sizeof(myArray) / SizeOf(myArrayType) are all possibilities. The important point is that the code being passed the array, doesn&#39;t have to know how the array is bound and can take any array of a specific Type.\r\n\r\nSetting the bounds of an array is about allocating memory essentially. A function that uses the array, should hopefully only care that it doesn&#39;t reference memory that wasn&#39;t allocated to the array.\r\n"
+        }
+      ],
+      "owner": {
+        "reputation": 573,
+        "user_id": 2216108,
+        "user_type": "registered",
+        "accept_rate": 71,
+        "profile_image": "https://www.gravatar.com/avatar/1c39da234d4fed8285ed0666ad0a19de?s=128&d=identicon&r=PG",
+        "display_name": "aste123",
+        "link": "https://stackoverflow.com/users/2216108/aste123"
+      },
+      "is_answered": true,
+      "view_count": 3753,
+      "accepted_answer_id": 21510361,
+      "answer_count": 4,
+      "score": 4,
+      "last_activity_date": 1391344685,
+      "creation_date": 1391341663,
+      "question_id": 21510201,
+      "body_markdown": "What is an unbounded array and is there any difference between an unbounded array and a dynamically allocated array? What are the common operations associated with the unbounded array? (like we have pop and push for stack data structure)",
+      "link": "https://stackoverflow.com/questions/21510201/what-is-an-unbounded-array",
+      "title": "What is an unbounded array?"
+    },
+    {
+      "tags": [
+        "java",
+        "attributes"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 11757,
+            "user_id": 1003915,
+            "user_type": "registered",
+            "accept_rate": 46,
+            "profile_image": "https://www.gravatar.com/avatar/84d1e26527f46e6125dbbdb3c1ff4a25?s=128&d=identicon&r=PG&f=1",
+            "display_name": "Jakub Matczak",
+            "link": "https://stackoverflow.com/users/1003915/jakub-matczak"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1352898559,
+          "last_edit_date": 1352898559,
+          "creation_date": 1323714600,
+          "answer_id": 8479060,
+          "question_id": 8479038,
+          "body_markdown": "Attribute is a public variable inside the class/object. length attribute is a variable of int type."
+        },
+        {
+          "owner": {
+            "reputation": 69386,
+            "user_id": 572,
+            "user_type": "registered",
+            "accept_rate": 90,
+            "profile_image": "https://i.stack.imgur.com/Cc7mM.jpg?s=128&g=1",
+            "display_name": "Thomas Owens",
+            "link": "https://stackoverflow.com/users/572/thomas-owens"
+          },
+          "is_accepted": true,
+          "score": 26,
+          "last_activity_date": 1323714639,
+          "creation_date": 1323714639,
+          "answer_id": 8479069,
+          "question_id": 8479038,
+          "body_markdown": "An attribute is another term for a field. It&#39;s typically a public constant or a public variable that can be accessed directly. In this particular case, the array in Java is actually an object and you are accessing the public constant value that represents the length of the array."
+        },
+        {
+          "owner": {
+            "reputation": 343339,
+            "user_id": 367273,
+            "user_type": "registered",
+            "accept_rate": 96,
+            "profile_image": "https://www.gravatar.com/avatar/f1ed2b0c87f602ef30229f5c4b04eff6?s=128&d=identicon&r=PG",
+            "display_name": "NPE",
+            "link": "https://stackoverflow.com/users/367273/npe"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1323714651,
+          "creation_date": 1323714651,
+          "answer_id": 8479072,
+          "question_id": 8479038,
+          "body_markdown": "In this context, &quot;attribute&quot; simply means a data member of an object."
+        },
+        {
+          "owner": {
+            "reputation": 2978,
+            "user_id": 1085861,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/590236c3db097a979fbc9cbab60645f5?s=128&d=identicon&r=PG",
+            "display_name": "korifey",
+            "link": "https://stackoverflow.com/users/1085861/korifey"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1323714673,
+          "creation_date": 1323714673,
+          "answer_id": 8479077,
+          "question_id": 8479038,
+          "body_markdown": "Attribute is a synonym of `field` for `array.length`"
+        },
+        {
+          "owner": {
+            "reputation": 892,
+            "user_id": 894881,
+            "user_type": "registered",
+            "accept_rate": 71,
+            "profile_image": "https://www.gravatar.com/avatar/8c89517ad41c82a34006747e2b41fba2?s=128&d=identicon&r=PG",
+            "display_name": "Ali Raza",
+            "link": "https://stackoverflow.com/users/894881/ali-raza"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1323714711,
+          "creation_date": 1323714711,
+          "answer_id": 8479084,
+          "question_id": 8479038,
+          "body_markdown": "Attributes are also data members and properties of a class. They are Variables declared inside class."
+        },
+        {
+          "owner": {
+            "reputation": 320,
+            "user_id": 1094323,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/2a5c2b2d6d6aacbc7b2e74b8978fe69a?s=128&d=identicon&r=PG",
+            "display_name": "JSeven",
+            "link": "https://stackoverflow.com/users/1094323/jseven"
+          },
+          "is_accepted": false,
+          "score": 5,
+          "last_activity_date": 1323717864,
+          "last_edit_date": 1323717864,
+          "creation_date": 1323714996,
+          "answer_id": 8479150,
+          "question_id": 8479038,
+          "body_markdown": "A class is an element in object oriented programming that aggregates attributes(fields) - which can be public accessible or not - and methods(functions) - which also can be public or private and usually writes/reads those attributes.\r\n\r\nso you can have a class like `Array` with a public attribute `length`and a public method `sort()`."
+        },
+        {
+          "owner": {
+            "reputation": 1239,
+            "user_id": 931607,
+            "user_type": "registered",
+            "accept_rate": 88,
+            "profile_image": "https://www.gravatar.com/avatar/5e07ecc806988186abac6c62f593cb94?s=128&d=identicon&r=PG",
+            "display_name": "java_mouse",
+            "link": "https://stackoverflow.com/users/931607/java-mouse"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1323716021,
+          "creation_date": 1323716021,
+          "answer_id": 8479340,
+          "question_id": 8479038,
+          "body_markdown": "A class contains data field descriptions (or properties, fields, data members, **attributes**), i.e., field types and names, that will be associated with either per-instance or per-class state variables at program run time."
+        },
+        {
+          "owner": {
+            "reputation": 16,
+            "user_id": 3101150,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/1a4657a34c0cf18acbd2f469e80fc2ee?s=128&d=identicon&r=PG&f=1",
+            "display_name": "MaryAD",
+            "link": "https://stackoverflow.com/users/3101150/maryad"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1391016913,
+          "creation_date": 1391016913,
+          "answer_id": 21438438,
+          "question_id": 8479038,
+          "body_markdown": "An attribute is an instance variable. "
+        },
+        {
+          "owner": {
+            "reputation": 171,
+            "user_id": 2555871,
+            "user_type": "registered",
+            "accept_rate": 25,
+            "profile_image": "https://i.stack.imgur.com/mO4XW.jpg?s=128&g=1",
+            "display_name": "Junaid",
+            "link": "https://stackoverflow.com/users/2555871/junaid"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1395909722,
+          "creation_date": 1395909722,
+          "answer_id": 22682253,
+          "question_id": 8479038,
+          "body_markdown": "Attributes is same term used alternativly for properties or fields or data members or class members. "
+        },
+        {
+          "owner": {
+            "reputation": 4,
+            "user_id": 7027560,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/zq6sG.jpg?s=128&g=1",
+            "display_name": "Physics3067",
+            "link": "https://stackoverflow.com/users/7027560/physics3067"
+          },
+          "is_accepted": false,
+          "score": -2,
+          "last_activity_date": 1489516603,
+          "creation_date": 1489516603,
+          "answer_id": 42793955,
+          "question_id": 8479038,
+          "body_markdown": "\r\n■ **What is an attribute?**\r\n\r\n– A variable that belongs to an object.Attributes is same term used alternatively for properties or fields or data members or class members\r\n\r\n■ **How else can it be called?**\r\n\r\n– field or instance variable\r\n\r\n■ **How do you create one? What is the syntax?**\r\n\r\n– You need to declare attributes at the beginning of the class definition, outside of any method. The syntax is the following:\r\n      &lt;modifiers&gt; &lt;type&gt; &lt;variable_name&gt;;"
+        },
+        {
+          "owner": {
+            "reputation": 1,
+            "user_id": 8806447,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/3cf59c24ea4f471a553b861881b91ccc?s=128&d=identicon&r=PG",
+            "display_name": "The Flash_Java Speedster",
+            "link": "https://stackoverflow.com/users/8806447/the-flash-java-speedster"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1508503998,
+          "last_edit_date": 1508503998,
+          "creation_date": 1508501352,
+          "answer_id": 46848767,
+          "question_id": 8479038,
+          "body_markdown": "An abstract class is a type of class that can only be used as a base class for\r\nanother class; such thus cannot be instantiated. To make a class abstract,\r\nthe keyword abstract is used. Abstract classes may have one or more\r\nabstract methods that only have a header line (no method body). The method\r\nheader line ends with a semicolon (;). Any class that is derived from the base\r\nclass can define the method body in a way that is consistent with the header\r\nline using all the designated parameters and returning the correct data type\r\n(if the return type is not void). An abstract method acts as a place holder; all\r\nderived classes are expected to override and complete the method.\r\n\r\nExample in Java\r\n\r\nabstract public class Shape\r\n\r\n{\r\n\r\ndouble area;\r\n\r\npublic abstract double getArea();\r\n\r\n}"
+        }
+      ],
+      "owner": {
+        "reputation": 1106,
+        "user_id": 459387,
+        "user_type": "registered",
+        "accept_rate": 60,
+        "profile_image": "https://www.gravatar.com/avatar/b4b145a0e46109cd722ef4fc9e821d58?s=128&d=identicon&r=PG",
+        "display_name": "onlinenaman",
+        "link": "https://stackoverflow.com/users/459387/onlinenaman"
+      },
+      "is_answered": true,
+      "view_count": 119426,
+      "accepted_answer_id": 8479069,
+      "answer_count": 11,
+      "score": 16,
+      "last_activity_date": 1508503998,
+      "creation_date": 1323714495,
+      "last_edit_date": 1492546772,
+      "question_id": 8479038,
+      "body_markdown": "I read that to get length of an array, I use the `length` attribute, like `arrayName.length`. What is an attribute? Is it a class?\r\n",
+      "link": "https://stackoverflow.com/questions/8479038/what-is-an-attribute-in-java",
+      "title": "What is an attribute in Java?"
+    },
+    {
+      "tags": [
+        "c++",
+        "visual-studio-2010"
+      ],
+      "owner": {
+        "reputation": 8,
+        "user_id": 3788643,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/9946b21b4d0f3b113c7afed5496babd0?s=128&d=identicon&r=PG&f=1",
+        "display_name": "MitarashiFox",
+        "link": "https://stackoverflow.com/users/3788643/mitarashifox"
+      },
+      "is_answered": false,
+      "view_count": 74,
+      "closed_date": 1404350334,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1404352415,
+      "creation_date": 1404350216,
+      "last_edit_date": 1404352415,
+      "question_id": 24543519,
+      "body_markdown": "This is a very simply answered question I presume, however I have reached a point in a book that I am reading where arrays are used. The book doesn&#39;t have a great definition or explanation of them, so can someone explain to me what it is? My understanding of it is that is an `int` (or item that can be treated as an `int`) with more than one value. Any responses would be greatly appreciated! \r\n\r\n\r\nP.S If you haven&#39;t guessed already, I&#39;m not a very advanced programmer. :|",
+      "link": "https://stackoverflow.com/questions/24543519/what-is-an-array-c",
+      "closed_reason": "duplicate",
+      "title": "What is an Array? (C++)"
+    },
+    {
+      "tags": [
+        "javascript",
+        "arrays",
+        "javascript-objects"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 5918,
+            "user_id": 630780,
+            "user_type": "registered",
+            "accept_rate": 62,
+            "profile_image": "https://i.stack.imgur.com/fskbD.png?s=128&g=1",
+            "display_name": "Carl Markham",
+            "link": "https://stackoverflow.com/users/630780/carl-markham"
+          },
+          "is_accepted": true,
+          "score": 0,
+          "last_activity_date": 1468360899,
+          "last_edit_date": 1468360899,
+          "creation_date": 1468360510,
+          "answer_id": 38339480,
+          "question_id": 38339396,
+          "body_markdown": "An array is a series of values with no defining keys:\r\n\r\n`[&#39;one&#39;, &#39;two&#39;, &#39;three&#39;]`\r\n\r\nAn object uses keys which have values which can be anything within the scope of the language. eg: boolean, integer, string, object, array or event functions:\r\n\r\n    {\r\n      one: {\r\n        two: &#39;three&#39;\r\n      },\r\n      four: [&#39;five&#39;, &#39;six&#39;],\r\n      seven: &#39;eight&#39;,\r\n      nine: 10,\r\n      eleven: function () {},\r\n    }"
+        }
+      ],
+      "owner": {
+        "reputation": 35,
+        "user_id": 6411159,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://lh5.googleusercontent.com/-69dIhDpLGe0/AAAAAAAAAAI/AAAAAAAACIk/v_rSFPOA1_M/photo.jpg?sz=128",
+        "display_name": "Nimrod Naim",
+        "link": "https://stackoverflow.com/users/6411159/nimrod-naim"
+      },
+      "is_answered": true,
+      "view_count": 51,
+      "closed_date": 1468362501,
+      "accepted_answer_id": 38339480,
+      "answer_count": 1,
+      "score": -6,
+      "last_activity_date": 1468360899,
+      "creation_date": 1468360052,
+      "question_id": 38339396,
+      "body_markdown": "Hello I have a few questions:\r\nWhy is an array?\r\nWhy is the difference between array and object?\r\nWhy and when I need to use an array? \r\nThanks for helping :);)",
+      "link": "https://stackoverflow.com/questions/38339396/what-is-an-array-what-is-the-difference-between-array-and-objects-and-when-and",
+      "closed_reason": "too broad",
+      "title": "What is an array, what is the difference between array and objects and when and why use an array?"
+    },
+    {
+      "tags": [
+        "php",
+        "arrays",
+        "associative-array"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 5313,
+            "user_id": 5487076,
+            "user_type": "registered",
+            "accept_rate": 63,
+            "profile_image": "https://www.gravatar.com/avatar/e67f15b05aa9ab3cb9febb1bb4307bda?s=128&d=identicon&r=PG&f=1",
+            "display_name": "Webeng",
+            "link": "https://stackoverflow.com/users/5487076/webeng"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1465730881,
+          "last_edit_date": 1465730881,
+          "creation_date": 1465730445,
+          "answer_id": 37773636,
+          "question_id": 37773616,
+          "body_markdown": "**ANSWER:** \r\n\r\nThe first thing that comes up when a conventional programmer thinks of an array (**in PHP**) would be something similar to:\r\n\r\n    \r\n    $myArray1 = array(2016, &quot;hello&quot;, 33);//option 1\r\n\r\n    $myArray2 = [2016, &quot;hello&quot;, 33];//option 2\r\n\r\n    $myArray3 = [];//option 3\r\n    $myArray3[] = 2016; \r\n    $myArray3[] = &quot;hello&quot;; \r\n    $myArray3[] = 33;\r\n\r\nWhere, if we wanted to call the array in some later part of the code, we could do:\r\n\r\n    echo $myArray1[1];// output: hello\r\n    echo $myArray2[1];// output: hello\r\n    echo $myArray3[1];// output: hello\r\n\r\nThe previous example showing the use of a **Sequential Array**\r\n(*since they increment the index used in a predetermined sequence, by incrementing by 1 for each following value*).\r\n\r\nSo far so good. However, as humans, we might find it hard to remember that index `[0]` of the array is the value of the **year** 2016, index `[1]` of the array is a **greetings**, and index `[2]` of the array is a simple **integer value**. The alternative we would then have is to use what is called an **Associative Array**. An Associative array has a few differences from a **Sequential Array**.\r\n\r\nDifferences (*between a sequential and associative array*):\r\n\r\n - Durring the declaration of an Associative Array, you don&#39;t only include the `value` of what you want to put in the array, but you also put the index value (called the `key`) which you want to use when calling the array in later parts of the code. The following syntax is used during it&#39;s declaration: `&quot;key&quot; =&gt; &quot;value&quot;`. \r\n\r\n - When using the Associative Array, the `key` value would then be placed inside the index of the array to retrieve the desired `value`.\r\n\r\n\r\nFor instance:\r\n\r\n\r\n    \r\n        $myArray1 = array( \r\n            &quot;Year&quot; =&gt; 2016, \r\n            &quot;Greetings&quot; =&gt; &quot;hello&quot;, \r\n            &quot;Integer_value&quot; =&gt; 33);//option 1\r\n\r\n        $myArray2 = [ \r\n            &quot;Year&quot; =&gt;  2016, \r\n            &quot;Greetings&quot; =&gt; &quot;hello&quot;, \r\n            &quot;Integer_value&quot; =&gt; 33];//option 2\r\n\r\n        $myArray3 = [];//option 3\r\n        $myArray3[&quot;Year&quot;] = 2016; \r\n        $myArray3[&quot;Greetings&quot;] = &quot;hello&quot;; \r\n        $myArray3[&quot;Integer_value&quot;] = 33;\r\n\r\nAnd now, to receive the same output as before, the `key` value would be used in the arrays index:\r\n\r\n    echo $myArray1[&quot;Greetings&quot;];// output: hello\r\n    echo $myArray2[&quot;Greetings&quot;];// output: hello\r\n    echo $myArray3[&quot;Greetings&quot;];// output: hello\r\n\r\n"
+        }
+      ],
+      "owner": {
+        "reputation": 5313,
+        "user_id": 5487076,
+        "user_type": "registered",
+        "accept_rate": 63,
+        "profile_image": "https://www.gravatar.com/avatar/e67f15b05aa9ab3cb9febb1bb4307bda?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Webeng",
+        "link": "https://stackoverflow.com/users/5487076/webeng"
+      },
+      "is_answered": true,
+      "view_count": 88,
+      "closed_date": 1465731208,
+      "answer_count": 1,
+      "score": -4,
+      "last_activity_date": 1466108939,
+      "creation_date": 1465730347,
+      "last_edit_date": 1466108939,
+      "question_id": 37773616,
+      "body_markdown": "**QUESTION:** \r\n\r\nWhat is an Associative Array? \r\n\r\n_______________\r\n\r\n**ELABORATING ON QUESTION:**\r\n\r\nThe syntax I see when searching an Associative Array is as follows:\r\n\r\n    $myArray = array(\r\n        &quot;car&quot; =&gt; &quot;truck&quot;, \r\n        &quot;price&quot; =&gt; 50000\r\n    );\r\n\r\nand I would love to know what the structure of the array does, the purpose of an Associative Array, and some examples so that I can have a complete understanding for future use.",
+      "link": "https://stackoverflow.com/questions/37773616/what-is-an-associative-array",
+      "closed_reason": "off-topic",
+      "title": "What is an Associative Array?"
+    },
+    {
+      "tags": [
+        "prototype",
+        "prototypal-inheritance"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 623,
+            "user_id": 2080261,
+            "user_type": "registered",
+            "accept_rate": 88,
+            "profile_image": "https://www.gravatar.com/avatar/d7c864955230117e0270b49403f6738d?s=128&d=identicon&r=PG&f=1",
+            "display_name": "KEKUATAN",
+            "link": "https://stackoverflow.com/users/2080261/kekuatan"
+          },
+          "is_accepted": true,
+          "score": -1,
+          "last_activity_date": 1503464729,
+          "creation_date": 1503464729,
+          "answer_id": 45831001,
+          "question_id": 45539354,
+          "body_markdown": "&lt;b&gt;Prototype of a function is a Function.&lt;/b&gt;\r\n\r\nfunction inherit from Prototype function     \r\nthis what it look like = function(){}    \r\nthe type is function\r\n\r\n&lt;b&gt;Prototype of an array is an Array.&lt;/b&gt;\r\n\r\nArray inherit from Prototype Array\r\nthis what it look like = []&lt;br/&gt;\r\nthe type is Array&lt;br/&gt;\r\nyou can insert to that by push= [].push(&#39;why you ask basic question&#39;)&lt;br/&gt;\r\nand you can call it by = array_name[0]&lt;br/&gt;\r\n\r\n&lt;b&gt;Prototype of an object is an Object&lt;/b&gt;\r\n\r\nObject inherit from Prototype Object&lt;br/&gt;\r\nthis what it look like = {}&lt;br/&gt;\r\nthe type is Object&lt;br/&gt;\r\nyou can insert to that by = {}[&#39;question&#39;]=&#39;why you ask basic question&#39;&lt;br/&gt;\r\nand you can call it by = obj_name[&#39;question&#39;]&lt;br/&gt;\r\n\r\n&gt; do you know function,Object,Array? the prototype just constructure for\r\n&gt; it so when the error say prototype function is error that mean your\r\n&gt; function sistem not right, you not type it right or you not do it\r\n&gt; right, some think must be crush on it repair it"
+        }
+      ],
+      "owner": {
+        "reputation": 38,
+        "user_id": 7596839,
+        "user_type": "registered",
+        "accept_rate": 58,
+        "profile_image": "https://lh5.googleusercontent.com/-YKbtdpEPQwo/AAAAAAAAAAI/AAAAAAAAADo/Nk8WozkJ36M/photo.jpg?sz=128",
+        "display_name": "AKSHARA T",
+        "link": "https://stackoverflow.com/users/7596839/akshara-t"
+      },
+      "is_answered": true,
+      "view_count": 36,
+      "accepted_answer_id": 45831001,
+      "answer_count": 1,
+      "score": -2,
+      "last_activity_date": 1503464729,
+      "creation_date": 1502079446,
+      "last_edit_date": 1502470558,
+      "question_id": 45539354,
+      "body_markdown": "Prototype of a function is a Function.\r\nPrototype of an array is an Array.\r\nPrototype of an object is an Object.\r\n\r\nWHY?",
+      "link": "https://stackoverflow.com/questions/45539354/why-prototype-of-array-is-an-array",
+      "title": "Why prototype of array is an array"
+    },
+    {
+      "tags": [
+        "c",
+        "arrays",
+        "pointers"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 22702,
+            "user_id": 15727,
+            "user_type": "registered",
+            "accept_rate": 78,
+            "profile_image": "https://i.stack.imgur.com/FFivc.jpg?s=128&g=1",
+            "display_name": "Thomas Padron-McCarthy",
+            "link": "https://stackoverflow.com/users/15727/thomas-padron-mccarthy"
+          },
+          "is_accepted": true,
+          "score": 214,
+          "last_activity_date": 1540321554,
+          "last_edit_date": 1540321554,
+          "creation_date": 1256798348,
+          "answer_id": 1641963,
+          "question_id": 1641957,
+          "body_markdown": "An array is an array and a pointer is a pointer, but in most cases array names are *converted* to pointers. A term often used is that they *decay* to pointers.\r\n\r\nHere is an array:\r\n\r\n    int a[7];\r\n\r\n`a` contains space for seven integers, and you can put a value in one of them with an assignment, like this:\r\n\r\n    a[3] = 9;\r\n\r\nHere is a pointer:\r\n\r\n    int *p;\r\n\r\n`p` doesn&#39;t contain any spaces for integers, but it can point to a space for an integer. We can, for example, set it to point to one of the places in the array `a`, such as the first one:\r\n\r\n    p = &amp;a[0];\r\n\r\nWhat can be confusing is that you can also write this:\r\n\r\n    p = a;\r\n\r\nThis does *not* copy the contents of the array `a` into the pointer `p` (whatever that would mean). Instead, the array name `a` is converted to a pointer to its first element. So that assignment does the same as the previous one.\r\n\r\nNow you can use `p` in a similar way to an array:\r\n\r\n    p[3] = 17;\r\n\r\nThe reason that this works is that the array dereferencing operator in C, `[ ]`, is defined in terms of pointers. `x[y]` means: start with the pointer `x`, step `y` elements forward after what the pointer points to, and then take whatever is there. Using pointer arithmetic syntax, `x[y]` can also be written as `*(x+y)`.\r\n\r\nFor this to work with a normal array, such as our `a`, the name `a` in `a[3]` must first be converted to a pointer (to the first element in `a`). Then we step 3 elements forward, and take whatever is there. In other words: take the element at position 3 in the array. (Which is the fourth element in the array, since the first one is numbered 0.)\r\n\r\nSo, in summary, array names in a C program are (in most cases) converted to pointers. One exception is when we use the `sizeof` operator on an array. If `a` was converted to a pointer in this context, `sizeof a` would give the size of a pointer and not of the actual array, which would be rather useless, so in that case `a` means the array itself."
+        },
+        {
+          "owner": {
+            "reputation": 10671,
+            "user_id": 167531,
+            "user_type": "registered",
+            "accept_rate": 97,
+            "profile_image": "https://i.stack.imgur.com/0gChu.png?s=128&g=1",
+            "display_name": "Grumdrig",
+            "link": "https://stackoverflow.com/users/167531/grumdrig"
+          },
+          "is_accepted": false,
+          "score": 5,
+          "last_activity_date": 1307119057,
+          "last_edit_date": 1307119057,
+          "creation_date": 1256799014,
+          "answer_id": 1642005,
+          "question_id": 1641957,
+          "body_markdown": "An array declared like this\r\n\r\n    int a[10];\r\n\r\nallocates memory for 10 &lt;code&gt;int&lt;/code&gt;s. You can&#39;t modify &lt;code&gt;a&lt;/code&gt; but you can do pointer arithmetic with &lt;code&gt;a&lt;/code&gt;.\r\n\r\nA pointer like this allocates memory for just the pointer &lt;code&gt;p&lt;/code&gt;:\r\n\r\n    int *p;\r\n\r\nIt doesn&#39;t allocate any &lt;code&gt;int&lt;/code&gt;s. You can modify it:\r\n\r\n    p = a;\r\n\r\nand use array subscripts as you can with a:\r\n\r\n    p[2] = 5;\r\n    a[2] = 5;    // same\r\n    *(p+2) = 5;  // same effect\r\n    *(a+2) = 5;  // same effect\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 3735,
+            "user_id": 10136,
+            "user_type": "registered",
+            "accept_rate": 93,
+            "profile_image": "https://www.gravatar.com/avatar/0fdad2a07b50c9a60a48c7deb777d30b?s=128&d=identicon&r=PG",
+            "display_name": "Ricardo Amores",
+            "link": "https://stackoverflow.com/users/10136/ricardo-amores"
+          },
+          "is_accepted": false,
+          "score": -4,
+          "last_activity_date": 1300826502,
+          "last_edit_date": 1300826502,
+          "creation_date": 1256799038,
+          "answer_id": 1642009,
+          "question_id": 1641957,
+          "body_markdown": "An array is a collection of secuential and contiguous elements in memory. In C an array&#39;s name is the index to the first element, and applying an offset you can access the rest of elements.\r\nAn &quot;index to the first element&quot; is indeed a pointer to a memory direction.\r\n\r\nThe difference with pointer variables is that you cannot change the location the array&#39;s name is pointing to, so is similar to a const pointer (it&#39;s similar, not the same. See Mark&#39;s comment). But also that you don&#39;t need to dereference the array name to get the value if you use pointer aritmetic:\r\n\r\n    char array = &quot;hello wordl&quot;;\r\n    char* ptr = array;\r\n    \r\n    char c = array[2]; //array[2] holds the character &#39;l&#39;\r\n    char *c1 = ptr[2]; //ptr[2] holds a memory direction that holds the character &#39;l&#39;\r\n\r\nSo the answer is kinda &#39;yes&#39;.\r\n\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 30795,
+            "user_id": 11432,
+            "user_type": "registered",
+            "accept_rate": 95,
+            "profile_image": "https://www.gravatar.com/avatar/887a55a28c9529626ff62c5599ef2db2?s=128&d=identicon&r=PG",
+            "display_name": "Michael Buen",
+            "link": "https://stackoverflow.com/users/11432/michael-buen"
+          },
+          "is_accepted": false,
+          "score": 4,
+          "last_activity_date": 1256828604,
+          "last_edit_date": 1256828604,
+          "creation_date": 1256801350,
+          "answer_id": 1642114,
+          "question_id": 1641957,
+          "body_markdown": "The array name by itself yields a memory location, so you can treat the array name like a pointer:\r\n\r\n    int a[7];\r\n    \r\n    a[0] = 1976;\r\n    a[1] = 1984;\r\n    \r\n    printf(&quot;memory location of a: %p&quot;, a);\r\n    \r\n    printf(&quot;value at memory location %p is %d&quot;, a, *a);\r\n\r\nAnd other nifty stuff you can do to pointer (e.g. adding/substracting an offset), you can also do to an array:\r\n\r\n    printf(&quot;value at memory location %p is %d&quot;, a + 1, *(a + 1));\r\n\r\nLanguage-wise, if C didn&#39;t expose the array as just **some sort of &quot;pointer&quot;**(pedantically it&#39;s just a memory location. It cannot point to arbitrary location in memory, nor can be controlled by the programmer). We always need to code this:\r\n\r\n    printf(&quot;value at memory location %p is %d&quot;, &amp;a[1], a[1]);\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 82268,
+            "user_id": 25324,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/c812d568dcbf02b96796728be3cac626?s=128&d=identicon&r=PG",
+            "display_name": "pmg",
+            "link": "https://stackoverflow.com/users/25324/pmg"
+          },
+          "is_accepted": false,
+          "score": 29,
+          "last_activity_date": 1370377479,
+          "last_edit_date": 1370377479,
+          "creation_date": 1256807024,
+          "answer_id": 1642423,
+          "question_id": 1641957,
+          "body_markdown": "When an array is used as a value, its name represents the address of the first element.  \r\nWhen an array is not used as a value its name represents the whole array.\r\n\r\n    int arr[7];\r\n    \r\n    /* arr used as value */\r\n    foo(arr);\r\n    int x = *(arr + 1); /* same as arr[1] */\r\n\r\n    /* arr not used as value */\r\n    size_t bytes = sizeof arr;\r\n    void *q = &amp;arr; /* void pointers are compatible with pointers to any object */\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 80432,
+            "user_id": 134554,
+            "user_type": "registered",
+            "accept_rate": 0,
+            "profile_image": "https://www.gravatar.com/avatar/1894f68e0b15fd3d5b27bfcb021fa11c?s=128&d=identicon&r=PG",
+            "display_name": "John Bode",
+            "link": "https://stackoverflow.com/users/134554/john-bode"
+          },
+          "is_accepted": false,
+          "score": 10,
+          "last_activity_date": 1512695297,
+          "last_edit_date": 1512695297,
+          "creation_date": 1256828065,
+          "answer_id": 1644292,
+          "question_id": 1641957,
+          "body_markdown": "If an expression of array type (such as the array name) appears in a larger expression and it isn&#39;t the operand of either the `&amp;` or `sizeof` operators, then the type of the array expression is converted from &quot;N-element array of T&quot; to &quot;pointer to T&quot;, and the value of the expression is the address of the first element in the array.  \r\n\r\nIn short, the array name is not a pointer, but in most contexts it is treated *as though* it were a pointer.  \r\n\r\n**Edit**\r\n\r\nAnswering the question in the comment:\r\n\r\n&gt; If I use sizeof, do i count the size of only the elements of the array? Then the array “head” also takes up space with the information about length and a pointer (and this means that it takes more space, than a normal pointer would)?\r\n\r\nWhen you create an array, the only space that&#39;s allocated is the space for the elements themselves; no storage is materialized for a separate pointer or any metadata.  Given\r\n\r\n    char a[10];\r\n\r\nwhat you get in memory is\r\n\r\n       +---+\r\n    a: |   | a[0]\r\n       +---+ \r\n       |   | a[1]\r\n       +---+\r\n       |   | a[2]\r\n       +---+\r\n        ...\r\n       +---+\r\n       |   | a[9]\r\n       +---+\r\n\r\nThe *expression* `a` refers to the entire array, but there&#39;s no *object* `a` separate from the array elements themselves.  Thus, `sizeof a` gives you the size (in bytes) of the entire array.  The expression `&amp;a` gives you the address of the array, *which is the same as the address of the first element*.  The difference between `&amp;a` and `&amp;a[0]` is the type of the result&lt;sup&gt;1&lt;/sup&gt; - `int (*)[10]` in the first case and `int *` in the second.  \r\n\r\nWhere things get weird is when you want to access individual elements - the expression `a[i]` is defined as the result of `*(a + i)` - given an address value `a`, offset `i` elements (*not bytes*) from that address and dereference the result.\r\n\r\nThe problem is that `a` isn&#39;t a pointer or an address - it&#39;s the entire array object.  Thus, the rule in C that whenever the compiler sees an expression of array type (such as `a`, which has type `char [10]`) *and* that expression isn&#39;t the operand of the `sizeof` or unary `&amp;` operators, the type of that expression is converted (&quot;decays&quot;) to a pointer type (`char *`), and the value of the expression is the address of the first element of the array.  Therefore, the *expression* `a` has the same type and value as the expression `&amp;a[0]` (and by extension, the expression `*a` has the same type and value as the expression `a[0]`).  \r\n\r\nC was derived from an earlier language called B, and in B `a` *was* a separate pointer object from the array elements `a[0]`, `a[1]`, etc.  Ritchie wanted to keep B&#39;s array semantics, but he didn&#39;t want to mess with storing the separate pointer object.  So he got rid of it.  Instead, the compiler will convert array expressions to pointer expressions during translation as necessary.  \r\n\r\nRemember that I said arrays don&#39;t store any metadata about their size.  As soon as that array expression &quot;decays&quot; to a pointer, all you have is a pointer to a single element.  That element may be the first of a sequence of elements, or it may be a single object.  There&#39;s no way to know based on the pointer itself.  \r\n\r\nWhen you pass an array expression to a function, all the function receives is a pointer to the first element - it has no idea how big the array is (this is why the `gets` function was such a menace and was eventually removed from the library).  For the function to know how many elements the array has, you must either use a sentinel value (such as the 0 terminator in C strings) or you must pass the number of elements as a separate parameter.  \r\n\r\n&lt;hr&gt;\r\n&lt;sup&gt;\r\n&lt;ol&gt;\r\n&lt;li&gt;Which *may* affect how the address value is interpreted - depends on the machine.\r\n&lt;/ol&gt;\r\n&lt;/sup&gt;"
+        },
+        {
+          "owner": {
+            "reputation": 541,
+            "user_id": 3121682,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/z9esS.jpg?s=128&g=1",
+            "display_name": "Amitesh Ranjan",
+            "link": "https://stackoverflow.com/users/3121682/amitesh-ranjan"
+          },
+          "is_accepted": false,
+          "score": -3,
+          "last_activity_date": 1417456752,
+          "creation_date": 1417456752,
+          "answer_id": 27234331,
+          "question_id": 1641957,
+          "body_markdown": "The array name behaves like a pointer and points to the first element of the array. Example:\r\n\r\n    int a[]={1,2,3};\r\n    printf(&quot;%p\\n&quot;,a);     //result is similar to 0x7fff6fe40bc0\r\n    printf(&quot;%p\\n&quot;,&amp;a[0]); //result is similar to 0x7fff6fe40bc0\r\nBoth the print statements will give exactly same output for a machine. In my system it gave: \r\n\r\n    0x7fff6fe40bc0"
+        },
+        {
+          "owner": {
+            "reputation": 60,
+            "user_id": 1222801,
+            "user_type": "registered",
+            "accept_rate": 0,
+            "profile_image": "https://www.gravatar.com/avatar/fb84d40dbcb3655b3cd733d436f70132?s=128&d=identicon&r=PG",
+            "display_name": "SAQIB SOHAIL BHATTI",
+            "link": "https://stackoverflow.com/users/1222801/saqib-sohail-bhatti"
+          },
+          "is_accepted": false,
+          "score": -5,
+          "last_activity_date": 1443438877,
+          "creation_date": 1443438877,
+          "answer_id": 32821626,
+          "question_id": 1641957,
+          "body_markdown": "Array name is the address of 1st element of an array. So yes array name is a const pointer."
+        },
+        {
+          "owner": {
+            "reputation": 485,
+            "user_id": 2587326,
+            "user_type": "registered",
+            "accept_rate": 75,
+            "profile_image": "https://i.stack.imgur.com/Jbcjl.jpg?s=128&g=1",
+            "display_name": "Palo",
+            "link": "https://stackoverflow.com/users/2587326/palo"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1522703270,
+          "last_edit_date": 1522703270,
+          "creation_date": 1446994388,
+          "answer_id": 33595271,
+          "question_id": 1641957,
+          "body_markdown": "I think this example sheds some light on the issue:\r\n\r\n    #include &lt;stdio.h&gt;\r\n    int main()\r\n    {\r\n            int a[3] = {9, 10, 11};\r\n            int **b = &amp;a;\r\n    \r\n            printf(&quot;a == &amp;a: %d\\n&quot;, a == b);\r\n            return 0;\r\n    }\r\n\r\nIt compiles fine (with 2 warnings) in gcc 4.9.2, and prints the following:\r\n\r\n    a == &amp;a: 1\r\n\r\noops :-)\r\n\r\nSo, the conclusion is no, the array is not a pointer, it is not stored in memory (not even read-only one) as a pointer, even though it looks like it is, since you can obtain its address with the &amp; operator. But - oops - that operator does not work :-)), either way, you&#39;ve been warned:\r\n\r\n    p.c: In function ‘main’:\r\n    pp.c:6:12: warning: initialization from incompatible pointer type\r\n      int **b = &amp;a;\r\n                ^\r\n    p.c:8:28: warning: comparison of distinct pointer types lacks a cast\r\n      printf(&quot;a == &amp;a: %d\\n&quot;, a == b);\r\n\r\nC++ refuses any such attempts with errors in compile-time.\r\n\r\nEdit:\r\n\r\nThis is what I meant to demonstrate:\r\n\r\n    #include &lt;stdio.h&gt;\r\n    int main()\r\n    {\r\n        int a[3] = {9, 10, 11};\r\n        void *c = a;\r\n    \r\n        void *b = &amp;a;\r\n        void *d = &amp;c;\r\n    \r\n        printf(&quot;a == &amp;a: %d\\n&quot;, a == b);\r\n        printf(&quot;c == &amp;c: %d\\n&quot;, c == d);\r\n        return 0;\r\n    }\r\n\r\nEven though `c` and `a` &quot;point&quot; to the same memory, you can obtain address of the `c` pointer, but you cannot obtain the address of the `a` pointer."
+        }
+      ],
+      "owner": {
+        "reputation": 9191,
+        "user_id": 188276,
+        "user_type": "registered",
+        "accept_rate": 77,
+        "profile_image": "https://www.gravatar.com/avatar/2a3cb6f253bbd6e6c2c60a963cd5616b?s=128&d=identicon&r=PG",
+        "display_name": "hdn",
+        "link": "https://stackoverflow.com/users/188276/hdn"
+      },
+      "is_answered": true,
+      "view_count": 52022,
+      "protected_date": 1448351943,
+      "accepted_answer_id": 1641963,
+      "answer_count": 9,
+      "score": 166,
+      "last_activity_date": 1540321554,
+      "creation_date": 1256798285,
+      "last_edit_date": 1495441833,
+      "question_id": 1641957,
+      "body_markdown": "Is an array&#39;s name a pointer in C?\r\nIf not, what is the difference between an array&#39;s name and a pointer variable?\r\n",
+      "link": "https://stackoverflow.com/questions/1641957/is-an-array-name-a-pointer",
+      "title": "Is an array name a pointer?"
+    },
+    {
+      "tags": [
+        "mysql",
+        "database",
+        "database-design"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 738,
+            "user_id": 161290,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/1dfb1aa9a1193b6065b89a4f6cfc631f?s=128&d=identicon&r=PG",
+            "display_name": "Robert",
+            "link": "https://stackoverflow.com/users/161290/robert"
+          },
+          "is_accepted": true,
+          "score": 18,
+          "last_activity_date": 1270729791,
+          "creation_date": 1270729791,
+          "answer_id": 2599770,
+          "question_id": 2599735,
+          "body_markdown": "Indexes speed up SELECT queries because indexes are sorted by definition. Additionally a UNIQUE index enforces the constraint that the value of that column (or the combination of values of bound columns) exists only once (same applies to PRIMARY, but PRIMARY can only exist once per table in contrast to a UNIQUE key).\r\n\r\nIndexes are a tradeoff: they tremendously speed up SELECT queries (when used columns have an INDEX) but they make that MySQL table consume more space and cost more time when changing the table via INSERT/UPDATE/DELETE."
+        },
+        {
+          "owner": {
+            "reputation": 4024,
+            "user_id": 47895,
+            "user_type": "registered",
+            "accept_rate": 93,
+            "profile_image": "https://www.gravatar.com/avatar/e687ab24978f1beb14ede4e73c034b94?s=128&d=identicon&r=PG",
+            "display_name": "Jon",
+            "link": "https://stackoverflow.com/users/47895/jon"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1270731440,
+          "last_edit_date": 1270731440,
+          "creation_date": 1270729962,
+          "answer_id": 2599792,
+          "question_id": 2599735,
+          "body_markdown": "Indexes speed up select queries.  They make the difference between the database having to check every single row in a table for the results and knowing exactly where to go to find the information.  It&#39;s kind of the same concept as looping through a dictionary type data structure to find what you are looking for instead of just finding the value you want by it&#39;s key(index).  Indexes will slow down Inserts, updates and deletes though if you have too many because every alteration of the table will now have to create the indexes as well.\r\n\r\nA popular strategy in very very high volume/high performance applications is to have two databases.  One that is optimally indexed for fast retrievals and another that has very few indexes for fast inserts.  The only issue with this is, you lose real time data when the retrieval database has not synced yet with the insert database.\r\n\r\nThere are also two different kinds of indexes.  Clustered and non-clustered indexes.  If I&#39;m not mistaken, in MySQL primary keys are clustered and all other indexes are non clustered.  A good introduction article about the difference is [here][1].  It covers SQL Server, but the concept should be the same.\r\n\r\nI haven&#39;t worked much with MySQL but from what I can see online, FULLTEXT provides a way to search using a Natural Language full text search.  Basically, in the query, you will provide terms to search the full text indexed column(s) on and it will pull back all of the results.  Here are a few articles I found on the topic you might find useful.&lt;br /&gt;\r\n[MySQL Docs on Full Text Search][2]&lt;br /&gt;\r\n[Article 1][3]&lt;br /&gt;\r\n[Article 2][4]\r\n\r\n\r\n  [1]: http://weblogs.sqlteam.com/mladenp/archive/2007/09/18/Back-To-Basics-What-is-a-Clustered-and-a-Non-Clustered.aspx\r\n  [2]: http://dev.mysql.com/doc/refman/5.0/en/fulltext-search.html\r\n  [3]: http://www.databasejournal.com/features/mysql/article.php/1578331/Using-Fulltext-Indexes-in-MySQL---Part-1.htm\r\n  [4]: http://www.petefreitag.com/item/477.cfm"
+        },
+        {
+          "owner": {
+            "reputation": 8668,
+            "user_id": 178980,
+            "user_type": "registered",
+            "accept_rate": 87,
+            "profile_image": "https://www.gravatar.com/avatar/6f4c87db4e692b4b234a33c8ef86d4b7?s=128&d=identicon&r=PG",
+            "display_name": "Egor Pavlikhin",
+            "link": "https://stackoverflow.com/users/178980/egor-pavlikhin"
+          },
+          "is_accepted": false,
+          "score": 5,
+          "last_activity_date": 1270763186,
+          "last_edit_date": 1270763186,
+          "creation_date": 1270730045,
+          "answer_id": 2599806,
+          "question_id": 2599735,
+          "body_markdown": "Indexes are used for two things:\r\n\r\n 1. Specify a field (or fields) that uniquely identifies a row (primary key).\r\n 2. Save time during lookups on often used fields. For instance, if you often lookup users by their usernames you should add an index on the username column.\r\n\r\nRead more about indexes here http://dev.mysql.com/doc/refman/5.0/en/mysql-indexes.html or better buy a proper books on database design.\r\n\r\nRegarding your second question, have a look at this http://dev.mysql.com/doc/refman/5.0/en/string-type-overview.html . \r\n\r\nThe main difference is that TEXT is stored outside of the table space and is referenced from the table, whereas VARCHAR is stored as a normal field. Performance in this case depends solely on your usage patterns. TEXT can also allow full text search.\r\n\r\nAlso, you cannot use an index on TEXT for the reasons stated above, so it is not a good idea to use it as a lookup field."
+        },
+        {
+          "owner": {
+            "reputation": 142064,
+            "user_id": 9990,
+            "user_type": "registered",
+            "accept_rate": 79,
+            "profile_image": "https://www.gravatar.com/avatar/2ef86667e42fe07c2bab670357a57fc5?s=128&d=identicon&r=PG",
+            "display_name": "Marcelo Cantos",
+            "link": "https://stackoverflow.com/users/9990/marcelo-cantos"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1270730131,
+          "creation_date": 1270730131,
+          "answer_id": 2599820,
+          "question_id": 2599735,
+          "body_markdown": "Indexes are data structures used to optimise queries. They are conceptually very similar to the index at the back of a book. They cost some space and time to maintain, just as a book index would have to be redone if you decided to add a new chapter. But they often speed up queries enormously (up to thousands or even millions of times faster than without)."
+        },
+        {
+          "owner": {
+            "reputation": 44680,
+            "user_id": 213269,
+            "user_type": "registered",
+            "accept_rate": 98,
+            "profile_image": "https://www.gravatar.com/avatar/894e4c1f3bc33e5f9a5008d355287830?s=128&d=identicon&r=PG",
+            "display_name": "Jonas",
+            "link": "https://stackoverflow.com/users/213269/jonas"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1270730149,
+          "creation_date": 1270730149,
+          "answer_id": 2599822,
+          "question_id": 2599735,
+          "body_markdown": "You need a primary key for every database table, and I think that is the primary index too. Indexes are used to speed up queries, and you should have an index of the column if you used it in the `WHERE`-part of an SQL-queries for performance reasons.\r\n\r\nUsing `TEXT` in cases where you don&#180;t need it is bad. It is better to limit you users for some fields i.e. *title* and *url*, since you have an index on url. And I don&#39;t think you can use index on columns that are of type `TEXT`. I don&#180;t think a `FULLTEXT`-index on *url* is what you want.\r\n\r\nI would recommend you to read up about databases in an introductory text or website."
+        },
+        {
+          "owner": {
+            "reputation": 5478,
+            "user_id": 247003,
+            "user_type": "registered",
+            "accept_rate": 74,
+            "profile_image": "https://www.gravatar.com/avatar/8297330d53af2b8b9b0ad9d3daa381db?s=128&d=identicon&r=PG",
+            "display_name": "John",
+            "link": "https://stackoverflow.com/users/247003/john"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1270730150,
+          "creation_date": 1270730150,
+          "answer_id": 2599823,
+          "question_id": 2599735,
+          "body_markdown": "If you know that everyone has a unique social security number (SSN), then you could create an index of everyone&#39;s name, ordered by SSN. Then, if you were given someone&#39;s SSN, it would be really quick to find their name.\r\n\r\nNow assume that you have a manilla folder for each person. The card may have detailed medical records etc. Your database may not keep these cards in order - maybe it just adds new folders to the end of the compactus. But it keeps a sorted &quot;index&quot; so that if you look up an SSN, it can tell you exactly where the relevant folder is kept.\r\n\r\nIn this example, the SSN is being used as a Primary Key. It&#39;s nice if it&#39;s unique, but even if it isn&#39;t unique, it can still speed things up."
+        },
+        {
+          "owner": {
+            "reputation": 1303,
+            "user_id": 308886,
+            "user_type": "registered",
+            "accept_rate": 78,
+            "profile_image": "https://www.gravatar.com/avatar/0e9925a20787c08b37ad78df63e39d6a?s=128&d=identicon&r=PG",
+            "display_name": "studioromeo",
+            "link": "https://stackoverflow.com/users/308886/studioromeo"
+          },
+          "is_accepted": false,
+          "score": 16,
+          "last_activity_date": 1270733240,
+          "creation_date": 1270733240,
+          "answer_id": 2600173,
+          "question_id": 2599735,
+          "body_markdown": "Indexes are just like an index of a book. Imagine you had a recipe book, and you wanted to find out how to make an omelet, you&#39;d simply skip to the back, find the word and its page number, and skip to that page number. Now imagine you had no index and had to search through 400 pages of recipes, what a nightmare!\r\n\r\nIndexes have several types Primary Key, Index, Unique, Fulltext\r\n\r\nPrimary Key is considered your main index, the first place mysql goes to find a record. Most people use an auto incrementing integer field for this since it&#39;s generally unique on each row.\r\n\r\nIndexes are considered your secondary primary keys, you place these on fields that you want to be able to search for quickly.\r\n\r\nUnique keys are similar to indexes however they work by ensuring that you cannot place duplicates in that column, eg you cant have the word &#39;eggs&#39; appear in the same column on two different rows.\r\n\r\nFinally Fulltext is a special index used by mysql&#39;s MyISAM storage engine only, it is used for searching your records using human phrases. without going into too much detail its mysqls own search engine, a more advanced version of the LIKE sql command.\r\n\r\nFor example if i searched for &#39;eggs and butter&#39;, fulltext would search for records containing eggs, butter, or both. where as LIKE would simply search for strings containing &#39;eggs and butter&#39;\r\n\r\nI hope this helps, the [mysql site][1] has plenty info on the subject, but this gives you the general gist of it.\r\n\r\nHappy coding :)\r\n\r\n\r\n  [1]: http://dev.mysql.com/doc/refman/5.0/en/mysql-indexes.html"
+        }
+      ],
+      "owner": {
+        "reputation": 1308,
+        "user_id": 311874,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://www.gravatar.com/avatar/420ddd110cdefbfe70803954b1240033?s=128&d=identicon&r=PG",
+        "display_name": "webnat0",
+        "link": "https://stackoverflow.com/users/311874/webnat0"
+      },
+      "is_answered": true,
+      "view_count": 1211,
+      "accepted_answer_id": 2599770,
+      "answer_count": 7,
+      "score": 17,
+      "last_activity_date": 1299494039,
+      "creation_date": 1270729552,
+      "last_edit_date": 1299494039,
+      "question_id": 2599735,
+      "body_markdown": "What is an index in MySQL ????",
+      "link": "https://stackoverflow.com/questions/2599735/what-is-an-index",
+      "title": "What is an index?"
+    },
+    {
+      "tags": [
+        "angularjs"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 4253,
+            "user_id": 19520,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/44e500d45df133c3e941d1293c3e224c?s=128&d=identicon&r=PG",
+            "display_name": "ema",
+            "link": "https://stackoverflow.com/users/19520/ema"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1394706926,
+          "creation_date": 1394706926,
+          "answer_id": 22375872,
+          "question_id": 22375719,
+          "body_markdown": "What about:\r\n\r\n    if(Object.prototype.toString.call($scope.studentArray) === &#39;[object Array]&#39;) {\r\n      // is array\r\n    }"
+        },
+        {
+          "owner": {
+            "reputation": 811,
+            "user_id": 1129159,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/4a9e4a226485a26daad840eda8c6fef6?s=128&d=identicon&r=PG",
+            "display_name": "Tony Zampogna",
+            "link": "https://stackoverflow.com/users/1129159/tony-zampogna"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1394706966,
+          "creation_date": 1394706966,
+          "answer_id": 22375883,
+          "question_id": 22375719,
+          "body_markdown": "I would install [Underscore.js](http://underscorejs.org) and use the [isArray](http://underscorejs.org/#isArray) function like so:\r\n\r\n    _.isArray($scope.studentArray);\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 3446,
+            "user_id": 2590375,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/LeuSa.png?s=128&g=1",
+            "display_name": "nilsK",
+            "link": "https://stackoverflow.com/users/2590375/nilsk"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1394707231,
+          "creation_date": 1394707231,
+          "answer_id": 22375983,
+          "question_id": 22375719,
+          "body_markdown": "i recommend [Lo-Dash][1]\r\nit uses underscore plus some nice features\r\n\r\nsyntax is similar/same as underscore\r\n\r\ngreetings\r\n\r\n\r\n  [1]: http://lodash.com/"
+        },
+        {
+          "owner": {
+            "reputation": 12241,
+            "user_id": 3891533,
+            "user_type": "registered",
+            "accept_rate": 94,
+            "profile_image": "https://www.gravatar.com/avatar/f44eb6cec2fe7699a8b02db5c05e4f24?s=128&d=identicon&r=PG",
+            "display_name": "Dieterg",
+            "link": "https://stackoverflow.com/users/3891533/dieterg"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1394707239,
+          "creation_date": 1394707239,
+          "answer_id": 22375991,
+          "question_id": 22375719,
+          "body_markdown": "Cleanest solution without any libraries would be: \r\n\r\n    var arr = [&#39;val1&#39;,&#39;val2&#39;,&#39;val3&#39;];\r\n    console.log(arr instanceof Array); // true\r\n    \r\n    var astring = &#39;test&#39;;\r\n    console.log(astring instanceof Array); // false;"
+        },
+        {
+          "owner": {
+            "reputation": 46,
+            "user_id": 3300210,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/6mv2I.jpg?s=128&g=1",
+            "display_name": "WebSmart",
+            "link": "https://stackoverflow.com/users/3300210/websmart"
+          },
+          "is_accepted": true,
+          "score": 3,
+          "last_activity_date": 1394707304,
+          "creation_date": 1394707304,
+          "answer_id": 22376018,
+          "question_id": 22375719,
+          "body_markdown": "Please use this http://docs.angularjs.org/api/ng/function/angular.isArray \r\n\r\n    angular.isArray($scope.studentArray);"
+        }
+      ],
+      "owner": {
+        "reputation": 1664,
+        "user_id": 2219371,
+        "user_type": "registered",
+        "accept_rate": 83,
+        "profile_image": "https://i.stack.imgur.com/VsGwr.jpg?s=128&g=1",
+        "display_name": "Amila Iddamalgoda",
+        "link": "https://stackoverflow.com/users/2219371/amila-iddamalgoda"
+      },
+      "is_answered": true,
+      "view_count": 47,
+      "accepted_answer_id": 22376018,
+      "answer_count": 5,
+      "score": 0,
+      "last_activity_date": 1394707304,
+      "creation_date": 1394706594,
+      "question_id": 22375719,
+      "body_markdown": "What is the **correct and best** way to check the **object** is **an array** or not ?\r\n\r\n    $scope.studentArray= [{student1},{student2},{student3}];",
+      "link": "https://stackoverflow.com/questions/22375719/how-to-check-the-object-is-an-array-or-not",
+      "title": "How to check the object is an array or not?"
+    },
+    {
+      "tags": [
+        "javascript",
+        "arrays"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 63346,
+            "user_id": 1786,
+            "user_type": "registered",
+            "accept_rate": 97,
+            "profile_image": "https://www.gravatar.com/avatar/54b75f6fbf4434162bfcda6b0cb9b86b?s=128&d=identicon&r=PG",
+            "display_name": "John Sheehan",
+            "link": "https://stackoverflow.com/users/1786/john-sheehan"
+          },
+          "is_accepted": true,
+          "score": 0,
+          "last_activity_date": 1248976817,
+          "last_edit_date": 1495542894,
+          "creation_date": 1248976817,
+          "answer_id": 1208267,
+          "question_id": 1208252,
+          "body_markdown": "From just yesterday: https://stackoverflow.com/questions/1202841/what-is-the-best-way-to-check-if-an-object-is-an-array-or-not-in-javascript"
+        }
+      ],
+      "owner": {
+        "reputation": 3649,
+        "user_id": 136924,
+        "user_type": "registered",
+        "accept_rate": 90,
+        "profile_image": "https://www.gravatar.com/avatar/7f93694661a6d82291a7aa64a38832e1?s=128&d=identicon&r=PG",
+        "display_name": "John Stimac",
+        "link": "https://stackoverflow.com/users/136924/john-stimac"
+      },
+      "is_answered": true,
+      "view_count": 306,
+      "closed_date": 1248976890,
+      "accepted_answer_id": 1208267,
+      "answer_count": 1,
+      "score": 2,
+      "last_activity_date": 1248976867,
+      "creation_date": 1248976662,
+      "last_edit_date": 1495535571,
+      "question_id": 1208252,
+      "body_markdown": "&gt; **Possible Duplicates:**  \n&gt; [How do you check if a variable is an array in JavaScript ?](https://stackoverflow.com/questions/767486/how-do-you-check-if-a-variable-is-an-array-in-javascript)  \n&gt; [What is the best way to check if an object is an array or not in Javascript?](https://stackoverflow.com/questions/1202841/what-is-the-best-way-to-check-if-an-object-is-an-array-or-not-in-javascript)  \n\n\nHow can i tell if a javascript variable is an array?",
+      "link": "https://stackoverflow.com/questions/1208252/see-if-a-variable-is-an-array-using-javascript",
+      "closed_reason": "exact duplicate",
+      "title": "See if a variable is an array using JavaScript"
+    },
+    {
+      "tags": [
+        "javascript",
+        "arrays",
+        "typescript"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 65581,
+            "user_id": 942852,
+            "user_type": "registered",
+            "accept_rate": 62,
+            "profile_image": "https://i.stack.imgur.com/secsn.jpg?s=128&g=1",
+            "display_name": "Nitzan Tomer",
+            "link": "https://stackoverflow.com/users/942852/nitzan-tomer"
+          },
+          "is_accepted": true,
+          "score": 5,
+          "last_activity_date": 1496192338,
+          "creation_date": 1496192338,
+          "answer_id": 44274049,
+          "question_id": 44274032,
+          "body_markdown": "Here&#39;s the fixed version of your function:\r\n\r\n    function updateEmployees (emp: employee | employee[]) {\r\n        let employees: employee[] = [];\r\n        if (emp instanceof Array) employees = emp;\r\n        else employees = [emp];\r\n        employees.forEach(function(e){\r\n            return &#39;something&#39;\r\n        })\r\n    }\r\n\r\nBut it can be shorter:\r\n\r\n    function updateEmployees(emp: employee | employee[]) {\r\n        (emp instanceof Array ? emp : [emp]).forEach(function(e){\r\n            return &#39;something&#39;\r\n        })\r\n    }"
+        }
+      ],
+      "owner": {
+        "reputation": 500,
+        "user_id": 949547,
+        "user_type": "registered",
+        "accept_rate": 89,
+        "profile_image": "https://graph.facebook.com/1273620873/picture?type=large",
+        "display_name": "Jon Lamb",
+        "link": "https://stackoverflow.com/users/949547/jon-lamb"
+      },
+      "is_answered": true,
+      "view_count": 248,
+      "accepted_answer_id": 44274049,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1496560930,
+      "creation_date": 1496192177,
+      "last_edit_date": 1496560930,
+      "question_id": 44274032,
+      "body_markdown": "I&#39;m trying to find a way to check whether a function parameter is an array or not. If it is not, turn it into an array and perform a function on it, otherwise just perform a function on it.\r\n\r\nExample:\r\n\r\n    interface employee {\r\n        first: string,\r\n        last: string\r\n    }\r\n    \r\n    function updateEmployees (emp: employee | employee[]) {\r\n        let employees = [];\r\n        if (emp instanceof Array) employees = [emp];\r\n        else employees = emp;\r\n        employees.forEach(function(e){\r\n            return &#39;something&#39;\r\n        })\r\n    }\r\n\r\nThis seems like it would work to me but is throwing a warning of `Type &#39;employee&#39; is not assignable to type &#39;any[]&#39;. Property &#39;length&#39; is missing in type &#39;employee&#39;.`",
+      "link": "https://stackoverflow.com/questions/44274032/ensure-parameter-is-an-array",
+      "title": "Ensure parameter is an array"
+    },
+    {
+      "tags": [
+        "javascript"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 103182,
+            "user_id": 223386,
+            "user_type": "registered",
+            "accept_rate": 99,
+            "profile_image": "https://www.gravatar.com/avatar/36ee7470120462548bffafb876d4984a?s=128&d=identicon&r=PG",
+            "display_name": "hsz",
+            "link": "https://stackoverflow.com/users/223386/hsz"
+          },
+          "is_accepted": true,
+          "score": 1,
+          "last_activity_date": 1411974398,
+          "creation_date": 1411974398,
+          "answer_id": 26094243,
+          "question_id": 26094226,
+          "body_markdown": "After splicing an input array it returns new array that starts also wint index = 0.\r\n\r\nYou can check it i.e. with `for` loop:\r\n\r\n    var output = tab.splice(0,2);\r\n    for (var i = 0; i &lt; output.length; i++) {\r\n      console.log(i, output[i]);\r\n    }"
+        },
+        {
+          "owner": {
+            "reputation": 1140,
+            "user_id": 1476708,
+            "user_type": "registered",
+            "accept_rate": 50,
+            "profile_image": "https://www.gravatar.com/avatar/74ff2f7e1257920cbb7c6e14a6a3599d?s=128&d=identicon&r=PG&f=1",
+            "display_name": "Hamix",
+            "link": "https://stackoverflow.com/users/1476708/hamix"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1411974808,
+          "creation_date": 1411974808,
+          "answer_id": 26094358,
+          "question_id": 26094226,
+          "body_markdown": "Use ``indexOf`` method to see result.\r\n\r\n    var tab = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;];\r\n    tab.splice(0,2);\r\n    console.log(tab);\r\n    console.log(tab.indexOf(&quot;c&quot;)); \r\n[DEMO][1]\r\n\r\n\r\n  [1]: http://jsfiddle.net/saaa1gmd/"
+        },
+        {
+          "owner": {
+            "reputation": 937,
+            "user_id": 1434632,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://i.stack.imgur.com/axV6i.jpg?s=128&g=1",
+            "display_name": "Kai",
+            "link": "https://stackoverflow.com/users/1434632/kai"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1411978843,
+          "last_edit_date": 1411978843,
+          "creation_date": 1411975050,
+          "answer_id": 26094427,
+          "question_id": 26094226,
+          "body_markdown": "it&#39;s always 0. Even you splice, set null, undefined, etc....\r\n\r\nI mean that if you set something such as tab[0] = null or tab[0] = undefined, the length of array is unchange, also the index. The length only change when you splice, remove item in array.\r\nExample : \r\n\r\n     var array = [1,2,3,4,5,6,7,8];\r\n     console.log(&#39;Array length: %s, and index 0 value : %s &#39;,array.length, array[0] );    //should be 8 and 1\r\n     array[0] = undefined;\r\n     console.log(&#39;Array length: %s, and index 0 value : %s &#39;,array.length, array[0] );    //should be 8 and undefined\r\n     array[0] = null;\r\n     console.log(&#39;Array length: %s, and index 0 value : %s &#39;,array.length, array[0] );    //should be 8 and null;\r\n\r\nnow add splice:\r\n\r\n         var array = [1,2,3,4,5,6,7,8];\r\n         console.log(&#39;Array length: %s, and index 0 value : %s &#39;,array.length, array[0] );    //should be 8 and 1\r\n         var arraySpliceLength = 2;\r\n         array.splice(0,arraySpliceLength);\r\n         console.log(&#39;Array length: %s, and index 0 value : %s &#39;,array.length, array[0] );    //should be 6 and 3\r\n\r\nThe length changed, but the start index still at 0, and value = array[array.length - arraySpliceLength] = 2"
+        }
+      ],
+      "owner": {
+        "reputation": 5367,
+        "user_id": 1045704,
+        "user_type": "registered",
+        "accept_rate": 78,
+        "profile_image": "https://www.gravatar.com/avatar/04c0c838b7538f515de23ebfce570547?s=128&d=identicon&r=PG",
+        "display_name": "pheromix",
+        "link": "https://stackoverflow.com/users/1045704/pheromix"
+      },
+      "is_answered": true,
+      "view_count": 54,
+      "accepted_answer_id": 26094243,
+      "answer_count": 3,
+      "score": 1,
+      "last_activity_date": 1411978843,
+      "creation_date": 1411974327,
+      "question_id": 26094226,
+      "body_markdown": "There is an array :\r\n\r\n    var tab = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;];\r\n    tab.splice(0,2);\r\n\r\nWhat is the beginning index of the array after it has been spliced ? And how to know it ?",
+      "link": "https://stackoverflow.com/questions/26094226/how-is-an-array-organised-after-being-spliced",
+      "title": "How is an array organised after being spliced?"
+    },
+    {
+      "tags": [
+        "unit-testing",
+        "design-patterns"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 24561,
+            "user_id": 31516,
+            "user_type": "registered",
+            "accept_rate": 92,
+            "profile_image": "https://i.stack.imgur.com/SOucS.jpg?s=128&g=1",
+            "display_name": "David Brown",
+            "link": "https://stackoverflow.com/users/31516/david-brown"
+          },
+          "is_accepted": true,
+          "score": 19,
+          "last_activity_date": 1243546816,
+          "creation_date": 1243546816,
+          "answer_id": 923346,
+          "question_id": 923319,
+          "body_markdown": "&gt;ObjectMother starts with the factory pattern, by delivering prefabricated test-ready objects via a simple method call. It moves beyond the realm of the factory by \r\nfacilitating the customization of created objects, \r\nproviding methods to update the objects during the tests, and \r\nif necessary, deleting the object from the database at the completion of the test. \r\n&gt;\r\n&gt;Some reasons to use ObjectMother:  \r\n&gt; * Reduce code duplication in tests, increasing test maintainability  \r\n&gt; * Make test objects super-easily accessible, encouraging developers to write more tests.  \r\n&gt; * Every test runs with fresh data.  \r\n&gt; * Tests always clean up after themselves. \r\n\r\n(http://c2.com/cgi/wiki?ObjectMother)"
+        },
+        {
+          "owner": {
+            "reputation": 2674,
+            "user_id": 59561,
+            "user_type": "registered",
+            "accept_rate": 69,
+            "profile_image": "https://www.gravatar.com/avatar/db3da67e599f5fd1864f21a8227129ce?s=128&d=identicon&r=PG",
+            "display_name": "cwash",
+            "link": "https://stackoverflow.com/users/59561/cwash"
+          },
+          "is_accepted": false,
+          "score": 7,
+          "last_activity_date": 1243573112,
+          "last_edit_date": 1243573112,
+          "creation_date": 1243553466,
+          "answer_id": 923718,
+          "question_id": 923319,
+          "body_markdown": "See &quot;[Test Data Builders: an alternative to the Object Mother pattern](http://www.natpryce.com/articles/000714.html)&quot; for an argument of why to use a Test Data Builder instead of an Object Mother.  It explains what both are.  "
+        },
+        {
+          "owner": {
+            "reputation": 605,
+            "user_id": 85623,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/22e9a1fa51755f487e54872d207ad26b?s=128&d=identicon&r=PG",
+            "display_name": "Modan",
+            "link": "https://stackoverflow.com/users/85623/modan"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1254488961,
+          "creation_date": 1254488961,
+          "answer_id": 1509394,
+          "question_id": 923319,
+          "body_markdown": "As stated elsewhere, ObjectMother is a Factory for generating Objects typically **(exclusively?)** for use in Unit Tests.\r\n\r\nWhere they are of great use is for generating complex objects where the data is of no particular significance to the test. \r\n\r\nWhere you might have created an empty instance below such as\r\n\r\n        Order rubishOrder = new Order(&quot;NoPropertiesSet&quot;);\r\n        _orderProcessor.Process(rubishOrder);\r\n\r\nyou would use a sensible one from the ObjectMother\r\n\r\n        Order motherOrder = ObjectMother.SimpleOrder();\r\n        _orderProcessor.Process(motherOrder);\r\n\r\nThis tends to help with situations where the class being tested starts to rely on a sensible object being passed in.  \r\n\r\nFor instance if you added some OrderNumber validation to the Order class above, you would simply need to instantiate the OrderNumber on the SimpleObject class in order for all the existing tests to pass, leaving you to concentrate on writing the validation tests.\r\n\r\nIf you had just instantiated the object in the test you would need to add it to every test (it is shocking how often I have seen people do this).  \r\n\r\nOf course this could just be extracted out to a method, but putting it in a separate class allows it to be shared between multiple test classes.  \r\n\r\nAnother recommended behaviour is to use good descriptive names for your methods, to promote reuse.  It is all to easy to end up with one object per test, which is definitely to be avoided.  It is better to generate objects that represent general rather than specific attributes and then customise for your test.  For instance ObjectMother.WealthyCustomer() rather than ObjectMother.CustomerWith1MdollarsSharesInBigPharmaAndDrivesAPorsche() and ObjectMother.CustomerWith1MdollarsSharesInBigPharmaAndDrivesAPorscheAndAFerrari()"
+        }
+      ],
+      "owner": {
+        "reputation": 405358,
+        "user_id": 1583,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://i.stack.imgur.com/Au4eT.png?s=128&g=1",
+        "display_name": "Oded",
+        "link": "https://stackoverflow.com/users/1583/oded"
+      },
+      "is_answered": true,
+      "view_count": 4887,
+      "accepted_answer_id": 923346,
+      "answer_count": 3,
+      "score": 9,
+      "last_activity_date": 1254488961,
+      "creation_date": 1243546524,
+      "last_edit_date": 1243565958,
+      "question_id": 923319,
+      "body_markdown": "What is an ObjectMother and what are common usage scenarios for this pattern?",
+      "link": "https://stackoverflow.com/questions/923319/what-is-an-objectmother",
+      "title": "What is an ObjectMother?"
+    },
+    {
+      "tags": [
+        "language-agnostic",
+        "definition",
+        "idempotent"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 2186,
+            "user_id": 88341,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/1f8d19256c95f31739b719eed3382308?s=128&d=identicon&r=PG",
+            "display_name": "Robert",
+            "link": "https://stackoverflow.com/users/88341/robert"
+          },
+          "is_accepted": false,
+          "score": 81,
+          "last_activity_date": 1501003143,
+          "last_edit_date": 1501003143,
+          "creation_date": 1246583423,
+          "answer_id": 1077420,
+          "question_id": 1077412,
+          "body_markdown": "No matter how many times you call the operation, the result will be the same."
+        },
+        {
+          "owner": {
+            "reputation": 656398,
+            "user_id": 893,
+            "user_type": "registered",
+            "accept_rate": 84,
+            "profile_image": "https://www.gravatar.com/avatar/747ffa5da3538e66840ebc0548b8fd58?s=128&d=identicon&r=PG",
+            "display_name": "Greg Hewgill",
+            "link": "https://stackoverflow.com/users/893/greg-hewgill"
+          },
+          "is_accepted": true,
+          "score": 732,
+          "last_activity_date": 1396381312,
+          "last_edit_date": 1396381312,
+          "creation_date": 1246583453,
+          "answer_id": 1077421,
+          "question_id": 1077412,
+          "body_markdown": "In computing, an idempotent operation is one that has no additional effect if it is called more than once with the same input parameters. For example, removing an item from a set can be considered an idempotent operation on the set.\r\n\r\nIn mathematics, an idempotent operation is one where *f(f(x)) = f(x)*. For example, the `abs()` function is idempotent because `abs(abs(x)) = abs(x)` for all `x`. \r\n\r\nThese slightly different definitions can be reconciled by considering that *x* in the mathematical definition represents the state of an object, and *f* is an operation that may mutate that object. For example, consider the [Python `set`](https://docs.python.org/2/library/stdtypes.html#set) and its `discard` method. The `discard` method removes an element from a set, and does nothing if the element does not exist. So:\r\n\r\n    my_set.discard(x)\r\n\r\nhas exactly the same effect as doing the same operation twice:\r\n\r\n    my_set.discard(x)\r\n    my_set.discard(x)\r\n\r\nIdempotent operations are often used in the design of network protocols, where a request to perform an operation is guaranteed to happen at least once, but might also happen more than once. If the operation is idempotent, then there is no harm in performing the operation two or more times.\r\n\r\nSee the Wikipedia article on [idempotence](http://en.wikipedia.org/wiki/Idempotence) for more information.\r\n\r\n---\r\n&lt;sup&gt;The above answer previously had some incorrect and misleading examples. Comments below written before April 2014 refer to an older revision.&lt;/sup&gt;"
+        },
+        {
+          "owner": {
+            "reputation": 12794,
+            "user_id": 9876,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/5al0j.jpg?s=128&g=1",
+            "display_name": "Caleb Huitt - cjhuitt",
+            "link": "https://stackoverflow.com/users/9876/caleb-huitt-cjhuitt"
+          },
+          "is_accepted": false,
+          "score": 22,
+          "last_activity_date": 1520606638,
+          "last_edit_date": 1520606638,
+          "creation_date": 1246583634,
+          "answer_id": 1077425,
+          "question_id": 1077412,
+          "body_markdown": "An idempotent operation produces the result in the same state even if you call it more than once, provided you pass in the same parameters."
+        },
+        {
+          "owner": {
+            "reputation": 5239,
+            "user_id": 102270,
+            "user_type": "registered",
+            "accept_rate": 88,
+            "profile_image": "https://www.gravatar.com/avatar/74c236638d43b713794e529cd59e9aa1?s=128&d=identicon&r=PG",
+            "display_name": "Oorang",
+            "link": "https://stackoverflow.com/users/102270/oorang"
+          },
+          "is_accepted": false,
+          "score": 5,
+          "last_activity_date": 1246585261,
+          "last_edit_date": 1246585261,
+          "creation_date": 1246583725,
+          "answer_id": 1077427,
+          "question_id": 1077412,
+          "body_markdown": "It is any operation that every nth result will result in an output matching the value of the 1st result. For instance the absolute value of -1 is 1. The absolute value of the absolute value of -1 is 1. The absolute value of the absolute value of absolute value of -1 is 1. And so on. &lt;p&gt;See also: When would be a really silly time to use recursion?&lt;/p&gt;"
+        },
+        {
+          "owner": {
+            "reputation": 15824,
+            "user_id": 68920,
+            "user_type": "registered",
+            "accept_rate": 86,
+            "profile_image": "https://www.gravatar.com/avatar/319fad13391c424ef586195d8592e9ac?s=128&d=identicon&r=PG",
+            "display_name": "Arnkrishn",
+            "link": "https://stackoverflow.com/users/68920/arnkrishn"
+          },
+          "is_accepted": false,
+          "score": 6,
+          "last_activity_date": 1246584406,
+          "creation_date": 1246584406,
+          "answer_id": 1077446,
+          "question_id": 1077412,
+          "body_markdown": "An idempotent operation over a set leaves its members unchanged when applied one or more times.\r\n\r\nIt can be a unary operation like **absolute(x)** where x belongs to a set of positive integers. Here absolute(absolute(x)) = x.\r\n\r\nIt can be a binary operation like **union of a set with itself** would always return the same set.\r\n\r\ncheers"
+        },
+        {
+          "owner": {
+            "reputation": 21388,
+            "user_id": 45935,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/76eb040bed8dc544b5b71aeb2d1a81ad?s=128&d=identicon&r=PG",
+            "display_name": "Jim Ferrans",
+            "link": "https://stackoverflow.com/users/45935/jim-ferrans"
+          },
+          "is_accepted": false,
+          "score": 108,
+          "last_activity_date": 1310390795,
+          "last_edit_date": 1310390795,
+          "creation_date": 1246585665,
+          "answer_id": 1077489,
+          "question_id": 1077412,
+          "body_markdown": "An idempotent operation can be repeated an arbitrary number of times and the result will be the same as if it had been done only once.  In arithmetic, adding zero to a number is idempotent.\r\n\r\nIdempotence is talked about a lot in the context of &quot;RESTful&quot; web services.  REST seeks to maximally leverage HTTP to give programs access to web content, and is usually set in contrast to SOAP-based web services, which just tunnel remote procedure call style services inside HTTP requests and responses.\r\n\r\nREST organizes a web application into &quot;resources&quot; (like a Twitter user, or a Flickr image) and then uses the HTTP verbs of POST, PUT, GET, and DELETE to create, update, read, and delete those resources.\r\n\r\nIdempotence plays an important role in REST.  If you GET a representation of a REST resource (eg, GET a jpeg image from Flickr), and the operation fails, you can just repeat the GET again and again until the operation succeeds.  To the web service, it doesn&#39;t matter how many times the image is gotten.  Likewise, if you use a RESTful web service to update your Twitter account information, you can PUT the new information as many times as it takes in order to get confirmation from the web service.  PUT-ing it a thousand times is the same as PUT-ing it once.  Similarly DELETE-ing a REST resource a thousand times is the same as deleting it once.  Idempotence thus makes it a lot easier to construct a web service that&#39;s resilient to communication errors.\r\n\r\nFurther reading: [RESTful Web Services][1], by Richardson and Ruby (idempotence is discussed on page 103-104), and Roy Fielding&#39;s [PhD dissertation on REST][2].  Fielding was one of the authors of HTTP 1.1, RFC-2616, which talks about idempotence in [section 9.1.2][3].\r\n\r\n\r\n  [1]: http://www.amazon.com/RESTful-Web-Services-Leonard-Richardson/dp/0596529260\r\n  [2]: http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm\r\n  [3]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html"
+        },
+        {
+          "owner": {
+            "reputation": 86083,
+            "user_id": 214010,
+            "user_type": "registered",
+            "accept_rate": 83,
+            "profile_image": "https://www.gravatar.com/avatar/2bfafb4d16a6dc78abef970bcab9ca97?s=128&d=identicon&r=PG",
+            "display_name": "mikera",
+            "link": "https://stackoverflow.com/users/214010/mikera"
+          },
+          "is_accepted": false,
+          "score": 42,
+          "last_activity_date": 1330936833,
+          "last_edit_date": 1330936833,
+          "creation_date": 1330922952,
+          "answer_id": 9561780,
+          "question_id": 1077412,
+          "body_markdown": "Idempotence means that applying an operation once or applying it multiple times has the same effect.\r\n\r\nExamples:\r\n\r\n - Multiplication by zero. No matter how many times you do it, the result is still zero.\r\n - Setting a boolean flag. No matter how many times you do it, the flag stays set.\r\n - Deleting a row from a database with a given ID. If you try it again, the row is still gone.\r\n\r\nFor **pure functions** (functions with no side effects) then idempotency implies that f(x) = f(f(x)) = f(f(f(x))) = f(f(f(f(x)))) = ...... for all values of x\r\n\r\nFor **functions with side effects**, idempotency furthermore implies that no additional side effects will be caused after the first application. You can consider the state of the world to be an additional &quot;hidden&quot; parameter to the function if you like.\r\n\r\nNote that in a world where you have concurrent actions going on, you may find that operations you thought were idempotent cease to be so (for example, another thread could unset the value of the boolean flag in the example above). Basically whenever you have concurrency and mutable state, you need to think much more carefully about idempotency.\r\n\r\nIdempotency is often a useful property in building robust systems. For example, if there is a risk that you may receive a duplicate message from a third party, it is helpful to have the message handler act as an idempotent operation so that the message effect only happens once."
+        },
+        {
+          "owner": {
+            "reputation": 476,
+            "user_id": 1150207,
+            "user_type": "registered",
+            "accept_rate": 27,
+            "profile_image": "https://www.gravatar.com/avatar/5c4341bcf0ff64e3fc8f1f101356b9c3?s=128&d=identicon&r=PG",
+            "display_name": "Mahmoud Abou-Eita",
+            "link": "https://stackoverflow.com/users/1150207/mahmoud-abou-eita"
+          },
+          "is_accepted": false,
+          "score": 7,
+          "last_activity_date": 1354804959,
+          "creation_date": 1354804959,
+          "answer_id": 13745982,
+          "question_id": 1077412,
+          "body_markdown": "**Idempotent Operations:** Operations that have no side-effects if executed multiple times.\r\n&lt;br/&gt;\r\n**Example**: An operation that retrieves values from a data resource and say, prints it\r\n&lt;br/&gt;&lt;br/&gt;\r\n**Non-Idempotent Operations:** Operations that would cause some harm if executed multiple times. (As they change some values or states)\r\n&lt;br/&gt;\r\n**Example:** An operation that withdraws from a bank account \r\n "
+        },
+        {
+          "owner": {
+            "reputation": 30796,
+            "user_id": 169992,
+            "user_type": "registered",
+            "accept_rate": 83,
+            "profile_image": "https://i.stack.imgur.com/3rvks.jpg?s=128&g=1",
+            "display_name": "Lance Pollard",
+            "link": "https://stackoverflow.com/users/169992/lance-pollard"
+          },
+          "is_accepted": false,
+          "score": 10,
+          "last_activity_date": 1381282244,
+          "creation_date": 1381282244,
+          "answer_id": 19261476,
+          "question_id": 1077412,
+          "body_markdown": "Just wanted to throw out a real use case that demonstrates idempotence. In JavaScript, say you are defining a bunch of model classes (as in MVC model). The way this is often implemented is functionally equivalent to something like this (basic example):\r\n\r\n&lt;!-- language: javascript --&gt;\r\n\r\n    function model(name) {\r\n      function Model() {\r\n        this.name = name;\r\n      }\r\n\r\n      return Model;\r\n    }\r\n\r\nYou could then define new classes like this:\r\n\r\n&lt;!-- language: js --&gt;\r\n\r\n    var User = model(&#39;user&#39;);\r\n    var Article = model(&#39;article&#39;);\r\n\r\nBut if you were to try to get the `User` class via `model(&#39;user&#39;)`, from somewhere else in the code, it would fail:\r\n\r\n    var User = model(&#39;user&#39;);\r\n    // ... then somewhere else in the code (in a different scope)\r\n    var User = model(&#39;user&#39;);\r\n\r\nThose two `User` constructors would be different. That is,\r\n\r\n    model(&#39;user&#39;) !== model(&#39;user&#39;);\r\n\r\nTo make it **idempotent**, you would just add some sort of caching mechanism, like this:\r\n\r\n    var collection = {};\r\n\r\n    function model(name) {\r\n      if (collection[name])\r\n        return collection[name];\r\n\r\n      function Model() {\r\n        this.name = name;\r\n      }\r\n      \r\n      collection[name] = Model;\r\n      return Model;\r\n    }\r\n\r\nBy adding caching, every time you did `model(&#39;user&#39;)` it will be the same object, and so it&#39;s idempotent. So:\r\n\r\n    model(&#39;user&#39;) === model(&#39;user&#39;);"
+        },
+        {
+          "owner": {
+            "reputation": 414,
+            "user_id": 2073937,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/6880856a937e1f54ea002305f4c9ef1b?s=128&d=identicon&r=PG",
+            "display_name": "Leonid Ganeline",
+            "link": "https://stackoverflow.com/users/2073937/leonid-ganeline"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1383840719,
+          "creation_date": 1383840719,
+          "answer_id": 19840913,
+          "question_id": 1077412,
+          "body_markdown": "my 5c:\r\nIn integration and networking the idempotency is very important.\r\nSeveral examples from real-life:\r\nImagine, we deliver data to the target system. Data delivered by a sequence of messages. \r\n1. What would happen if the sequence is mixed in channel? (As network packages always do :) ). If the target system is idempotent, the result will not be different. If the target system depends of the right order in the sequence, we have to implement resequencer on the target site, which would restore the right order.\r\n2. What would happen if there are the message duplicates? If the channel of target system does not acknowledge timely, the source system (or channel itself) usually sends another copy of the message. As a result we can have duplicate message on the target system side. \r\nIf the target system is idempotent, it takes care of it and result will not be different.\r\nIf the target system is not idempotent, we have to implement deduplicator on the target system side of the channel.\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 3662,
+            "user_id": 2299789,
+            "user_type": "registered",
+            "accept_rate": 62,
+            "profile_image": "https://i.stack.imgur.com/HiHJ5.jpg?s=128&g=1",
+            "display_name": "BERGUIGA Mohamed Amine",
+            "link": "https://stackoverflow.com/users/2299789/berguiga-mohamed-amine"
+          },
+          "is_accepted": false,
+          "score": 5,
+          "last_activity_date": 1501003092,
+          "last_edit_date": 1501003092,
+          "creation_date": 1438605178,
+          "answer_id": 31787373,
+          "question_id": 1077412,
+          "body_markdown": "### Idempotent methods\r\n\r\nAn idempotent method is a method that will produce the same results irrespective of how many times it is called.\r\n\r\n- The `GET` method is idempotent, as multiple calls to the GET resource will always return the same response.\r\n\r\n- The `PUT` method is idempotent, as calling the PUT method multiple times will update the same resource and not change the outcome.\r\n\r\n- The `POST` is not idempotent, and calling the POST method multiple times can \r\n have different results and will result in creating new resources.\r\n\r\n- The `DELETE` is idempotent because once the resource is deleted, it is gone and calling the method multiple times will not change the outcome."
+        },
+        {
+          "owner": {
+            "reputation": 1115,
+            "user_id": 3716837,
+            "user_type": "registered",
+            "accept_rate": 76,
+            "profile_image": "https://www.gravatar.com/avatar/3700cb8de314083e76e2225ac1ed3f3a?s=128&d=identicon&r=PG&f=1",
+            "display_name": "nmit026",
+            "link": "https://stackoverflow.com/users/3716837/nmit026"
+          },
+          "is_accepted": false,
+          "score": 6,
+          "last_activity_date": 1438915681,
+          "last_edit_date": 1438915681,
+          "creation_date": 1438642019,
+          "answer_id": 31797951,
+          "question_id": 1077412,
+          "body_markdown": "An idempotent operation is an operation, action, or request that can be applied multiple times without changing the result, i.e. the state of the system, beyond the initial application. \r\n\r\nEXAMPLES (WEB APP CONTEXT):\r\n\r\nNULLIPOTENT:\r\nIf an operation has no side effects, like purely displaying information on a web page without any change in a database (in other words you are only reading the database), we say the operation is NULLIPOTENT. All GETs should be nullipotent. Otherwise, use POST.\r\n\r\nIDEMPOTENT:\r\nA message in an email messaging system is opened and marked as &quot;opened&quot; in the database. One can open the message many times but this repeated action will only ever result in that message being in the &quot;opened&quot; state. This is an idempotent operation.\r\n\r\nNON-IDEMPOTENT:\r\nIf an operation always causes a change in state, like POSTing the same message to a user over and over, resulting in a new message sent and stored in the database every time, we say that the operation is NON-IDEMPOTENT.\r\n\r\nWhen talking about the state of the system we are obviously ignoring hopefully harmless and inevitable effects like logging and diagnostics.\r\n\r\n\r\n\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 8283,
+            "user_id": 93613,
+            "user_type": "registered",
+            "accept_rate": 95,
+            "profile_image": "https://www.gravatar.com/avatar/1aaea464c9c2a8e07520fdc6646a12a8?s=128&d=identicon&r=PG",
+            "display_name": "Manish Basantani",
+            "link": "https://stackoverflow.com/users/93613/manish-basantani"
+          },
+          "is_accepted": false,
+          "score": 6,
+          "last_activity_date": 1439463581,
+          "creation_date": 1439463581,
+          "answer_id": 31986347,
+          "question_id": 1077412,
+          "body_markdown": "Quite a detailed and technical answers. Just adding a simple definition.\r\n\r\n&gt; Idempotent = Re-runnable\r\n\r\nFor example, \r\n`Create` operation in itself is not guaranteed to run without error if executed more than once.\r\nBut if there is an operation `CreateOrUpdate` then it states re-runnability (Idempotency)."
+        },
+        {
+          "owner": {
+            "reputation": 3023,
+            "user_id": 2288882,
+            "user_type": "registered",
+            "accept_rate": 52,
+            "profile_image": "https://www.gravatar.com/avatar/fbefc3abe38dfc80b207905af1794924?s=128&d=identicon&r=PG",
+            "display_name": "Marcus Thornton",
+            "link": "https://stackoverflow.com/users/2288882/marcus-thornton"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1458895807,
+          "creation_date": 1458895807,
+          "answer_id": 36216796,
+          "question_id": 1077412,
+          "body_markdown": "**In short**, Idempotent operations means that the operation will not result in different results no matter how many times you operate the idempotent operations.\r\n\r\nFor example, according to the definition of the spec of HTTP, `GET, HEAD, PUT, and DELETE` are idempotent operations; however `POST and PATCH` are not. That&#39;s why sometimes POST is replaced by PATCH."
+        },
+        {
+          "owner": {
+            "reputation": 4030,
+            "user_id": 870207,
+            "user_type": "registered",
+            "accept_rate": 0,
+            "profile_image": "https://www.gravatar.com/avatar/50fa4a2d71492f94030da21388aecd54?s=128&d=identicon&r=PG",
+            "display_name": "teknopaul",
+            "link": "https://stackoverflow.com/users/870207/teknopaul"
+          },
+          "is_accepted": false,
+          "score": -2,
+          "last_activity_date": 1491733428,
+          "last_edit_date": 1491733428,
+          "creation_date": 1491481695,
+          "answer_id": 43255258,
+          "question_id": 1077412,
+          "body_markdown": "**retry-safe.**\r\n\r\nIs usually the easiest way to understand its meaning in computer science.\r\n"
+        }
+      ],
+      "owner": {
+        "reputation": 9173,
+        "user_id": 53498,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/45a33207d9b2e6ac5ee304be41ae85e7?s=128&d=identicon&r=PG",
+        "display_name": "Will",
+        "link": "https://stackoverflow.com/users/53498/will"
+      },
+      "is_answered": true,
+      "view_count": 171532,
+      "protected_date": 1401077151,
+      "accepted_answer_id": 1077421,
+      "answer_count": 15,
+      "score": 681,
+      "last_activity_date": 1520606638,
+      "creation_date": 1246583219,
+      "last_edit_date": 1436680830,
+      "question_id": 1077412,
+      "body_markdown": "What is an idempotent operation?",
+      "link": "https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation",
+      "title": "What is an idempotent operation?"
+    },
+    {
+      "tags": [
+        "ruby-on-rails"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 4380,
+            "user_id": 604526,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/4b86c531e4e284dff1118bda4b6a2712?s=128&d=identicon&r=PG",
+            "display_name": "Simon Woker",
+            "link": "https://stackoverflow.com/users/604526/simon-woker"
+          },
+          "is_accepted": true,
+          "score": 4,
+          "last_activity_date": 1299254913,
+          "creation_date": 1299254913,
+          "answer_id": 5196286,
+          "question_id": 5196240,
+          "body_markdown": "Try this:\r\n\r\n    logger.debug [&quot;This is&quot;, &quot;an&quot;, &quot;Array&quot;].inspect\r\n\r\nThis also works for all other kinds of objects: Hashes, Classes and so on."
+        },
+        {
+          "owner": {
+            "reputation": 12972,
+            "user_id": 369591,
+            "user_type": "registered",
+            "accept_rate": 88,
+            "profile_image": "https://www.gravatar.com/avatar/353a645692c3e88ebab8f47703808c90?s=128&d=identicon&r=PG",
+            "display_name": "Orbit",
+            "link": "https://stackoverflow.com/users/369591/orbit"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1299254961,
+          "creation_date": 1299254961,
+          "answer_id": 5196298,
+          "question_id": 5196240,
+          "body_markdown": "you could try the .inspect method....\r\n\r\n    logger.debug array.inspect\r\n\r\nI agree with Andrew that there is nothing wrong with...\r\n\r\n    puts YAML::dump(object)"
+        },
+        {
+          "owner": {
+            "reputation": 78365,
+            "user_id": 211563,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/d32a10a2f047dec1e5582e74cba6b3ec?s=128&d=identicon&r=PG",
+            "display_name": "Andrew Marshall",
+            "link": "https://stackoverflow.com/users/211563/andrew-marshall"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1299254990,
+          "creation_date": 1299254990,
+          "answer_id": 5196307,
+          "question_id": 5196240,
+          "body_markdown": "When you do that, [`to_s`][1] is automatically called on the array, and that&#39;s how to outputs.\r\n\r\nCalling `to_yaml` is by no means verbose. You could also look at using [`join`][2] or [`inspect`][3].\r\n\r\n\r\n  [1]: http://ruby-doc.org/core-1.8.7/classes/Array.html#M000291\r\n  [2]: http://ruby-doc.org/core-1.8.7/classes/Array.html#M000322\r\n  [3]: http://ruby-doc.org/core-1.8.7/classes/Array.html#M000292"
+        }
+      ],
+      "owner": {
+        "reputation": 5905,
+        "user_id": 627473,
+        "user_type": "registered",
+        "accept_rate": 64,
+        "profile_image": "https://www.gravatar.com/avatar/3b39a1b0893869eaa4751f77f5999d5a?s=128&d=identicon&r=PG",
+        "display_name": "Chris Muench",
+        "link": "https://stackoverflow.com/users/627473/chris-muench"
+      },
+      "is_answered": true,
+      "view_count": 3052,
+      "accepted_answer_id": 5196286,
+      "answer_count": 3,
+      "score": 4,
+      "last_activity_date": 1299254990,
+      "creation_date": 1299254702,
+      "question_id": 5196240,
+      "body_markdown": "Why is my output of \r\n\r\n    logger.debug [&quot;This is&quot;, &quot;an&quot;, &quot;Array&quot;]\r\n\r\nThis isanArray\r\n\r\nand not something like\r\n[&quot;This is&quot;, &quot;an&quot;, &quot;Array&quot;]\r\n\r\nIs there a way to do this? (I know I could do to_yaml, but that is too verbose for me)\r\n\r\nWhat are some options for a nice clean output of an array, similar to print_r in php?",
+      "link": "https://stackoverflow.com/questions/5196240/logger-debug-this-is-an-array-rails",
+      "title": "logger.debug [&quot;This is&quot;, &quot;an&quot;, &quot;Array&quot;] Rails"
+    },
+    {
+      "tags": [
+        "java"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 14522,
+            "user_id": 185034,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://i.stack.imgur.com/Dh8hg.jpg?s=128&g=1",
+            "display_name": "Paul",
+            "link": "https://stackoverflow.com/users/185034/paul"
+          },
+          "is_accepted": true,
+          "score": 176,
+          "last_activity_date": 1462928890,
+          "last_edit_date": 1462928890,
+          "creation_date": 1326054908,
+          "answer_id": 8781051,
+          "question_id": 8781022,
+          "body_markdown": "Yes.\r\n\r\nThe Java Language Specification [section 4.3.1][1] starts off with:\r\n\r\n&gt; An object is a class instance or an array.\r\n\r\n\r\n  [1]: http://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.3.1"
+        },
+        {
+          "owner": {
+            "reputation": 51734,
+            "user_id": 183406,
+            "user_type": "registered",
+            "accept_rate": 74,
+            "profile_image": "https://www.gravatar.com/avatar/ca03242df77ec2d8f70f2cea0d6209be?s=128&d=identicon&r=PG",
+            "display_name": "meriton",
+            "link": "https://stackoverflow.com/users/183406/meriton"
+          },
+          "is_accepted": false,
+          "score": 55,
+          "last_activity_date": 1462928947,
+          "last_edit_date": 1462928947,
+          "creation_date": 1326054916,
+          "answer_id": 8781054,
+          "question_id": 8781022,
+          "body_markdown": "Yes; the Java Language Specification [writes](http://docs.oracle.com/javase/specs/jls/se8/html/jls-10.html):\r\n\r\n&gt; In the Java programming language, arrays are objects (&#167;4.3.1), are dynamically created, and may be assigned to variables of type Object (&#167;4.3.2). All methods of class Object may be invoked on an array."
+        },
+        {
+          "owner": {
+            "reputation": 56121,
+            "user_id": 160206,
+            "user_type": "registered",
+            "accept_rate": 80,
+            "profile_image": "https://www.gravatar.com/avatar/9c9c2c5fc83c72e6dc9d78e06739bdbd?s=128&d=identicon&r=PG",
+            "display_name": "Bj&#246;rn Pollex",
+            "link": "https://stackoverflow.com/users/160206/bj%c3%b6rn-pollex"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1326054958,
+          "creation_date": 1326054958,
+          "answer_id": 8781060,
+          "question_id": 8781022,
+          "body_markdown": "I would say the answer is yes, although I might add that, strictly speaking, an array is an object in C++ too. From &#167;1.8 [intro.object] of the current standard (FDIS):\r\n\r\n&gt; An *object* is a region of storage."
+        },
+        {
+          "owner": {
+            "reputation": 8505,
+            "user_id": 807231,
+            "user_type": "registered",
+            "accept_rate": 38,
+            "profile_image": "https://www.gravatar.com/avatar/02202c601c1fb4735451397b6620e4c2?s=128&d=identicon&r=PG",
+            "display_name": "Gevorg",
+            "link": "https://stackoverflow.com/users/807231/gevorg"
+          },
+          "is_accepted": false,
+          "score": 6,
+          "last_activity_date": 1326055035,
+          "creation_date": 1326055035,
+          "answer_id": 8781071,
+          "question_id": 8781022,
+          "body_markdown": "Yes, it is an object in Java.\r\n\r\nAlso note that when you do `array.length` you&#39;re not invoking any methods but just accessing the array&#39;s `length` field. There are plenty of static methods in the [Arrays][1] class.\r\n\r\n\r\n  [1]: http://docs.oracle.com/javase/6/docs/api/java/util/Arrays.html"
+        },
+        {
+          "owner": {
+            "reputation": 523,
+            "user_id": 1815207,
+            "user_type": "registered",
+            "accept_rate": 74,
+            "profile_image": "https://i.stack.imgur.com/NYoUZ.jpg?s=128&g=1",
+            "display_name": "ed209",
+            "link": "https://stackoverflow.com/users/1815207/ed209"
+          },
+          "is_accepted": false,
+          "score": 3,
+          "last_activity_date": 1393651574,
+          "creation_date": 1393651574,
+          "answer_id": 22110531,
+          "question_id": 8781022,
+          "body_markdown": "It would be important to note that arrays in Java have their own byte codes which they do not share with objects.  They are certainly Objects, but are handled slightly differently at the low level."
+        },
+        {
+          "owner": {
+            "reputation": 12728,
+            "user_id": 1429387,
+            "user_type": "registered",
+            "accept_rate": 63,
+            "profile_image": "https://i.stack.imgur.com/LVOVA.jpg?s=128&g=1",
+            "display_name": "naXa",
+            "link": "https://stackoverflow.com/users/1429387/naxa"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1426661166,
+          "creation_date": 1426661166,
+          "answer_id": 29115725,
+          "question_id": 8781022,
+          "body_markdown": "I just want to add that arrays have a representation in the reflection API - [java.lang.reflect.Array][1].\r\n\r\n\r\n  [1]: http://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Array.html"
+        },
+        {
+          "owner": {
+            "reputation": 11,
+            "user_id": 6561701,
+            "user_type": "registered",
+            "profile_image": "https://www.gravatar.com/avatar/46280533e5758d80c1600f057ff8c879?s=128&d=identicon&r=PG&f=1",
+            "display_name": "Manoj Mohanty",
+            "link": "https://stackoverflow.com/users/6561701/manoj-mohanty"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1487393727,
+          "last_edit_date": 1487393727,
+          "creation_date": 1468006961,
+          "answer_id": 38274282,
+          "question_id": 8781022,
+          "body_markdown": "Every array in java is an object \r\nex int[] a=new int [2]; So new is used to create an object and as it is an object we can check the class name just using a.getClass().getName();"
+        },
+        {
+          "owner": {
+            "reputation": 1751,
+            "user_id": 6471170,
+            "user_type": "registered",
+            "accept_rate": 60,
+            "profile_image": "https://www.gravatar.com/avatar/7d911041d5a0cc0f9242fba3f8709495?s=128&d=identicon&r=PG&f=1",
+            "display_name": "nasukkin",
+            "link": "https://stackoverflow.com/users/6471170/nasukkin"
+          },
+          "is_accepted": false,
+          "score": 27,
+          "last_activity_date": 1468007454,
+          "creation_date": 1468007454,
+          "answer_id": 38274392,
+          "question_id": 8781022,
+          "body_markdown": "Well, let&#39;s ask Java!\r\n\r\n\r\n    public class HelloWorld\r\n    {\r\n      public static void main(String[] args)\r\n      {\r\n        System.out.println(args instanceof Object);\r\n        int[] someIntegers = new int[] {42};\r\n        System.out.println(someIntegers instanceof Object);\r\n      }\r\n    }\r\nOutput:\r\n\r\n    true\r\n    true"
+        }
+      ],
+      "owner": {
+        "reputation": 1979,
+        "user_id": 977800,
+        "user_type": "registered",
+        "accept_rate": 90,
+        "profile_image": "https://www.gravatar.com/avatar/d89d81f673dac06b16cade5b4bf19954?s=128&d=identicon&r=PG",
+        "display_name": "Mike G",
+        "link": "https://stackoverflow.com/users/977800/mike-g"
+      },
+      "is_answered": true,
+      "view_count": 41076,
+      "accepted_answer_id": 8781051,
+      "answer_count": 8,
+      "score": 80,
+      "last_activity_date": 1487393727,
+      "creation_date": 1326054745,
+      "last_edit_date": 1326054831,
+      "question_id": 8781022,
+      "body_markdown": "In java we can declare an array like \r\n\r\n    String[] array = new String[10]; \r\n    int size = array.length; \r\n\r\nDoes this mean that the array itself is an object? Because in C++ an array is just a pointer and does not have any methods.",
+      "link": "https://stackoverflow.com/questions/8781022/is-an-array-an-object-in-java",
+      "title": "Is an array an object in java"
+    },
+    {
+      "tags": [
+        "php",
+        "arrays",
+        "terminology"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 387858,
+            "user_id": 476,
+            "user_type": "moderator",
+            "accept_rate": 70,
+            "profile_image": "https://www.gravatar.com/avatar/a235706e3d81b614acaec3368edfea4b?s=128&d=identicon&r=PG",
+            "display_name": "deceze",
+            "link": "https://stackoverflow.com/users/476/deceze"
+          },
+          "is_accepted": true,
+          "score": 12,
+          "last_activity_date": 1421813557,
+          "last_edit_date": 1421813557,
+          "creation_date": 1421813005,
+          "answer_id": 28059424,
+          "question_id": 28059372,
+          "body_markdown": "There&#39;s an internal implementation for &quot;arrays&quot; in PHP &quot;behind the scenes&quot;, written in C. This implementation defines the details of how array data is actually stored in memory, how arrays behave, how they can be accessed etc. Part of this C implementation is an &quot;array pointer&quot;, which simply points to a specific index of the array. In very simplified PHP code, it&#39;s something like this:\r\n\r\n    class Array {\r\n    \r\n        private $data = [];\r\n        private $pointer = 0;\r\n    \r\n        public function key() {\r\n            return $this-&gt;data[$this-&gt;pointer][&#39;key&#39;];\r\n        }\r\n    \r\n    }\r\n\r\nYou do not have direct access to this array pointer from PHP code, you can just modify and influence it indirectly using PHP functions like `end`, `reset`, `each` etc. It is necessary for making those functions work; otherwise you couldn&#39;t iterate an array using `next()`, because where would it remember what the &quot;next&quot; entry is?"
+        }
+      ],
+      "owner": {
+        "reputation": 8865,
+        "user_id": 84292,
+        "user_type": "registered",
+        "accept_rate": 86,
+        "profile_image": "https://www.gravatar.com/avatar/9b3338e8839b9aedb088b897279c982d?s=128&d=identicon&r=PG",
+        "display_name": "Chris Bier",
+        "link": "https://stackoverflow.com/users/84292/chris-bier"
+      },
+      "is_answered": true,
+      "view_count": 1993,
+      "accepted_answer_id": 28059424,
+      "answer_count": 1,
+      "score": 6,
+      "last_activity_date": 1421813557,
+      "creation_date": 1421812637,
+      "question_id": 28059372,
+      "body_markdown": "I am using `end()` to set the internal pointer of an array to its last element. Then I am using `key()` to get the key of that last element.\r\n\r\nFor example:\r\n\r\n    $array = (&#39;one&#39; =&gt; &#39;fish&#39;, &#39;two&#39; =&gt; &#39;fish&#39;, &#39;red&#39; =&gt; &#39;fish&#39;, &#39;blue&#39; =&gt; &#39;fish&#39;);\r\n    end($array)\r\n    $last_key = key($array);\r\n\r\nThe only thing that I do not understand is what the internal pointer of an array *is* exactly. Can someone explain it to me? I&#39;ve been trying but cannot find an explanation.\r\n\r\nAlso, how does setting the internal pointer of an array affect that array?",
+      "link": "https://stackoverflow.com/questions/28059372/what-is-an-array-internal-pointer-in-php",
+      "title": "What is an array internal pointer in PHP?"
+    },
+    {
+      "tags": [
+        "interface",
+        "uml"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 22473,
+            "user_id": 701988,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/cd66b3c30c180352ad2512aab962d8aa?s=128&d=identicon&r=PG",
+            "display_name": "sra",
+            "link": "https://stackoverflow.com/users/701988/sra"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1303377827,
+          "creation_date": 1303377827,
+          "answer_id": 5742089,
+          "question_id": 5742022,
+          "body_markdown": "A Interface is just a description of a class nothing concrete. \r\n\r\nYou use it to create a new class &quot;with the same description&quot; without knowing the concrete implementation."
+        },
+        {
+          "owner": {
+            "reputation": 17480,
+            "user_id": 170443,
+            "user_type": "registered",
+            "accept_rate": 89,
+            "profile_image": "https://www.gravatar.com/avatar/c7108ece30b3dc68e79a06e12f91a996?s=128&d=identicon&r=PG",
+            "display_name": "jdehaan",
+            "link": "https://stackoverflow.com/users/170443/jdehaan"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1303378123,
+          "creation_date": 1303378123,
+          "answer_id": 5742148,
+          "question_id": 5742022,
+          "body_markdown": "An interface is a design item describing a behaviour.\r\nClasses implementing the interface will/must behave according to its definition.\r\nInterfaces are used to promote loose coupling and the base of many IoC patterns (Inversion of Control)"
+        },
+        {
+          "owner": {
+            "reputation": 4208,
+            "user_id": 716851,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://www.gravatar.com/avatar/1b1cae06ff8450eae48d23ca55b983f8?s=128&d=identicon&r=PG",
+            "display_name": "Chris Snowden",
+            "link": "https://stackoverflow.com/users/716851/chris-snowden"
+          },
+          "is_accepted": true,
+          "score": 3,
+          "last_activity_date": 1303378234,
+          "creation_date": 1303378234,
+          "answer_id": 5742161,
+          "question_id": 5742022,
+          "body_markdown": "An interface is like a template design for a class that contains no data or implemetnation; only definitions for methods, properties etc. These are abstract and cannot be instantiated but can be inherited from at which point all specified methods etc must be implemented by the concrete class inheriting the interface."
+        },
+        {
+          "owner": {
+            "reputation": 730,
+            "user_id": 4240291,
+            "user_type": "registered",
+            "accept_rate": 55,
+            "profile_image": "https://www.gravatar.com/avatar/97de0f6857b13c285c23983bdd27509e?s=128&d=identicon&r=PG&f=1",
+            "display_name": "stack man",
+            "link": "https://stackoverflow.com/users/4240291/stack-man"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1431344823,
+          "creation_date": 1431344823,
+          "answer_id": 30166864,
+          "question_id": 5742022,
+          "body_markdown": "In one word: it&#39;s a **contract**. Every class that implements this **contract** (interface) will have to implement the methods defined on it.\r\n"
+        }
+      ],
+      "owner": {
+        "reputation": 1514,
+        "user_id": 478636,
+        "user_type": "registered",
+        "accept_rate": 83,
+        "profile_image": "https://www.gravatar.com/avatar/e96611d72944147fb665710b9d42119b?s=128&d=identicon&r=PG",
+        "display_name": "user478636",
+        "link": "https://stackoverflow.com/users/478636/user478636"
+      },
+      "is_answered": true,
+      "view_count": 880,
+      "accepted_answer_id": 5742161,
+      "answer_count": 4,
+      "score": 0,
+      "last_activity_date": 1431344823,
+      "creation_date": 1303377471,
+      "question_id": 5742022,
+      "body_markdown": "With reference to UML diagrams, what is an interface? and can someone explain in more simpler words. I cant understand anything from googling it.\r\n\r\n",
+      "link": "https://stackoverflow.com/questions/5742022/what-is-an-interface",
+      "title": "What is an Interface"
+    },
+    {
+      "tags": [
+        "asp.net-web-api-routing"
+      ],
+      "owner": {
+        "reputation": 122,
+        "user_id": 929029,
+        "user_type": "registered",
+        "accept_rate": 42,
+        "profile_image": "https://www.gravatar.com/avatar/090b4ec895d272e21644d3d081df571e?s=128&d=identicon&r=PG",
+        "display_name": "lepton",
+        "link": "https://stackoverflow.com/users/929029/lepton"
+      },
+      "is_answered": false,
+      "view_count": 14,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1519141823,
+      "creation_date": 1519139531,
+      "last_edit_date": 1519141823,
+      "question_id": 48888359,
+      "body_markdown": "If one of the parameters in my web service method is an array (an array of Guids in my case) then what is the correct routing syntax? Here&#39;s what I have:\r\n\r\n    [HttpGet]\r\n    [Route(&quot;getitems/{companyId:Guid}/{itemIds}&quot;)]\r\n    public IHttpActionResult GetItems(Guid companyId, [FromUri] Guid[] itemIds)\r\n    {\r\n        // do stuff\r\n    }\r\n\r\nHowever, when I send an array to the web method, itemIds is just a single Guid.Empty.\r\n\r\nedit 1: the client sends the request like this:\r\n\r\n    string url = $&quot;{_dataServiceBaseUrl}api/v2/getitems/{companyId}/{itemIds}&quot;;\r\n    var response = dataServiceClient.GetAsync(url).Result;",
+      "link": "https://stackoverflow.com/questions/48888359/what-is-the-web-api-routing-syntax-for-an-array",
+      "title": "What is the Web API routing syntax for an array?"
+    },
+    {
+      "tags": [
+        "c#",
+        "entity-framework"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 13499,
+            "user_id": 466761,
+            "user_type": "registered",
+            "accept_rate": 82,
+            "profile_image": "https://i.stack.imgur.com/0x11I.jpg?s=128&g=1",
+            "display_name": "thomaux",
+            "link": "https://stackoverflow.com/users/466761/thomaux"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1286728187,
+          "creation_date": 1286728187,
+          "answer_id": 3901129,
+          "question_id": 3901087,
+          "body_markdown": "Abstract types are types/classes which cannot be instantiated. Meaning you cannot create objects from this class. If you have an abstract class &#39;foo&#39;, you cannot call `new foo()`(Java example code). See [wiki][1] for more information on abstract types.\r\n\r\n  [1]: http://en.wikipedia.org/wiki/Abstract_data_type"
+        },
+        {
+          "owner": {
+            "reputation": 3253,
+            "user_id": 109347,
+            "user_type": "registered",
+            "accept_rate": 90,
+            "profile_image": "https://www.gravatar.com/avatar/eae52e321196a71d321a3db303ee5fe2?s=128&d=identicon&r=PG&f=1",
+            "display_name": "John Nicholas",
+            "link": "https://stackoverflow.com/users/109347/john-nicholas"
+          },
+          "is_accepted": true,
+          "score": 0,
+          "last_activity_date": 1286797539,
+          "creation_date": 1286797539,
+          "answer_id": 3905856,
+          "question_id": 3901087,
+          "body_markdown": "the whole point of an abstract class is tha tyou inherit from it and cant create in instance directly.\r\n\r\nso in entity framework its represents the normalisation of data out of several tables into one common table and then using by table inheritance to have a set of objects with varying types that can be tret as one type.\r\n\r\nassuming you have an abstract class called object and some inheritors of it that have data in the tables ...\r\n\r\nyou can then write things like this\r\n\r\n    var results = from i in dataContext.Objects.OfType&lt;Foo&gt;()\r\n                  select i\r\n\r\nyou can also do this\r\n\r\n    var results = from i in dataContext.Objects\r\n                      select i\r\n\r\nand you will get a collection of abstract class Object, each member of which will be an instance of a class that inherits from object.\r\n\r\nIt means that you can have common behaviour or overridden behaviour in sub types. Its very powerful in the right places ... .eg transaction types or payment method types.\r\n\r\n"
+        }
+      ],
+      "owner": {
+        "reputation": 2801,
+        "user_id": 251931,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/894aebee196ba8ca5770d5ca5aebfcb3?s=128&d=identicon&r=PG",
+        "display_name": "kofucii",
+        "link": "https://stackoverflow.com/users/251931/kofucii"
+      },
+      "is_answered": true,
+      "view_count": 173,
+      "accepted_answer_id": 3905856,
+      "answer_count": 2,
+      "score": 2,
+      "last_activity_date": 1286797539,
+      "creation_date": 1286727612,
+      "question_id": 3901087,
+      "body_markdown": "What is an abstract type in context of Entity Framework inheritance?",
+      "link": "https://stackoverflow.com/questions/3901087/what-is-an-abstract-type",
+      "title": "What is an abstract type?"
+    },
+    {
+      "tags": [
+        "java",
+        "arrays",
+        "nested-loops"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 26057,
+            "user_id": 4936904,
+            "user_type": "registered",
+            "profile_image": "https://i.stack.imgur.com/jh6MN.jpg?s=128&g=1",
+            "display_name": "Pavneet_Singh",
+            "link": "https://stackoverflow.com/users/4936904/pavneet-singh"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1520007875,
+          "last_edit_date": 1520007875,
+          "creation_date": 1519660760,
+          "answer_id": 48992337,
+          "question_id": 48992299,
+          "body_markdown": "Issue is you are comparing `7` with `7` and `3` using nested loop hence, `isMirror` will be `false` so remove nested loop and use two variable with single loop\r\n    \r\n    boolean isMirror=true;\r\n    for(int i=0, j = arr.length-1; i&lt;arr.length/2;i++,j--){\r\n        if(arr[i]!=arr[j]){\r\n            isMirror=false;\r\n            break;// not equal so go out\r\n        }\r\n    }\r\n\r\n    "
+        },
+        {
+          "owner": {
+            "reputation": 164,
+            "user_id": 7085346,
+            "user_type": "registered",
+            "accept_rate": 86,
+            "profile_image": "https://lh3.googleusercontent.com/-FhrTLjaZHEo/AAAAAAAAAAI/AAAAAAAAAGM/1_UY3dbikJw/photo.jpg?sz=128",
+            "display_name": "Walter Kuhn",
+            "link": "https://stackoverflow.com/users/7085346/walter-kuhn"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1519660945,
+          "creation_date": 1519660945,
+          "answer_id": 48992401,
+          "question_id": 48992299,
+          "body_markdown": "If you want to find a mirror, just one loop needed:\r\n\r\n    set boolean mirror = true;\r\n    walk from i=0 (first element) to the mid of the array length (say n/2).\r\n  \r\n      if array[i] != array[maxlength - i] \r\n         set mirror = false, and the you may end\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 15305,
+            "user_id": 6690200,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://i.stack.imgur.com/7a316.jpg?s=128&g=1",
+            "display_name": "孙兴斌",
+            "link": "https://stackoverflow.com/users/6690200/%e5%ad%99%e5%85%b4%e6%96%8c"
+          },
+          "is_accepted": true,
+          "score": 0,
+          "last_activity_date": 1519661566,
+          "last_edit_date": 1519661566,
+          "creation_date": 1519660960,
+          "answer_id": 48992407,
+          "question_id": 48992299,
+          "body_markdown": "You just need one loop and set `isMirror = false` when `arr[i]` and `arr[j]` don&#39;t equal:\r\n\r\n    int[] arr = {3, 7, 7, 3};\r\n    boolean isMirror = true;\r\n    \r\n    for (int i = 0; i &lt;= arr.length/2; i++) {\r\n        int j = arr.length - 1 - i;\r\n        if (arr[i] != arr[j]) {\r\n            isMirror = false;\r\n            break;\r\n        }\r\n    }\r\n    if (isMirror) {\r\n        System.out.println(&quot;The array is mirror-like&quot;);\r\n    } else {\r\n        System.out.println(&quot;The array is not mirror-like&quot;);\r\n    }"
+        }
+      ],
+      "owner": {
+        "reputation": 3,
+        "user_id": 9414212,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/DOIES.jpg?s=128&g=1",
+        "display_name": "Lambeff",
+        "link": "https://stackoverflow.com/users/9414212/lambeff"
+      },
+      "is_answered": true,
+      "view_count": 73,
+      "accepted_answer_id": 48992407,
+      "answer_count": 3,
+      "score": -1,
+      "last_activity_date": 1520007875,
+      "creation_date": 1519660604,
+      "last_edit_date": 1519664448,
+      "question_id": 48992299,
+      "body_markdown": "I&#39;m trying to compare first and second half of an array. For example: `[3, 7, 7, 3]` , `3, 7` is the first half and `7, 3` is the second half. I tried with nested loops but it haven&#39;t worked so far. Here is my code and the question is what is wrong with it?\r\n\r\n    int [] arr = {3, 7, 7, 3};\r\n    boolean isMirror = false;\r\n    \r\n    for (int i = arr.length/2 -1; i&gt;=0; i--) {\r\n        for (int j = arr.length/2; j &lt; arr.length; j++) {\r\n            if (arr[i] == arr[j]) {\r\n                isMirror = true;\r\n                break;\r\n            } else {\r\n                isMirror = false;\r\n                break;\r\n            }\r\n        }\r\n    }\r\n    if (isMirror) {\r\n        System.out.println(&quot;The array is mirror-like&quot;);\r\n    } else {\r\n        System.out.println(&quot;The array is not mirror-like&quot;);\r\n    }\r\n\r\n",
+      "link": "https://stackoverflow.com/questions/48992299/is-an-array-mirror-like",
+      "title": "Is an array mirror like"
+    },
+    {
+      "tags": [
+        "asp.net"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 33623,
+            "user_id": 89556,
+            "user_type": "registered",
+            "accept_rate": 60,
+            "profile_image": "https://www.gravatar.com/avatar/1184bd9bc33779ba796c88140ec33d77?s=128&d=identicon&r=PG",
+            "display_name": "this. __curious_geek",
+            "link": "https://stackoverflow.com/users/89556/this-curious-geek"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1279111699,
+          "creation_date": 1279111699,
+          "answer_id": 3246227,
+          "question_id": 3246200,
+          "body_markdown": "In ASP.NET Handler -&gt; `HttpHandler` is anything that can process an HttpRequest and produce response in any form. All ASP.NET Pages are HttpHandlers and they produce HTML output that is sent to requesting client/browser."
+        },
+        {
+          "owner": {
+            "reputation": 57709,
+            "user_id": 182971,
+            "user_type": "registered",
+            "accept_rate": 72,
+            "profile_image": "https://www.gravatar.com/avatar/bd5fd2236e22eac8e2cbc8eb2c81ea52?s=128&d=identicon&r=PG",
+            "display_name": "Sjoerd",
+            "link": "https://stackoverflow.com/users/182971/sjoerd"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1279111788,
+          "creation_date": 1279111788,
+          "answer_id": 3246240,
+          "question_id": 3246200,
+          "body_markdown": "A *handler* is a piece of code which is called when something happens, and usually takes some action, like generating a response.\r\n\r\nA *HTTP handler* is called when a HTTP request is done, and it *handles* the request. That is, it creates some response depending on what the request is."
+        },
+        {
+          "owner": {
+            "reputation": 36594,
+            "user_id": 7872,
+            "user_type": "registered",
+            "accept_rate": 81,
+            "profile_image": "https://www.gravatar.com/avatar/dfd35ba2f107e3b0ff97e8df1276ff94?s=128&d=identicon&r=PG",
+            "display_name": "Rob",
+            "link": "https://stackoverflow.com/users/7872/rob"
+          },
+          "is_accepted": true,
+          "score": 4,
+          "last_activity_date": 1279113129,
+          "last_edit_date": 1279113129,
+          "creation_date": 1279111896,
+          "answer_id": 3246253,
+          "question_id": 3246200,
+          "body_markdown": "Do you mean an &quot;event handler&quot;, or something that inherits from `IHttpHandler`? In both cases handler describes something that reacts to an event occuring. An event handler would be, for example, a method that is called when a button is clicked:\r\n\r\n    public void MyButton_OnClick(object sender, EventArgs e)\r\n    {\r\n      // Code to respond to the button click here\r\n    }\r\n\r\nSomething that inherits from `IHttpHandler` could be, for example, a page in an ASP.net Web Forms application (as all pages you create inherit from `System.Web.UI.Page` which in turn inherits from `IHttpHandler`) or a &quot;Generic Handler&quot; (a file usually with the extension .ashx).\r\n\r\nAn example of a generic handler would be:\r\n\r\n    public class MyGenericHandler : IHttpHandler\r\n    {\r\n        public void ProcessRequest(HttpContext context)\r\n        {\r\n            context.Response.Write(&quot;Hello, world!&quot;);\r\n        }\r\n    \r\n        public bool IsReusable\r\n        {\r\n            get\r\n            {\r\n                return true;\r\n            }\r\n        }\r\n    }\r\n\r\nThis would be more performant than having an ASP.net Web Forms page that did similar as it doesn&#39;t need to build all the Web Forms &quot;framework&quot; of the page lifecycle, viewstate and so on for each request, which means that it&#39;s better suited to requests that don&#39;t need to render presentation/markup, such as anything that would be responding to an AJAX request.\r\n\r\n"
+        },
+        {
+          "owner": {
+            "reputation": 11823,
+            "user_id": 52256,
+            "user_type": "registered",
+            "accept_rate": 98,
+            "profile_image": "https://www.gravatar.com/avatar/a65e01a757d285d68888a3388d44c33c?s=128&d=identicon&r=PG",
+            "display_name": "T.T.T.",
+            "link": "https://stackoverflow.com/users/52256/t-t-t"
+          },
+          "is_accepted": false,
+          "score": 2,
+          "last_activity_date": 1279129051,
+          "creation_date": 1279129051,
+          "answer_id": 3248863,
+          "question_id": 3246200,
+          "body_markdown": "[ASP.NET Introduction to HTTP Handlers:][1]\r\n\r\n(http://msdn.microsoft.com/en-us/library/ms227675%28VS.80%29.aspx)\r\n\r\n\r\n  [1]: http://msdn.microsoft.com/en-us/library/ms227675%28VS.80%29.aspx"
+        }
+      ],
+      "owner": {
+        "reputation": 7198,
+        "user_id": 142234,
+        "user_type": "registered",
+        "accept_rate": 98,
+        "profile_image": "https://www.gravatar.com/avatar/becdac7189988921cf3654433269021e?s=128&d=identicon&r=PG",
+        "display_name": "bAN",
+        "link": "https://stackoverflow.com/users/142234/ban"
+      },
+      "is_answered": true,
+      "view_count": 230,
+      "accepted_answer_id": 3246253,
+      "answer_count": 4,
+      "score": 1,
+      "last_activity_date": 1279129051,
+      "creation_date": 1279111548,
+      "question_id": 3246200,
+      "body_markdown": "Very noob question,\r\n\r\nIn asp.net can you explain in the simplest possible way &quot;*what is an handler*?&quot;\r\nHow can you use handlers..\r\n\r\nThanks a lot.",
+      "link": "https://stackoverflow.com/questions/3246200/what-is-an-handler",
+      "title": "What is an Handler?"
+    },
+    {
+      "tags": [
+        "c++",
+        "visual-c++",
+        "c++11",
+        "standards"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 110468,
+            "user_id": 14637,
+            "user_type": "registered",
+            "accept_rate": 88,
+            "profile_image": "https://www.gravatar.com/avatar/1904e7096278a10f1dfb3fdc0ceb53cc?s=128&d=identicon&r=PG",
+            "display_name": "Thomas",
+            "link": "https://stackoverflow.com/users/14637/thomas"
+          },
+          "is_accepted": false,
+          "score": 0,
+          "last_activity_date": 1300301694,
+          "creation_date": 1300301694,
+          "answer_id": 5330303,
+          "question_id": 5330287,
+          "body_markdown": "Anonymous objects are objects without a name. Example:\r\n\r\n    class Foo {\r\n    };\r\n    \r\n    void bar(Foo const &amp;foo) {\r\n    }\r\n    \r\n    int main() {\r\n        Foo(); // creates an anonymous Foo and immediately destroys it\r\n        bar(Foo()); // creates an anonymous Foo which lives until bar returns\r\n    }"
+        },
+        {
+          "owner": {
+            "reputation": 14291,
+            "user_id": 358464,
+            "user_type": "registered",
+            "accept_rate": 93,
+            "profile_image": "https://www.gravatar.com/avatar/e9614e892f7f678777b8e8d8a8d45f6a?s=128&d=identicon&r=PG",
+            "display_name": "Bob Fincheimer",
+            "link": "https://stackoverflow.com/users/358464/bob-fincheimer"
+          },
+          "is_accepted": false,
+          "score": 3,
+          "last_activity_date": 1300302098,
+          "creation_date": 1300302098,
+          "answer_id": 5330376,
+          "question_id": 5330287,
+          "body_markdown": "This is a simplistic answer, but an anonymous object is basically an object which the compiler creates a `class` for.  \r\n\r\nFor example in C# (I know this is kinda irrelevant) you can just create an anonymous type by doing:\r\n\r\n`new { filename = value }`.  \r\n\r\nThe compiler effectively creates a class called `AnonSomething1` [A random name you don&#39;t know] which has those fields.  Therefore at that point you just created an instance of that `AnonSomething1`.  C++ does not allow you to make anonymous class types inline (like Java and C# which have a base Object class which the anon types can derive).  \r\n\r\nHowever you can make an anonymous struct by simply writing \r\n\r\n    struct { \r\n        int field1; \r\n        std::string field2; \r\n    } myanonstruct; \r\n\r\nwhich creates an anonymous struct and instantiates it with the alias `myanonstruct`. This C++ code does not define a type, it just creates an anonymous one with 1 instance. \r\n\r\nSee C#: [Anon Types][1]\r\n\r\nSee Java: [Anon Types][2]\r\n\r\nSee C++ Structs: [msdn][3]\r\n\r\n\r\n  [1]: http://msdn.microsoft.com/en-us/library/bb397696.aspx\r\n  [2]: http://docstore.mik.ua/orelly/java-ent/jnut/ch03_12.htm\r\n  [3]: http://msdn.microsoft.com/en-us/library/64973255%28v=vs.80%29.aspx"
+        },
+        {
+          "owner": {
+            "reputation": 278277,
+            "user_id": 560648,
+            "user_type": "registered",
+            "accept_rate": 94,
+            "profile_image": "https://i.stack.imgur.com/AkjZZ.jpg?s=128&g=1",
+            "display_name": "Lightness Races in Orbit",
+            "link": "https://stackoverflow.com/users/560648/lightness-races-in-orbit"
+          },
+          "is_accepted": true,
+          "score": 12,
+          "last_activity_date": 1300302283,
+          "creation_date": 1300302283,
+          "answer_id": 5330408,
+          "question_id": 5330287,
+          "body_markdown": "The C++ standard does not define the term &quot;anonymous object&quot;, but it stands to reason that one might sanely use the term to describe any object that has no name:\r\n\r\n* Temporaries: `f(T());`\r\n* Unnamed function parameters: `void func(int, int, int);`\r\n\r\nWhat I _wouldn&#39;t_ count is dynamically-allocated objects:\r\n\r\nTechnically speaking, an &quot;object&quot; is any region of storage [1.8/1 in 2003], which would include the X bytes making up the integer dynamically-allocated by `new int;`.\r\n\r\nIn `int* ptr = new int;` the pointer (itself an object too, don&#39;t forget!) has the name `ptr` and the integer itself has no name other than `*ptr`. Still, I&#39;d hesitate to call this an anonymous object.\r\n\r\nAgain, though, there&#39;s no standard terminology."
+        }
+      ],
+      "owner": {
+        "reputation": 18983,
+        "user_id": 418729,
+        "user_type": "registered",
+        "accept_rate": 95,
+        "profile_image": "https://i.stack.imgur.com/FMsvM.jpg?s=128&g=1",
+        "display_name": "Sadique",
+        "link": "https://stackoverflow.com/users/418729/sadique"
+      },
+      "is_answered": true,
+      "view_count": 21166,
+      "accepted_answer_id": 5330408,
+      "answer_count": 3,
+      "score": 9,
+      "last_activity_date": 1300302781,
+      "creation_date": 1300301587,
+      "question_id": 5330287,
+      "body_markdown": "What is an Anonymous Object exactly?\r\n\r\nDoes C++ support/have Anonymous Objects?",
+      "link": "https://stackoverflow.com/questions/5330287/what-is-an-anonymous-object",
+      "title": "What is an Anonymous Object?"
+    },
+    {
+      "tags": [
+        "typescript"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 9457,
+            "user_id": 1495595,
+            "user_type": "registered",
+            "accept_rate": 100,
+            "profile_image": "https://i.stack.imgur.com/u9Lea.jpg?s=128&g=1",
+            "display_name": "Rafal",
+            "link": "https://stackoverflow.com/users/1495595/rafal"
+          },
+          "is_accepted": true,
+          "score": 5,
+          "last_activity_date": 1358144495,
+          "creation_date": 1358144495,
+          "answer_id": 14314113,
+          "question_id": 14313587,
+          "body_markdown": "You are missing argument name:\r\n\r\n\r\n    interface MyInterface{\r\n    }\r\n\r\n    class MyClass {\r\n        DoSomething(callback: (arg:MyInterface[]) =&gt; void) {\r\n        }\r\n    }"
+        }
+      ],
+      "owner": {
+        "reputation": 3144,
+        "user_id": 80566,
+        "user_type": "registered",
+        "accept_rate": 51,
+        "profile_image": "https://www.gravatar.com/avatar/f503726a792385f837535c4c9a983478?s=128&d=identicon&r=PG",
+        "display_name": "Steven",
+        "link": "https://stackoverflow.com/users/80566/steven"
+      },
+      "is_answered": true,
+      "view_count": 71,
+      "accepted_answer_id": 14314113,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1358144495,
+      "creation_date": 1358140333,
+      "question_id": 14313587,
+      "body_markdown": "Should this work?\r\n\r\n    interface MyInterface{\r\n    }\r\n    \r\n    class MyClass {\r\n        DoSomething(callback: (MyInterface[]) =&gt; void) {\r\n            ...\r\n        }\r\n    }\r\n\r\nThe compiler doesn&#39;t like that the parameter is an array of MyInterface. ",
+      "link": "https://stackoverflow.com/questions/14313587/function-signature-that-is-an-array",
+      "title": "Function signature that is an array"
+    },
+    {
+      "tags": [
+        "c++",
+        "c",
+        "arrays",
+        "types"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 188105,
+            "user_id": 827263,
+            "user_type": "registered",
+            "accept_rate": 54,
+            "profile_image": "https://www.gravatar.com/avatar/216c1db53d752f87dd8176a6ba0c2190?s=128&d=identicon&r=PG",
+            "display_name": "Keith Thompson",
+            "link": "https://stackoverflow.com/users/827263/keith-thompson"
+          },
+          "is_accepted": false,
+          "score": 8,
+          "last_activity_date": 1422053070,
+          "last_edit_date": 1422053070,
+          "creation_date": 1422052577,
+          "answer_id": 28119862,
+          "question_id": 28119793,
+          "body_markdown": "You&#39;re asking about two different languages, C and C++. They happen to have the same rules in this area (mostly), but it&#39;s important to keep in mind that they&#39;re two distinct (but closely related) languages.\r\n\r\nIt also depends on what you mean by &quot;an array&quot;. It&#39;s often best to think of the word &quot;array&quot; as an adjective, not a noun; thus you can have an array *type*, an array *object* (an object of array type), an array *expression* (an expression of array type), and so on.\r\n\r\nThe C and C++ standards do not define the phrase &quot;data type&quot;, though both standards do use the phrase informally a few times. Given the context, it&#39;s reasonably clear that the phrase &quot;data type&quot; is synonymous with &quot;object type&quot;.\r\n\r\nC has two kinds of types, object types and function types. (Prior to the C11 standard, incomplete types were a third kind; the definitions were changed in 2011 so incomplete types are a subset of object types.)\r\n\r\nAn array *type* is an object type (and no, this is not a matter of opinion).\r\n\r\nIf you&#39;ve been told that an array is &quot;really&quot; a pointer to its first element, you&#39;ve been badly misinformed. An array expression is implicitly *converted*, in most but not all contexts, to a pointer to the array&#39;s first element. The array object still exists, is still an object, and is still of array type.\r\n\r\nSuggested reading: Section 6 of the [comp.lang.c FAQ](http://www.c-faq.com/)."
+        },
+        {
+          "owner": {
+            "reputation": 173532,
+            "user_id": 2069064,
+            "user_type": "registered",
+            "accept_rate": 73,
+            "profile_image": "https://i.stack.imgur.com/e4V2X.jpg?s=128&g=1",
+            "display_name": "Barry",
+            "link": "https://stackoverflow.com/users/2069064/barry"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1422053687,
+          "last_edit_date": 1422053687,
+          "creation_date": 1422052703,
+          "answer_id": 28119888,
+          "question_id": 28119793,
+          "body_markdown": "An array is a type. It can be called a compound type or an array type (C++ standard, &#167;3.9.2):\r\n\r\n&gt; Compound types can be constructed in the following ways:  \r\n&gt; — arrays of objects of a given type, (8.3.4)\r\n\r\nWhere (&#167;8.3.4) is, emphasis mine:\r\n\r\n&gt; In a declaration `T` `D` where `D` has the form  \r\n&gt;\r\n&gt;      D1 [ constant-expressionopt] attribute-specifier-seqopt\r\n&gt; and the type of the identifier in the declaration `T D1` is “*derived-declarator-type-list* `T`”, then the type of the\r\nidentifier of `D` is an **array type**;\r\n\r\nAnd, like any other type, you can use it in a `typedef`. From the same section:\r\n\r\n&gt;     typedef int A[5], AA[2][3];\r\n&gt;     typedef const A CA; // type is “array of 5 const int”\r\n&gt;     typedef const AA CAA; // type is “array of 2 array of 3 const int”\r\n\r\nAn object of array type can be *implicitly cast* to a pointer, hence the potential confusion:\r\n\r\n    void foo(int* );\r\n    A some_array;\r\n\r\n    foo(some_array);       // OK\r\n    int* p = some_array;   // OK"
+        },
+        {
+          "owner": {
+            "reputation": 40999,
+            "user_id": 16287,
+            "user_type": "registered",
+            "accept_rate": 97,
+            "profile_image": "https://i.stack.imgur.com/Ogq0T.png?s=128&g=1",
+            "display_name": "Drew Dormann",
+            "link": "https://stackoverflow.com/users/16287/drew-dormann"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1422053241,
+          "last_edit_date": 1422053241,
+          "creation_date": 1422052731,
+          "answer_id": 28119895,
+          "question_id": 28119793,
+          "body_markdown": "&gt; Is an array a data type or is it a pointer to its first element?\r\n\r\nIt is a data type and it is **not** a pointer.\r\n\r\nHere&#39;s the source of this common confusion.\r\n==\r\n\r\n- An array may be implicitly *converted* to a *pointer to the first element* (but not the other way around)\r\n- A pointer shares some syntactical similarities with arrays (namely &quot;`[]`&quot;) so it&#39;s not always obvious to beginners when an implicit cast has happened."
+        },
+        {
+          "owner": {
+            "reputation": 57792,
+            "user_id": 168986,
+            "user_type": "registered",
+            "accept_rate": 86,
+            "profile_image": "https://i.stack.imgur.com/MqorX.jpg?s=128&g=1",
+            "display_name": "Clifford",
+            "link": "https://stackoverflow.com/users/168986/clifford"
+          },
+          "is_accepted": false,
+          "score": 1,
+          "last_activity_date": 1422313138,
+          "last_edit_date": 1422313138,
+          "creation_date": 1422056070,
+          "answer_id": 28120448,
+          "question_id": 28119793,
+          "body_markdown": "Strictly an array in an *instance* of an object having *array type*.  So arrays *have type* rather than *are types*.\r\n\r\nWhile arrays have type (and are an example of container data structure), it is perhaps useful to understand that in C and C++, unlike fundamental types, and `class`/`struct`/`union` types they are not treated as [first-class data types][1] in that they cannot be passed as parameters by-value, returned by-value, or assigned to or from.\r\n\r\nAn array is not the same as a pointer - an array in C and C++ has *size* equal to the number of elements multiplied by the size of each element, whereas a pointer is the size of a pointer rather than the size of what it refers to.  However because an array is not a first-class type, when passed, returned or assigned-from, the array &quot;decays&quot; to a pointer.\r\n\r\nThe C++ STL supports various container data structure types that are more flexible and generally safer than raw arrays, and are first class types.\r\n\r\n\r\n  [1]: http://en.wikipedia.org/wiki/First-class_citizen"
+        }
+      ],
+      "owner": {
+        "user_type": "does_not_exist",
+        "display_name": "user4420637"
+      },
+      "is_answered": true,
+      "view_count": 267,
+      "closed_date": 1422081403,
+      "answer_count": 4,
+      "score": 1,
+      "last_activity_date": 1422313138,
+      "creation_date": 1422052192,
+      "last_edit_date": 1422312557,
+      "question_id": 28119793,
+      "body_markdown": "Is an array a data type or is it a pointer to its first element?",
+      "link": "https://stackoverflow.com/questions/28119793/is-an-array-a-data-type",
+      "closed_reason": "primarily opinion-based",
+      "title": "Is an array a data type?"
+    },
+    {
+      "tags": [
+        "model",
+        "domain-driven-design"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 907,
+            "user_id": 1440712,
+            "user_type": "registered",
+            "accept_rate": 86,
+            "profile_image": "https://www.gravatar.com/avatar/e8cc25f4376cf1bde319aa1196bba49f?s=128&d=identicon&r=PG",
+            "display_name": "M.Octavio",
+            "link": "https://stackoverflow.com/users/1440712/m-octavio"
+          },
+          "is_accepted": true,
+          "score": 4,
+          "last_activity_date": 1368805412,
+          "last_edit_date": 1495541478,
+          "creation_date": 1368805412,
+          "answer_id": 16613124,
+          "question_id": 16612751,
+          "body_markdown": "Basically is an object model that has the semantic of the business, but the logic is implemented outside of the domain objet because it fails to encapsulate it.\r\n\r\nThe alternatice will be implementing the domain model properly. Of course the anemic model has some pros and cons:\r\n\r\nhttps://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons\r\n\r\nAlso I foud this article very helpful: http://www.martinfowler.com/bliki/AnemicDomainModel.html\r\n\r\n\r\nI hope it helps!"
+        }
+      ],
+      "owner": {
+        "reputation": 6625,
+        "user_id": 2043536,
+        "user_type": "registered",
+        "accept_rate": 92,
+        "profile_image": "https://www.gravatar.com/avatar/65bebfc03affca934d168c23b535b463?s=128&d=identicon&r=PG",
+        "display_name": "sircodesalot",
+        "link": "https://stackoverflow.com/users/2043536/sircodesalot"
+      },
+      "is_answered": true,
+      "view_count": 76,
+      "accepted_answer_id": 16613124,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1368805412,
+      "creation_date": 1368804412,
+      "question_id": 16612751,
+      "body_markdown": "I&#39;ve been searching around for a while trying to understand just what this is, but I&#39;m not really clear. What is an anemic model, and what is it an alternative to?",
+      "link": "https://stackoverflow.com/questions/16612751/what-is-an-anemic-model",
+      "title": "What is an anemic model?"
+    },
+    {
+      "tags": [
+        "terminology"
+      ],
+      "answers": [
+        {
+          "owner": {
+            "reputation": 2236,
+            "user_id": 5351136,
+            "user_type": "registered",
+            "accept_rate": 53,
+            "profile_image": "https://i.stack.imgur.com/seDql.jpg?s=128&g=1",
+            "display_name": "Imran",
+            "link": "https://stackoverflow.com/users/5351136/imran"
+          },
+          "is_accepted": true,
+          "score": 1,
+          "last_activity_date": 1513002002,
+          "creation_date": 1513002002,
+          "answer_id": 47754925,
+          "question_id": 47754856,
+          "body_markdown": "**Application Performance Management(APM)**\r\n\r\nIn simpler terms:\r\n\r\n&gt; APM monitors the speed at which transactions are performed both by\r\n&gt; end-users and by the systems and network infrastructure that support a\r\n&gt; software application, providing an end-to-end overview of potential\r\n&gt; bottlenecks and service interruptions.\r\n\r\n\r\nIn pragmatic terms, this typically involves the use of a suite of software tools—or a single integrated SaaS or on-premises tool—to view and diagnose an application’s speed, reliability, and other performance metrics in order to maintain an optimal level of service. Here is\r\n[Wiki description.][1]\r\n\r\n\r\n  [1]: https://en.wikipedia.org/wiki/Application_performance_management"
+        }
+      ],
+      "owner": {
+        "reputation": 3188,
+        "user_id": 633961,
+        "user_type": "registered",
+        "accept_rate": 66,
+        "profile_image": "https://i.stack.imgur.com/0c29q.jpg?s=128&g=1",
+        "display_name": "guettli",
+        "link": "https://stackoverflow.com/users/633961/guettli"
+      },
+      "is_answered": true,
+      "view_count": 41,
+      "accepted_answer_id": 47754925,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1513002002,
+      "creation_date": 1513001749,
+      "question_id": 47754856,
+      "body_markdown": "What is an &quot;APM solution&quot;?\r\n\r\nI have this term from this blog post: http://www.myloadtest.com/new-relic-vs-appdynamics/",
+      "link": "https://stackoverflow.com/questions/47754856/what-is-an-apm-solution",
+      "title": "What is an &quot;APM solution&quot;?"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9890
+}
