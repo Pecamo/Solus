@@ -1,0 +1,46 @@
+<html>
+<head>
+	<link rel="stylesheet" href="microphone/css/microphone.min.css">
+	<style>
+		#volume {
+			position: relative;
+			height: 20px;
+			border-radius: 10px;
+			background-color: #a7dbd8;
+		}
+
+		#current-volume {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 20px;
+			background-color: #f38630;
+			border-radius: 10px;
+		}
+
+		#threshold-volume {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 200px;
+			background-color: #69d2e7;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body style="text-align: center;">
+	<center>
+		<div id="microphone"></div>
+		<div id="volume"><div id="threshold-volume"></div><div id="current-volume"></div></div>
+		
+	</center>
+	<pre id="result"></pre>
+	<div id="info"></div>
+	<div id="error"></div>
+	<script src="microphone/js/microphone.js"></script>
+	<script src="microphone/js/volume-meter.js"></script>
+	<script src="microphone/js/mic.js"></script>
+</body>
+</html>

@@ -51,3 +51,5 @@ app/types/**/*.js
 app/types/**/*.js.map
 app/main.*.js
 app/main.*.js.map
+
+.vscode
