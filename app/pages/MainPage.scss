@@ -22,19 +22,7 @@
     font-size: 1.5rem;
   }
 
-  .result {
-    position: relative;
-    margin: 20px 0;
-    background-color: $gray1;
-  }
-
-  .result_source {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .result_content {
-
+  .results {
+    margin-top: 40px;
   }
 }
