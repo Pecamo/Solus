@@ -57,6 +57,9 @@ app.on('ready', () => {
       };
       osTypeToRenderer = 'Darwin';
     }
+    if (osType.includes('Linux')) {
+      osTypeToRenderer = 'Linux';
+    }
 
     const finalBrowserWindowParams = Object.assign({
       show: false,
