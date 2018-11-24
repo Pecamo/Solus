@@ -24,7 +24,8 @@
         "strict-boolean-expressions": false,
         "align": false,
         "import-name": false,
-        "function-name": false
+        "function-name": false,
+        "prefer-array-literal": false
     },
     "rulesDirectory": []
 }

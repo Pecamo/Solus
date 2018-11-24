@@ -11,10 +11,9 @@ import {
 } from '@blueprintjs/core';
 import { connect } from 'react-redux';
 import { ipcRenderer } from 'electron';
-import { NavLink, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { ToMain } from '../types/ipcMessages';
 import { IState } from '../reducers';
-import { ReactNode } from 'react';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
@@ -31,7 +30,7 @@ export interface AppProps extends RouteComponentProps<any> {
 
 export interface AppState {
   isModalOpen: boolean;
-  modalContent: ReactNode;
+  modalContent: React.ReactNode;
 }
 
 export class App extends React.Component<AppProps, AppState> {
@@ -51,9 +50,9 @@ export class App extends React.Component<AppProps, AppState> {
     ipcRenderer.send(ToMain.CLOSE);
   }
 
-  openModal = (content: ReactNode) => {
+  openModal = (content: React.ReactNode) => {
     this.setState({ isModalOpen: true, modalContent: content });
-  }
+  };
 
   openSettingsModal = () => {
     this.openModal((<div>

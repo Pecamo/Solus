@@ -17,4 +17,3 @@ export enum ToRenderer {
     MIC_IDK_RESULT = 'MIC_IDK_RESULT',
     MIC_IDK_2_RESULT = 'MIC_IDK_2_RESULT',
 }
-

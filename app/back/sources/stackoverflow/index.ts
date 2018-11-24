@@ -10,7 +10,7 @@ type Intent = {
   start?: number,
   suggested?: boolean,
   value: string
-}
+};
 
 type SingleOrMultipleIntents = Intent | Array<Intent>;
 
@@ -22,7 +22,7 @@ type Question = {
   intent: string,
   msg_body: string,
   msg_id: string
-}
+};
 
 type SimilarAPIResponse = {
   items: Array<{
@@ -62,12 +62,12 @@ type SimilarAPIResponse = {
   has_more: boolean,
   quota_max: number,
   quota_remaining: number
-}
+};
 
 const test: Question = {
   entities: {
     intent: {
-      value: "StackOverflow",
+      value: 'StackOverflow',
     },
     prog_concept: {
       body: 'PHP loop',
@@ -104,7 +104,7 @@ class StackExchangeSource implements Source {
 
   handleQuestion(question: Question) {
     this.getSimilarQuestions(question)
-      .then(response => {
+      .then((response) => {
         console.log(response);
         this.getAnswersById(response.items);
       });
@@ -119,10 +119,9 @@ class StackExchangeSource implements Source {
       _.flatMapDeep(
         _.values(entities), (entity: SingleOrMultipleIntents) => {
           if (Array.isArray(entity)) {
-            return entity.map(singleEntity => singleEntity.value)
-          } else {
-            return entity.value;
+            return entity.map(singleEntity => singleEntity.value);
           }
+          return entity.value;
         }
       )
     );
@@ -137,7 +136,7 @@ class StackExchangeSource implements Source {
       title: question.msg_body
     };
     // 1.3 Construct the call
-    const queryString = '?' + Object.keys(query).map(key => key + '=' + query[key]).join('&');
+    const queryString = `?${Object.keys(query).map(key => `${key}=${query[key]}`).join('&')}`;
     const url = new URL(StackExchangeSource.similarPath, StackExchangeSource.host);
     // 1.4 Actual query
     url.search = queryString;
@@ -150,10 +149,10 @@ class StackExchangeSource implements Source {
   private getAnswersById(items: SimilarAPIResponse['items']) {
     items.map(item => {
       console.log(item.answers);
-      item.answers.map(answer => {
+      item.answers.map((answer) => {
         // answer.score;
         // TODO : Loop through answers, take highest voted one
-      })
+      });
     });
   }
 }

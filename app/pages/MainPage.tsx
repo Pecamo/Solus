@@ -140,7 +140,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         <div className={styles.results}>
           {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
         </div>
-    );
+    )
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
