@@ -65,7 +65,12 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             link: 'http://oui.la.vie',
           },
           answer: {
-            body_markdown: 'Lol\n```js\nconsole.log("FNU");```'
+            body_markdown:
+                `Lol
+                \`\`\`js
+                console.log("FNU");
+                \`\`\`
+                `
           }
         } as any as StackOverflowResult,
       },
@@ -106,7 +111,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       case SearchState.FETCHING:
         return (
             <>
-              {this.renderResultHead(guess, context, understood)}
+              {this.renderResultHead(context, understood)}
               <div className={styles.spinner_container}>
                 <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>
               </div>
@@ -115,7 +120,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       case SearchState.DONE:
         return (
             <>
-              {this.renderResultHead(guess, context, understood)}
+              {this.renderResultHead(context, understood)}
+              <Text className={styles.best_guess}>Best guess: {guess}</Text>
               {this.renderResults(results)}
             </>
         );
@@ -124,15 +130,13 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     }
   }
 
-  private renderResultHead = (guess: string, context: string, understood: string) => (
+  private renderResultHead = (context: string, understood: string) => (
       <>
         <Text>Your query for the context {context}:</Text>
 
         <Card className={styles.understood}>
           <Text ellipsize={true}>{understood}</Text>
         </Card>
-
-        <Text className={styles.best_guess}>Best guess: {guess}</Text>
       </>
   )
 
