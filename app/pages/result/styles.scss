@@ -1,0 +1,19 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+
+:local {
+  .result {
+    position: relative;
+    margin: 20px 0;
+    background-color: $gray1;
+  }
+
+  .source {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+
+  .content {
+
+  }
+}

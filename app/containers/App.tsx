@@ -14,7 +14,7 @@ import { ipcRenderer } from 'electron';
 import { NavLink, RouteComponentProps } from 'react-router-dom';
 import { ToMain } from '../types/ipcMessages';
 import { IState } from '../reducers';
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
@@ -103,6 +103,9 @@ export class App extends React.Component<AppProps, AppState> {
             </NavLink>*/}
           </NavbarGroup>
           <NavbarGroup className={styles.navBarRight}>
+            <Button className="bp3-minimal" icon="cog"
+                    onClick={() => this.openSettingsModal()}
+            />
             {osType !== 'Darwin' && <button className={`${styles.windowsButton}`} onClick={App.minimizeWindow}><img src={imgWindowMin} /></button>}
             {osType !== 'Darwin' && <button className={`${styles.windowsButton}`} onClick={App.maximizeWindow}><img src={imgWindowMax} /></button>}
             {osType !== 'Darwin' && <button className={`${styles.closeButton} ${styles.windowsButton}`} onClick={App.closeWindow}>
