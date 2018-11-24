@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import { IState } from '../reducers';
 
 import { MicState } from '../reducers/mic';
-import { Card, Text, Spinner, Intent, H3, NonIdealState } from '@blueprintjs/core';
+import { Card, Intent, NonIdealState, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
 const styles = require('./MainPage.scss');
@@ -24,14 +24,25 @@ enum SearchState {
 }
 
 interface MainPageState {
-  pageState: SearchState;
+  searchState: SearchState;
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
-  readonly state: MainPageState = { pageState: SearchState.INIT };
+  readonly state: MainPageState = { searchState: SearchState.DONE };
 
   render() {
-    const input = 'I want to...';
+    return (
+      <div className={styles.container}>
+        <div className={styles.content}>
+          {this.renderContent()}
+        </div>
+      </div>
+    );
+  }
+
+  private renderContent = () => {
+    const context = 'Stack Overflow';
+    const understood = 'I want to...';
 
     const lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
         'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
@@ -46,40 +57,54 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       { source: 'Lol wikia', content: lorem }
     ];
 
-    if (this.state.pageState === SearchState.INIT) {
-      return (
-          <div className={styles.container}>
+    switch (this.state.searchState) {
+      case SearchState.INIT:
+        return (
             <NonIdealState
                 icon="headset"
                 title="Speak to search content"
-                description="Plug a microphone "
+                description="Plug a microphone and speak to begin"
             />
-          </div>
-      );
+        );
+      case SearchState.SPEAKING:
+        return (
+          <>
+            <Text>Keep speaking! >:3</Text>
+            <div>La super barre de Sachdr</div>
+          </>
+        );
+      case SearchState.FETCHING:
+        return (
+            <>
+              {this.renderResultHead(context, understood)}
+              {this.renderResults(results, true)}
+            </>
+        );
+      case SearchState.DONE:
+        return (
+            <>
+              {this.renderResultHead(context, understood)}
+              {this.renderResults(results, false)}
+            </>
+        );
     }
-
-    return (
-        <div className={styles.container}>
-          <div className={styles.content}>
-            You can see the results of your search query below.
-
-            <Card className={styles.understood}>
-              <Text ellipsize={true}>{input}</Text>
-            </Card>
-
-            {this.renderResults(results)}
-          </div>
-        </div>
-    );
   }
 
-  private renderSpinner = () => <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>;
+  private renderResultHead = (context: string, understood: string) => (
+      <>
+        <Text>Your query for the context {context}:</Text>
 
-  private renderResults = (results: ResultProps[]) => {
+        <Card className={styles.understood}>
+          <Text ellipsize={true}>{understood}</Text>
+        </Card>
+      </>
+  )
+
+  private renderResults = (results: ResultProps[], fetching: boolean) => {
     const bestGuess = '350 gold';
     return (
         <div className={styles.results}>
-          {this.state.pageState === SearchState.FETCHING ? this.renderSpinner() : (
+          {fetching ? <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/> : (
             <>
               <Text className={styles.best_guess}>Best guess: {bestGuess}</Text>
               {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
