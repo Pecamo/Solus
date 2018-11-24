@@ -109,7 +109,7 @@
     "react-router",
     "flux",
     "webpack",
-    "react-hot",
+    "react-hot"
   ],
   "homepage": "https://github.com/Pecamo/Solus#readme",
   "devDependencies": {
