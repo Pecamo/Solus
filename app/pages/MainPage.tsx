@@ -32,7 +32,7 @@ interface MainPageState {
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
   readonly state: MainPageState = {
-    searchState: SearchState.INIT,
+    searchState: SearchState.DONE,
     results: []
   };
 
@@ -53,6 +53,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   private renderContent = () => {
     const context = 'Stack Overflow';
     const understood = 'I want to...';
+    const guess = '350 gold';
 
     const results: ResultProps[] = [
       {
@@ -73,6 +74,14 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         content: {
           type: ResultType.IFrame,
           href: 'https://leagueoflegends.wikia.com/wiki/Cloud_Drake',
+          querySelector: 'aside',
+        }
+      },
+      {
+        source: 'Lol wikia',
+        content: {
+          type: ResultType.IFrame,
+          href: 'https://leagueoflegends.wikia.com/wiki/Gromp',
           querySelector: 'aside',
         }
       }
@@ -97,14 +106,14 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       case SearchState.FETCHING:
         return (
             <>
-              {this.renderResultHead(context, understood)}
+              {this.renderResultHead(guess, context, understood)}
               {this.renderResults(results, true)}
             </>
         );
       case SearchState.DONE:
         return (
             <>
-              {this.renderResultHead(context, understood)}
+              {this.renderResultHead(guess, context, understood)}
               {this.renderResults(results, false)}
             </>
         );
@@ -113,29 +122,25 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     }
   }
 
-  private renderResultHead = (context: string, understood: string) => (
+  private renderResultHead = (guess: string, context: string, understood: string) => (
       <>
         <Text>Your query for the context {context}:</Text>
 
         <Card className={styles.understood}>
           <Text ellipsize={true}>{understood}</Text>
         </Card>
+
+        <Text className={styles.best_guess}>Best guess: {guess}</Text>
       </>
   )
 
-  private renderResults = (results: ResultProps[], fetching: boolean) => {
-    const bestGuess = '350 gold';
-    return (
+  private renderResults = (results: ResultProps[], fetching: boolean) => (
         <div className={styles.results}>
-          {fetching ? <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/> : (
-            <>
-              <Text className={styles.best_guess}>Best guess: {bestGuess}</Text>
-              {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
-            </>
-          )}
+          {fetching
+              ? <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>
+              : results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
         </div>
     );
-  }
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {

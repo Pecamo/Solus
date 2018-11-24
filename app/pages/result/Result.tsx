@@ -29,7 +29,7 @@ export class Result extends React.PureComponent<ResultProps> {
         return (
           <>
             <H5><a href={this.props.content.question.link}>{this.props.content.question.title}</a></H5>
-            <div className={styles.content} dangerouslySetInnerHTML={{ __html: converter.makeHtml(this.props.content.answer.body_markdown)}}/>
+            <div className={styles.content} dangerouslySetInnerHTML={{ __html: converter.makeHtml(this.props.content.answer.body_markdown) }}/>
           </>
         );
       case ResultType.IFrame:
