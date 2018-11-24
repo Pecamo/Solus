@@ -87,7 +87,7 @@ export class App extends React.Component<AppProps, AppState> {
     const { isModalOpen, modalContent } = this.state;
     return (
       <div className="bp3-dark">
-        <Navbar className={styles.navBar} fixedToTop={true}>
+        {osType !== 'Linux' && <Navbar className={styles.navBar} fixedToTop={true}>
           <NavbarGroup className={styles.navBarLeft}>
             <NavbarHeading className={`${styles.title}${osType === 'Darwin' ? ' ' + styles.osDarwin : ''}`}>
               <img
@@ -112,7 +112,10 @@ export class App extends React.Component<AppProps, AppState> {
               <img src={imgWindowClose} />
             </button>}
           </NavbarGroup>
-        </Navbar>
+        </Navbar>}
+        {osType === 'Linux' && <div className={styles.linuxNavBarContainer}><Button className="bp3-minimal" icon="cog"
+          onClick={() => this.openSettingsModal()}
+        /></div>}
         <div className={styles.pageContainer}>
           {this.props.children}
         </div>

@@ -3,7 +3,7 @@ import { osTypeAction } from '../actions/osType';
 
 export type OsTypeState = string;
 
-const initialState: OsTypeState = 'Windows';
+const initialState: OsTypeState = 'Linux';
 
 export default function osType(state: OsTypeState = initialState, action: IAction): OsTypeState {
   if (osTypeAction.test(action)) {
