@@ -10,6 +10,8 @@ import { MicState } from '../reducers/mic';
 import { Card, Text, Spinner, Intent, H3, NonIdealState } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
+import { ResultNode } from '../types';
+
 const styles = require('./MainPage.scss');
 
 export interface MainPageProps extends RouteComponentProps<any> {
@@ -25,10 +27,18 @@ enum SearchState {
 
 interface MainPageState {
   pageState: SearchState;
+  results: Array<ResultNode>;
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
-  readonly state: MainPageState = { pageState: SearchState.INIT };
+  readonly state: MainPageState = {
+    pageState: SearchState.INIT,
+    results: []
+  };
+
+  setResults(results: MainPageState['results']) {
+    this.state.results = results;
+  }
 
   render() {
     const input = 'I want to...';
