@@ -1,0 +1,17 @@
+{
+  "name": "Solus",
+  "productName": "Solus",
+  "version": "0.0.1",
+  "description": "Hackathon project 2018",
+  "main": "./main.js",
+  "author": {
+    "name": "Kewin Dousse (Protectator)",
+    "email": "me@protectator.ch",
+    "url": "https://github.com/Protectator"
+  },
+  "scripts": {
+    "postinstall": "npm rebuild --runtime=electron --target=1.6.6 --disturl=https://atom.io/download/atom-shell --build-from-source"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}

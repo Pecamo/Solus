@@ -1,4 +1,4 @@
-# ![Uxie](static/images/logo_small.png)
+# ![Solus](static/images/logo_small.png)
 
 **Solus** is something we'll describe later
 

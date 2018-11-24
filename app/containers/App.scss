@@ -1,0 +1,95 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+
+:local {
+
+  .pageContainer {
+    padding-top: 40px;
+    background-color: $dark-gray5;
+  }
+
+  .title {
+    margin-right: 5px !important;
+    filter: grayscale(60%);
+    opacity: 1;
+    color: lime;
+    white-space: nowrap;
+  }
+
+  .osDarwin {
+    margin-left: 60px;
+  }
+
+  .logo {
+    max-height: 14px;
+  }
+
+  a, a:hover, .bp3-dark a, .bp3-dark a:hover {
+    color: $light-gray5 !important;
+  }
+
+  .activeNavLink {
+    background: rgba(138, 155, 168, 0.3) !important;
+    border-radius: 3px;
+  }
+
+  .navBar {
+    width: 100%;
+    height: 40px;
+    max-height: 40px;
+    margin: 0;
+    padding: 0 5px !important;
+
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+
+
+    > * {
+      position: relative;
+    }
+
+    button {
+      -webkit-app-region: no-drag;
+    }
+  }
+
+  .navBarLeft {
+    height: 30px !important;
+    width: 100%;
+    -webkit-app-region: drag;
+    position: relative;
+    top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navBarRight {
+    position: fixed;
+    right: 0;
+    z-index: 25;
+    background-color: $dark-gray5;
+    height: 40px !important;
+    top: 0;
+  }
+
+  .windowsButton {
+    z-index: 30;
+    background: $dark-gray5;
+    color: lightgray;
+    border: 0;
+    width: 32px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 0;
+
+    &:hover {
+      background: #4D5D6A;
+    }
+  }
+
+  .closeButton {
+    &:hover {
+      background: $red4;
+    }
+  }
+}
