@@ -7,7 +7,8 @@ import { RouteComponentProps } from 'react-router';
 import { IState } from '../reducers';
 
 import { MicState } from '../reducers/mic';
-import {Card, Tag, Text} from '@blueprintjs/core';
+import { Card, Text, Spinner, Intent, H3, NonIdealState } from '@blueprintjs/core';
+import { Result, ResultProps } from './result/Result';
 
 const styles = require('./MainPage.scss');
 
@@ -15,16 +16,22 @@ export interface MainPageProps extends RouteComponentProps<any> {
   mic: MicState;
 }
 
-interface Result {
-  source: string;
-  content: string;
+enum SearchState {
+  INIT,
+  SPEAKING,
+  FETCHING,
+  DONE
 }
 
-class MainPage extends React.Component<MainPageProps> {
+interface MainPageState {
+  pageState: SearchState;
+}
+
+class MainPage extends React.Component<MainPageProps, MainPageState> {
+  readonly state: MainPageState = { pageState: SearchState.INIT };
 
   render() {
     const input = 'I want to...';
-    const bestGuess = '350 gold';
 
     const lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
         'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
@@ -35,38 +42,52 @@ class MainPage extends React.Component<MainPageProps> {
         'including versions of Lorem Ipsum.';
 
     const results = [
-      { source: 'source1', content: lorem },
-      { source: 'source2', content: lorem }
+      { source: 'Stack Overflow', content: lorem },
+      { source: 'Lol wikia', content: lorem }
     ];
 
+    if (this.state.pageState === SearchState.INIT) {
+      return (
+          <div className={styles.container}>
+            <NonIdealState
+                icon="headset"
+                title="Speak to search content"
+                description="Plug a microphone "
+            />
+          </div>
+      );
+    }
+
     return (
-      <div className={styles.container}>
-        <div className={styles.content}>
-          You can see the results of your search query below.
-          <Card className={styles.understood}>
-            <Text ellipsize={true}>{input}</Text>
-          </Card>
+        <div className={styles.container}>
+          <div className={styles.content}>
+            You can see the results of your search query below.
 
-          <Text className={styles.best_guess}>Best guess: {bestGuess}</Text>
+            <Card className={styles.understood}>
+              <Text ellipsize={true}>{input}</Text>
+            </Card>
 
-          <div className={styles.results}>
-            {results.map(this.renderResult)}
+            {this.renderResults(results)}
           </div>
         </div>
-      </div>
     );
   }
 
-  private renderResult = (el: Result, index: number) => (
-      <Card key={index} className={styles.result}>
-        <Tag className={styles.result_source}>
-          {el.source}
-        </Tag>
-        <div className={styles.result_content}>
-          {el.content}
+  private renderSpinner = () => <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>;
+
+  private renderResults = (results: ResultProps[]) => {
+    const bestGuess = '350 gold';
+    return (
+        <div className={styles.results}>
+          {this.state.pageState === SearchState.FETCHING ? this.renderSpinner() : (
+            <>
+              <Text className={styles.best_guess}>Best guess: {bestGuess}</Text>
+              {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+            </>
+          )}
         </div>
-      </Card>
-  )
+    );
+  }
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
