@@ -21,6 +21,7 @@
         "jsx-no-string-ref": true,
         "jsx-self-close": true,
         "jsx-wrap-multiline": false,
+        "jsx-no-multiline-js": false,
         "strict-boolean-expressions": false,
         "align": false,
         "import-name": false,

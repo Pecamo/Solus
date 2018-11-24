@@ -52,7 +52,7 @@ export class App extends React.Component<AppProps, AppState> {
 
   openModal = (content: React.ReactNode) => {
     this.setState({ isModalOpen: true, modalContent: content });
-  };
+  }
 
   openSettingsModal = () => {
     this.openModal((<div>
@@ -88,7 +88,7 @@ export class App extends React.Component<AppProps, AppState> {
       <div className={`bp3-dark ${styles.container}`}>
         {osType !== 'Linux' && <Navbar className={styles.navBar} fixedToTop={true}>
           <NavbarGroup className={styles.navBarLeft}>
-            <NavbarHeading className={`${styles.title}${osType === 'Darwin' ? ' ' + styles.osDarwin : ''}`}>
+            <NavbarHeading className={`${styles.title}${osType === 'Darwin' ? ` ${styles.osDarwin}` : ''}`}>
               <img
                 src={imgSolusText}
                 className={styles.logo}
@@ -102,8 +102,10 @@ export class App extends React.Component<AppProps, AppState> {
             </NavLink>*/}
           </NavbarGroup>
           <NavbarGroup className={styles.navBarRight}>
-            <Button className="bp3-minimal" icon="cog"
-                    onClick={() => this.openSettingsModal()}
+            <Button
+              className="bp3-minimal"
+              icon="cog"
+              onClick={() => this.openSettingsModal()}
             />
             {osType !== 'Darwin' && <button className={`${styles.windowsButton}`} onClick={App.minimizeWindow}><img src={imgWindowMin} /></button>}
             {osType !== 'Darwin' && <button className={`${styles.windowsButton}`} onClick={App.maximizeWindow}><img src={imgWindowMax} /></button>}
@@ -112,7 +114,9 @@ export class App extends React.Component<AppProps, AppState> {
             </button>}
           </NavbarGroup>
         </Navbar>}
-        {osType === 'Linux' && <div className={styles.linuxNavBarContainer}><Button className="bp3-minimal" icon="cog"
+        {osType === 'Linux' && <div className={styles.linuxNavBarContainer}><Button
+          className="bp3-minimal"
+          icon="cog"
           onClick={() => this.openSettingsModal()}
         /></div>}
         <div className={styles.pageContainer}>
