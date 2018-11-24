@@ -86,7 +86,7 @@ export class App extends React.Component<AppProps, AppState> {
     const { osType } = this.props;
     const { isModalOpen, modalContent } = this.state;
     return (
-      <div className="bp3-dark">
+      <div className={`bp3-dark ${styles.container}`}>
         {osType !== 'Linux' && <Navbar className={styles.navBar} fixedToTop={true}>
           <NavbarGroup className={styles.navBarLeft}>
             <NavbarHeading className={`${styles.title}${osType === 'Darwin' ? ' ' + styles.osDarwin : ''}`}>

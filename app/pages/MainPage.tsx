@@ -107,14 +107,16 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         return (
             <>
               {this.renderResultHead(guess, context, understood)}
-              {this.renderResults(results, true)}
+              <div className={styles.spinner_container}>
+                <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>
+              </div>
             </>
         );
       case SearchState.DONE:
         return (
             <>
               {this.renderResultHead(guess, context, understood)}
-              {this.renderResults(results, false)}
+              {this.renderResults(results)}
             </>
         );
       default:
@@ -134,11 +136,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       </>
   )
 
-  private renderResults = (results: ResultProps[], fetching: boolean) => (
+  private renderResults = (results: ResultProps[]) => (
         <div className={styles.results}>
-          {fetching
-              ? <Spinner intent={Intent.PRIMARY} size={Spinner.SIZE_STANDARD}/>
-              : results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+          {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
         </div>
     );
 }
