@@ -1,8 +1,11 @@
 @import "~@blueprintjs/core/lib/scss/variables";
 
 :local {
+  // Remaining height of content when height of content above is substracted
+  $remaining-height: calc(100vh - 330px);
 
   .container {
+    height: 100%;
     display: flex;
   }
 
@@ -24,5 +27,15 @@
 
   .results {
     margin-top: 40px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: $remaining-height;
+  }
+
+  .spinner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $remaining-height;
   }
 }
