@@ -3,7 +3,7 @@ interface Source {
 }
 
 interface Question {
-  responseId: string,
+  responseId: string;
   queryResult: {
     queryText: string,
     action: string,
@@ -22,96 +22,96 @@ interface Question {
     intentDetectionConfidence: number,
     diagnosticInfo: object,
     languageCode: string
-  }
+  };
 }
 
 const test2: Question = {
-  "responseId": "3c1e5a89-75b9-4c3f-b63d-4b1351dd5e32",
-  "queryResult": {
-    "queryText": "book a room",
-    "action": "room.reservation",
-    "parameters": {
-      "time": "",
-      "date": "",
-      "guests": "",
-      "duration": "",
-      "location": ""
+  responseId: '3c1e5a89-75b9-4c3f-b63d-4b1351dd5e32',
+  queryResult: {
+    queryText: 'book a room',
+    action: 'room.reservation',
+    parameters: {
+      time: '',
+      date: '',
+      guests: '',
+      duration: '',
+      location: ''
     },
-    "fulfillmentText": "I can help with that. Where would you like to reserve a room?",
-    "fulfillmentMessages": [
+    fulfillmentText: 'I can help with that. Where would you like to reserve a room?',
+    fulfillmentMessages: [
       {
-        "text": {
-          "text": [
-            "I can help with that. Where would you like to reserve a room?"
+        text: {
+          text: [
+            'I can help with that. Where would you like to reserve a room?'
           ]
         },
-        "platform": "FACEBOOK"
+        platform: 'FACEBOOK'
       },
       {
-        "text": {
-          "text": [
-            "I can help with that. Where would you like to reserve a room?"
+        text: {
+          text: [
+            'I can help with that. Where would you like to reserve a room?'
           ]
         }
       }
     ],
-    "outputContexts": [
+    outputContexts: [
       {
-        "name": "projects/drothaus-cce/agent/sessions/123456789/contexts/e8f6a63e-73da-4a1a-8bfc-857183f71228_id_dialog_context",
-        "lifespanCount": 2,
-        "parameters": {
-          "date": "",
-          "guests": "",
-          "duration": "",
-          "location.original": "",
-          "guests.original": "",
-          "location": "",
-          "date.original": "",
-          "time.original": "",
-          "time": "",
-          "duration.original": ""
+        name: 'projects/drothaus-cce/agent/sessions/123456789/contexts/e8f6a63e-73da-4a1a-8bfc-857183f71228_id_dialog_context',
+        lifespanCount: 2,
+        parameters: {
+          date: '',
+          guests: '',
+          duration: '',
+          'location.original': '',
+          'guests.original': '',
+          location: '',
+          'date.original': '',
+          'time.original': '',
+          time: '',
+          'duration.original': ''
         }
       },
       {
-        "name": "projects/drothaus-cce/agent/sessions/123456789/contexts/room_reservation_dialog_params_location",
-        "lifespanCount": 1,
-        "parameters": {
-          "date.original": "",
-          "time.original": "",
-          "time": "",
-          "duration.original": "",
-          "date": "",
-          "guests": "",
-          "duration": "",
-          "location.original": "",
-          "guests.original": "",
-          "location": ""
+        name: 'projects/drothaus-cce/agent/sessions/123456789/contexts/room_reservation_dialog_params_location',
+        lifespanCount: 1,
+        parameters: {
+          'date.original': '',
+          'time.original': '',
+          time: '',
+          'duration.original': '',
+          date: '',
+          guests: '',
+          duration: '',
+          'location.original': '',
+          'guests.original': '',
+          location: ''
         }
       },
       {
-        "name": "projects/drothaus-cce/agent/sessions/123456789/contexts/room_reservation_dialog_context",
-        "lifespanCount": 2,
-        "parameters": {
-          "time.original": "",
-          "time": "",
-          "duration.original": "",
-          "date": "",
-          "guests": "",
-          "duration": "",
-          "location.original": "",
-          "guests.original": "",
-          "location": "",
-          "date.original": ""
+        name: 'projects/drothaus-cce/agent/sessions/123456789/contexts/room_reservation_dialog_context',
+        lifespanCount: 2,
+        parameters: {
+          'time.original': '',
+          time: '',
+          'duration.original': '',
+          date: '',
+          guests: '',
+          duration: '',
+          'location.original': '',
+          'guests.original': '',
+          location: '',
+          'date.original': ''
         }
       }
     ],
-    "intent": {
-      "name": "projects/drothaus-cce/agent/intents/e8f6a63e-73da-4a1a-8bfc-857183f71228",
-      "displayName": "room.reservation"
+    intent: {
+      name: 'projects/drothaus-cce/agent/intents/e8f6a63e-73da-4a1a-8bfc-857183f71228',
+      displayName: 'room.reservation'
     },
-    "intentDetectionConfidence": 1,
-    "diagnosticInfo": {},
-    "languageCode": "en-us"
+    intentDetectionConfidence: 1,
+    diagnosticInfo: {},
+    languageCode: 'en-us'
   }
 };
 

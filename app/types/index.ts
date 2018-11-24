@@ -52,10 +52,10 @@ export type StackOverflowResult = {
   type: ResultType.StackOverflow,
   question: SOQuestion,
   answer: SOAnswer,
-}
+};
 
 export type IFrameResult = {
   type: ResultType.IFrame,
   href: string,
   querySelector?: string,
-}
+};

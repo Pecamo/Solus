@@ -14,7 +14,7 @@ import { ipcRenderer } from 'electron';
 import { NavLink, RouteComponentProps } from 'react-router-dom';
 import { ToMain } from '../types/ipcMessages';
 import { IState } from '../reducers';
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
