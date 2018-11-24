@@ -10,7 +10,7 @@ import { MicState } from '../reducers/mic';
 import { Card, Intent, NonIdealState, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
-import { ResultNode } from '../types';
+import { ResultNode, ResultType, StackOverflowResult } from '../types';
 
 const styles = require('./MainPage.scss');
 
@@ -27,7 +27,7 @@ enum SearchState {
 
 interface MainPageState {
   searchState: SearchState;
-  results: Array<ResultNode>;
+  results: ResultNode[];
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
@@ -54,17 +54,28 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     const context = 'Stack Overflow';
     const understood = 'I want to...';
 
-    const lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-        'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
-        'when an unknown printer took a galley of type and scrambled it to make a type specimen book.' +
-        'It has survived not only five centuries, but also the leap into electronic typesetting,' +
-        'remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset' +
-        'sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker' +
-        'including versions of Lorem Ipsum.';
-
-    const results = [
-      { source: 'Stack Overflow', content: lorem },
-      { source: 'Lol wikia', content: lorem }
+    const results: ResultProps[] = [
+      {
+        source: 'Stack Overflow',
+        content: {
+          type: ResultType.StackOverflow,
+          question: {
+            title: 'alors',
+            link: 'http://oui.la.vie',
+          },
+          answer: {
+            body_markdown: 'Lol\n```js\nconsole.log("FNU");```'
+          }
+        } as any as StackOverflowResult,
+      },
+      {
+        source: 'Lol wikia',
+        content: {
+          type: ResultType.IFrame,
+          href: 'https://leagueoflegends.wikia.com/wiki/Cloud_Drake',
+          querySelector: 'aside',
+        }
+      }
     ];
 
     switch (this.state.searchState) {
@@ -97,6 +108,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
               {this.renderResults(results, false)}
             </>
         );
+      default:
+        return null;
     }
   }
 
