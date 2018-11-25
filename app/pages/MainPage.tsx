@@ -83,7 +83,6 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
   componentDidUpdate() {
     if (this.micDiv) {
-      console.log(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
       // we assume the rest is also initialized
       this.microphone.setElements(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
     }

@@ -50,7 +50,6 @@ export class Microphone {
   }
 
   public setMicElem = (elem: HTMLElement) => {
-    console.log("setMicElem", elem);
     if (elem) {
       this.elem = elem;
 

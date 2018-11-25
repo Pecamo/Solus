@@ -27,7 +27,7 @@ export class Result extends React.PureComponent<ResultProps> {
       case ResultType.StackOverflow:
         return (
           <>
-            <H5><a href={this.props.content.question.link}>{this.props.content.question.title}</a></H5>
+            <H5><a href={this.props.content.question.link}>{this.decodeEntities(this.props.content.question.title)}</a></H5>
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
@@ -44,9 +44,30 @@ export class Result extends React.PureComponent<ResultProps> {
           </>
         );
       default:
-        return null; //this.props.content;
+        return null;
     }
   }
+
+  private decodeEntities = (() => {
+    // this prevents any overhead from creating the object each time
+    const element = document.createElement('div');
+
+    // regular expression matching HTML entities
+    const entity = /&(?:#x[a-f0-9]+|#[0-9]+|[a-z0-9]+);?/ig;
+
+    return (str: string) => {
+      // find and replace all the html entities
+      const replaced = str.replace(entity, (m: string): string => {
+        element.innerHTML = m;
+        return element.textContent || '';
+      });
+
+      // reset the value
+      element.textContent = '';
+
+      return replaced;
+    };
+  })();
 }
 
 interface ResultFetcherState {
