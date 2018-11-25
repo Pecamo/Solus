@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {SOAnswer, SOQuestion, StackOverflowResult, Source, Question, SingleOrMultipleIntents} from '../types';
+import { SOAnswer, SOQuestion, StackOverflowResult, Source, Question, SingleOrMultipleIntents } from '../types';
 
 export type SimilarAPIResponse = {
   items: Array<{
@@ -61,6 +61,17 @@ export class StackExchangeSource implements Source {
 
   constructor(site: StackExchangeSite) {
     this.site = site;
+  }
+
+  getDisplayName() {
+    return {
+      stackoverflow: 'StackOverflow',
+      blender: 'Blender StackExchange',
+      gaming: 'Arqade StackExchange',
+      photo: 'Photography StackExchange',
+      superuser: 'SuperUser StackExchange',
+      tex: 'TeX StackExchange'
+    }[this.site];
   }
 
   handleQuestion (question: Question): Promise<Array<StackOverflowResult>> {

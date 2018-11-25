@@ -10,14 +10,16 @@ import { MicState } from '../reducers/mic';
 import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
-import { ResultNode } from '../types';
+import {ResultNode, Source} from '../types';
 import { Mic } from '../microphone/mic';
 import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
+import { toastShowAction } from '../actions/mic';
 
 const styles = require('./MainPage.scss');
 
 export interface MainPageProps extends RouteComponentProps<any> {
   mic: MicState;
+  toastShowAction: Function;
 }
 
 enum SearchState {
@@ -50,20 +52,30 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   componentDidMount() {
+    console.log('MY PROPS : ', this.props);
     try {
       this.microphone = new Mic(() => {
         console.log('volume detected');
         this.setState({ searchState: SearchState.SPEAKING });
       }, (res) => {
         if (!('msg_body' in res)) {
+
           console.log('¯\\_(ツ)_/¯ I didnt understand');
+          this.props.toastShowAction({
+            message: (<>Sorry, I didn't understand what you meant.</>),
+            intent: Intent.WARNING,
+            icon: 'mobile-phone',
+          });
+          this.setState({
+            searchState: SearchState.INIT,
+          });
           return;
         }
         this.setState({
           searchState: SearchState.FETCHING,
           heardQuestion: res.msg_body
         });
-        const source = new StackExchangeSource(StackExchangeSite.STACKOVERFLOW);
+        const source: Source = new StackExchangeSource(StackExchangeSite.STACKOVERFLOW);
         source.handleQuestion(res)
           .then((response) => {
             console.log('RESPONSES : ', response);

@@ -83,4 +83,5 @@ export type Question = {
 
 export interface Source {
   handleQuestion: (question: Question) => Promise<Array<ResultNode>>;
+  getDisplayName: () => string;
 }
