@@ -11,19 +11,19 @@ import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position,
 import { Result, ResultProps } from './result/Result';
 
 import { ResultNode, ResultType, StackOverflowResult } from '../types';
-import { Mic } from "../microphone/mic";
+import { Mic } from '../microphone/mic';
 
 const styles = require('./MainPage.scss');
 
 export interface MainPageProps extends RouteComponentProps<any> {
-	mic: MicState;
+  mic: MicState;
 }
 
 enum SearchState {
-	INIT,
-	SPEAKING,
-	FETCHING,
-	DONE
+  INIT,
+  SPEAKING,
+  FETCHING,
+  DONE
 }
 
 interface MainPageState {
@@ -32,21 +32,21 @@ interface MainPageState {
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
-	microphone: Mic;
+  microphone: Mic;
 
-	readonly state: MainPageState = {
-		searchState: SearchState.INIT,
-		results: []
-	};
+  readonly state: MainPageState = {
+    searchState: SearchState.INIT,
+    results: []
+  };
 
-	setResults(results: MainPageState['results']) {
-		this.state.results = results;
-	}
+  setResults(results: MainPageState['results']) {
+    this.state.results = results;
+  }
 
   componentDidMount() {
-    let elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
+    const elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
     this.microphone = new Mic(elem, () => {
-      console.log("volume detected");
+      console.log('volume detected');
       this.setState({ searchState: SearchState.SPEAKING });
     }, (res) => {
       console.log(res);
@@ -84,32 +84,36 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
     const results: ResultProps[] = [
       {
-        source: 'Stack Overflow' ,
+        source: 'Stack Overflow',
         content: {
-         type : ResultType.StackOverflow,
+          type: ResultType.StackOverflow,
           question: {
             title: 'alors',
             link: 'http://oui.la.vie',
           },
           answer: {
-        body: `<p>Blah blah. Blah? <code>that feature</code>I also usethe <a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
-        <pre><code class="language-css">p { color: red }</code></pre></p>`
-        }
+            body:
+                `<p>Blah blah. Blah? <code>that feature</code>I also use the
+<a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
+<pre><code class="language-css">p { color: red }</code></pre></p>`
+          }
         } as any as StackOverflowResult,
-},
-    {
-       source: 'Lol wikia', content: {
+      },
+      {
+        source: 'Lol wikia',
+        content: {
           type: ResultType.IFrame,
           href: 'https://leagueoflegends.wikia.com/wiki/Cloud_Drake',
           querySelector: 'aside',
         }
       },
       {
-       source: 'Lol wikia', content: {
+        source: 'Lol wikia', content: {
           type: ResultType.IFrame,
           href: 'https://leagueoflegends.wikia.com/wiki/Gromp',
           querySelector: 'aside',
-        } }
+        }
+      }
     ];
 
     switch (this.state.searchState) {
@@ -142,41 +146,40 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             <>
               {this.renderResultHead(context, understood)}
               <Text className={styles.best_guess}>Best guess: {guess}</Text>{this.renderResults(results)}
-            </>);
-            default:
+            </>
+        );
+      default:
         return null;
     }
   }
 
-	private renderResultHead = (context: string, understood: string) => (
-			<>
-				<Text>Your query for the context {context}:</Text>
+  private renderResultHead = (context: string, understood: string) => (
+    <>
+      <Text>Your query for the context {context}:</Text>
 
-				<Card className={styles.understood}>
-					<Text ellipsize={true}>{understood}</Text>
-				</Card>
-			</>
-	)
+      <Card className={styles.understood}>
+        <Text ellipsize={true}>{understood}</Text>
+      </Card>
+    </>
+  )
 
   private renderResults = (results: ResultProps[]) => (
-        <div className={styles.results}>
+    <div className={styles.results}>
+      {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+    </div>
+  )
 
-              {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
-            </div>
-          )
-
-    private updateState = (searchState: SearchState) => () => this.setState({ searchState
-  });
+  private updateState = (searchState: SearchState) => () => this.setState({ searchState })
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
-	return {
-		mic: state.mic
-	};
+  return {
+    mic: state.mic
+  };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<MainPageProps> {
-	return bindActionCreators(MicActions as any, dispatch);
+  return bindActionCreators(MicActions as any, dispatch);
 }
 
 export default (connect(mapStateToProps, mapDispatchToProps)(MainPage) as any as React.StatelessComponent<MainPageProps>);
