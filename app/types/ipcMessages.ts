@@ -12,6 +12,7 @@ export enum ToMain {
 export enum ToRenderer {
     // Window
     OS_TYPE = 'OS_TYPE',
+    CURRENT_PROCESS = 'CURRENT_PROCESS',
 
     // Logic
     MIC_IDK_RESULT = 'MIC_IDK_RESULT',

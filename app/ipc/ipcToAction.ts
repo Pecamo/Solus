@@ -6,7 +6,7 @@ import {
   micActions,
   mic2Actions
 } from '../actions/mic';
-import { osTypeAction } from '../actions/osType';
+import { osTypeAction, currentProcessAction } from '../actions/osType';
 import { IActionCreator, IActionCreatorVoid } from '../actions/helpers';
 
 export const startIpcListeners = (store: any) => {
@@ -14,8 +14,9 @@ export const startIpcListeners = (store: any) => {
     // Recurring IPC Messages
     [ToRenderer.MIC_IDK_RESULT]: micActions.PRESUCCESS,
     [ToRenderer.MIC_IDK_2_RESULT]: mic2Actions.PRESUCCESS,
+    [ToRenderer.CURRENT_PROCESS]: currentProcessAction,
 
-    // One time Messages
+      // One time Messages
     [ToRenderer.OS_TYPE]: osTypeAction
   };
 

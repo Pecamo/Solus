@@ -2,6 +2,7 @@ import { app, BrowserWindow, Menu, shell, ipcMain } from 'electron';
 import { ToMain, ToRenderer } from './types/ipcMessages';
 import * as path from 'path';
 import * as os from 'os';
+import ProcessWatcher from './back/ProcessWatcher';
 
 let menu;
 let template;
@@ -128,6 +129,13 @@ app.on('ready', () => {
         }]).popup(mainWindow);
       });
     }
+
+    const onProcessChange = (arg: {title: string, process: string}) => {
+      mainWindow.webContents.send(ToRenderer.CURRENT_PROCESS, arg.process);
+    };
+
+    const pw = new ProcessWatcher(onProcessChange);
+    pw.run();
 
     template = [{
       label: '&File',
