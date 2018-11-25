@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
+import { Card, H4, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
 import { IFrameResult, ResultNode, ResultType } from '../../types';
 
 const styles = require('./styles.scss');
@@ -27,7 +27,8 @@ export class Result extends React.PureComponent<ResultProps> {
       case ResultType.StackOverflow:
         return (
           <>
-            <H5><a href={this.props.content.question.link}>{this.decodeEntities(this.props.content.question.title)}</a></H5>
+            <H4>{this.decodeEntities(this.props.content.question.title)}</H4>
+            <H5>{this.props.content.question.link}</H5>
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
@@ -37,11 +38,13 @@ export class Result extends React.PureComponent<ResultProps> {
           </>
         );
       case ResultType.IFrame:
+        // FIXME title
         return (
-          <>
-            <H5><a href={this.props.content.href}>{this.props.content.href}</a></H5>
-            <ResultFetcher {...this.props.content}/>
-          </>
+            <>
+              <H4>{this.props.content.href.substr(this.props.content.href.lastIndexOf('/') + 1)}</H4>
+              <H5>{this.props.content.href}</H5>
+              <ResultFetcher {...this.props.content}/>
+            </>
         );
       default:
         return null;
@@ -86,6 +89,7 @@ class ResultFetcher extends React.Component<IFrameResult, ResultFetcherState> {
 
     const parsed: Document = new DOMParser().parseFromString(await res.text() , 'text/html');
     const queried = parsed.querySelector(this.props.querySelector || 'body');
+    // const anchors = queried.querySelector('a').forEach(a => a.removeAttribute('href'));
 
     this.setState({
       fetching: false,

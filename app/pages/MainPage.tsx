@@ -12,7 +12,6 @@ import { Result, ResultProps } from './result/Result';
 
 import { ResultNode } from '../types';
 import { Mic } from '../microphone/mic';
-import '../../wit/microphone/css/microphone.min.css';
 import { StackExchangeSite, StackExchangeSource } from '../back/sources/stackoverflow';
 
 const styles = require('./MainPage.scss');
@@ -51,11 +50,11 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   componentDidMount() {
-    this.microphone = new Mic(() => {
-      console.log('volume detected');
-      this.setState({ searchState: SearchState.SPEAKING });
-    }, (res) => {
-      try {
+    try {
+      this.microphone = new Mic(() => {
+        console.log('volume detected');
+        this.setState({ searchState: SearchState.SPEAKING });
+      }, (res) => {
         if (!('msg_body' in res)) {
           console.log('¯\\_(ツ)_/¯ I didnt understand');
           return;
@@ -73,12 +72,12 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
               results: response
             });
           });
-      } catch (e) {
-        console.log('crash : ', e);
-      }
-    });
+      });
 
-    this.microphone.init();
+      this.microphone.init();
+    } catch (e) {
+      console.log('crash : ', e);
+    }
   }
 
   componentDidUpdate() {
@@ -201,9 +200,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   )
 
   private renderMic = () => (
-    <>
-      <div>
-        <div id="microphone" ref={(ref: HTMLDivElement) => this.micDiv = ref}/>
+    <div className={styles.mic_container}>
+      <div className={styles.mic_main}>
+        <div id={styles.microphone} ref={(ref: HTMLDivElement) => this.micDiv = ref}/>
         <div id={styles.volume}>
           <div id={styles.threshold_volume} ref={(ref: HTMLDivElement) => this.thresholdVolDiv = ref}/>
           <div id={styles.current_volume} ref={(ref: HTMLDivElement) => this.curVolDiv = ref}/>
@@ -212,7 +211,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       <pre id="result"/>
       <div id="info"/>
       <div id="error"/>
-    </>
+    </div>
   )
 
   private updateState = (searchState: SearchState) => () => this.setState({ searchState });
