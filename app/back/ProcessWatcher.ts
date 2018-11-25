@@ -17,6 +17,7 @@ const getFocusProcess = (cb: Function) => {
 
     proc.stderr.on('data', (data: any) => {
       console.log(`stderr: ${data}`);
+      cb("unknown");
     });
 
     proc.on('close', (code: any) => {
@@ -34,6 +35,7 @@ const getFocusProcess = (cb: Function) => {
 
     child.stderr.on('data', (data: any) => {
       console.log(`Powershell error : ${data}`);
+      cb("unknown");
     });
 
     child.on('exit', () => {
@@ -52,6 +54,7 @@ const getFocusProcess = (cb: Function) => {
 
     proc.stderr.on('data', (data: any) => {
       console.log(`stderr: ${data}`);
+      cb("unknown");
     });
 
     proc.on('close', (code: any) => {
