@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import { IState } from '../reducers';
 
 import { MicState } from '../reducers/mic';
-import { Card, Intent, NonIdealState, Spinner, Text } from '@blueprintjs/core';
+import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
 import { ResultNode, ResultType, StackOverflowResult } from '../types';
@@ -44,11 +44,23 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
+          <Popover className={styles.change_state} content={this.renderMenu()} position={Position.BOTTOM}>
+            <Button icon="share" text="Change state" />
+          </Popover>
           {this.renderContent()}
         </div>
       </div>
     );
   }
+
+  private renderMenu = () => (
+      <Menu>
+        <MenuItem text="Init" onClick={this.updateState(SearchState.INIT)}/>
+        <MenuItem text="Speaking" onClick={this.updateState(SearchState.SPEAKING)}/>
+        <MenuItem text="Fetching" onClick={this.updateState(SearchState.FETCHING)}/>
+        <MenuItem text="Done" onClick={this.updateState(SearchState.DONE)}/>
+      </Menu>
+  );
 
   private renderContent = () => {
     const context = 'Stack Overflow';
@@ -143,6 +155,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
           {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
         </div>
     )
+
+  private updateState = (searchState: SearchState) => () => this.setState({ searchState });
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
