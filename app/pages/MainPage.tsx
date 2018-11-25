@@ -7,10 +7,11 @@ import { RouteComponentProps } from 'react-router';
 import { IState } from '../reducers';
 
 import { MicState } from '../reducers/mic';
-import { Card, Intent, NonIdealState, Spinner, Text } from '@blueprintjs/core';
+import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
 import { ResultNode, ResultType, StackOverflowResult } from '../types';
+import { Mic } from '../microphone/mic';
 
 const styles = require('./MainPage.scss');
 
@@ -31,8 +32,10 @@ interface MainPageState {
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
+  microphone: Mic;
+
   readonly state: MainPageState = {
-    searchState: SearchState.DONE,
+    searchState: SearchState.INIT,
     results: []
   };
 
@@ -40,15 +43,39 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     this.state.results = results;
   }
 
+  componentDidMount() {
+    const elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
+    this.microphone = new Mic(elem, () => {
+      console.log('volume detected');
+      this.setState({ searchState: SearchState.SPEAKING });
+    }, (res) => {
+      console.log(res);
+    });
+
+    this.microphone.init();
+  }
+
   render() {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
+          <Popover className={styles.change_state} content={this.renderMenu()} position={Position.BOTTOM}>
+            <Button icon="share" text="Change state" />
+          </Popover>
           {this.renderContent()}
         </div>
       </div>
     );
   }
+
+  private renderMenu = () => (
+      <Menu>
+        <MenuItem text="Init" onClick={this.updateState(SearchState.INIT)}/>
+        <MenuItem text="Speaking" onClick={this.updateState(SearchState.SPEAKING)}/>
+        <MenuItem text="Fetching" onClick={this.updateState(SearchState.FETCHING)}/>
+        <MenuItem text="Done" onClick={this.updateState(SearchState.DONE)}/>
+      </Menu>
+  );
 
   private renderContent = () => {
     const context = 'Stack Overflow';
@@ -65,12 +92,10 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             link: 'http://oui.la.vie',
           },
           answer: {
-            body_markdown:
-                `Lol
-                \`\`\`js
-                console.log("FNU");
-                \`\`\`
-                `
+            body:
+                `<p>Blah blah. Blah? <code>that feature</code>I also use the
+<a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
+<pre><code class="language-css">p { color: red }</code></pre></p>`
           }
         } as any as StackOverflowResult,
       },
@@ -83,8 +108,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         }
       },
       {
-        source: 'Lol wikia',
-        content: {
+        source: 'Lol wikia', content: {
           type: ResultType.IFrame,
           href: 'https://leagueoflegends.wikia.com/wiki/Gromp',
           querySelector: 'aside',
@@ -121,8 +145,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         return (
             <>
               {this.renderResultHead(context, understood)}
-              <Text className={styles.best_guess}>Best guess: {guess}</Text>
-              {this.renderResults(results)}
+              <Text className={styles.best_guess}>Best guess: {guess}</Text>{this.renderResults(results)}
             </>
         );
       default:
@@ -131,20 +154,22 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   private renderResultHead = (context: string, understood: string) => (
-      <>
-        <Text>Your query for the context {context}:</Text>
+    <>
+      <Text>Your query for the context {context}:</Text>
 
-        <Card className={styles.understood}>
-          <Text ellipsize={true}>{understood}</Text>
-        </Card>
-      </>
+      <Card className={styles.understood}>
+        <Text ellipsize={true}>{understood}</Text>
+      </Card>
+    </>
   )
 
   private renderResults = (results: ResultProps[]) => (
-        <div className={styles.results}>
-          {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
-        </div>
-    )
+    <div className={styles.results}>
+      {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+    </div>
+  )
+
+  private updateState = (searchState: SearchState) => () => this.setState({ searchState })
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {

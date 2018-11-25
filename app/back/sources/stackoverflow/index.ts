@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import { SOAnswer, SOQuestion, StackOverflowResult } from '../../../types';
 
 interface Source {
 
@@ -17,69 +18,53 @@ type SingleOrMultipleIntents = Intent | Array<Intent>;
 type Entities = {[key: string]: SingleOrMultipleIntents;
 };
 
-type Question = {
+export type Question = {
   entities: Entities,
   intent: string,
   msg_body: string,
   msg_id: string
 };
 
-type SimilarAPIResponse = {
+export type SimilarAPIResponse = {
   items: Array<{
     tags: Array<string>,
     answers: Array<{
       owner: {
         reputation: number,
         user_id: number,
+        accept_rate?: number,
         user_type: string,
         profile_image: string,
         display_name: string,
         link: string
       },
-      is_accepted: true,
+      is_accepted: boolean,
       score: number,
+      link: string,
       last_activity_date: number,
-      last_edit_date: number,
+      last_edit_date?: number,
       creation_date: number,
       answer_id: number,
       question_id: number,
-      body_markdown: string
+      body: string,
     }>
     owner: object,
     is_answered: boolean,
     view_count: number,
-    accepted_answer_id: number,
+    accepted_answer_id?: number,
     answer_count: number,
     score: number,
+    link: string,
     last_activity_date: number,
     creation_date: number,
-    last_edit_date: number,
+    last_edit_date?: number,
     question_id: number,
-    body_markdown: string,
-    link: string,
+    body: string,
     title: string
   }>,
   has_more: boolean,
   quota_max: number,
   quota_remaining: number
-};
-
-const test: Question = {
-  entities: {
-    intent: {
-      value: 'StackOverflow',
-    },
-    prog_concept: {
-      body: 'PHP loop',
-      end: 20,
-      start: 12,
-      suggested: true,
-      value: 'PHP loop'
-    }
-  },
-  intent: 'default_intent',
-  msg_body: 'how to do a PHP Loop',
-  msg_id: 'q24r5ewf9iuhwq8tr4'
 };
 
 enum StackExchangeSite {
@@ -102,11 +87,46 @@ class StackExchangeSource implements Source {
     this.site = site;
   }
 
-  handleQuestion(question: Question) {
-    this.getSimilarQuestions(question)
+  handleQuestion (question: Question): Promise<Array<StackOverflowResult>> {
+    return this.getSimilarQuestions(question)
       .then((response) => {
-        console.log(response);
-        this.getAnswersById(response.items);
+        const nodes = response.items.map((item) => {
+          const question: SOQuestion = {
+            tags: item.tags,
+            owner: item.owner as SOQuestion['owner'],
+            is_answered : item.is_answered,
+            view_count : item.view_count,
+            accepted_answer_id : item.accepted_answer_id,
+            answer_count : item.answer_count,
+            score : item.score,
+            last_activity_date : item.last_activity_date,
+            creation_date : item.creation_date,
+            last_edit_date : item.last_edit_date,
+            question_id : item.question_id,
+            link : item.link,
+            title : item.title,
+            body: item.body
+          };
+
+          let answer: SOAnswer | undefined = undefined;
+
+          if (item.answer_count === 0) {
+            return {};
+          }
+
+          const sorted = item.answers.sort((a, b) => a.score - b.score);
+          answer = sorted[0];
+
+          return {
+            question,
+            answer,
+            type: 'StackOverflow'
+          };
+        });
+
+        const filtered = nodes.filter(node => !!node);
+
+        return filtered as Array<StackOverflowResult>;
       });
   }
 
@@ -131,7 +151,7 @@ class StackExchangeSource implements Source {
       order: 'desc',
       sort: 'relevance',
       site: this.site,
-      filter: '!b1MMEU*.-3EcYn',
+      filter: '!b1MMEU)j2DncNX',
       /*tagged: question.intent, // Tags are currently disabled to ensure compatibility with all StackExchange sites  */
       title: question.msg_body
     };
@@ -146,13 +166,45 @@ class StackExchangeSource implements Source {
       });
   }
 
-  private getAnswersById(items: SimilarAPIResponse['items']) {
-    items.map((item) => {
-      console.log(item.answers);
-      item.answers.map((answer) => {
-        // answer.score;
-        // TODO : Loop through answers, take highest voted one
-      });
-    });
-  }
+  /*
+  private getAnswersById(questions: SimilarAPIResponse['items']): Array<StackOverflowResult> {
+    if (questions.length === 0) {
+      return [];
+    }
+    const nodes = questions
+      .map((question) => {
+        if (question.answers.length === 0) {
+          return null;
+        }
+        const sorted = question.answers.sort((a, b) => a.score - b.score);
+        const best = sorted[0];
+        return {
+          question,
+          answerId: best.answer_id
+        };
+      })
+      .filter(question => !!question);
+    const answerIds = nodes.map(node => node ? node.answerId : null).filter(answer => !!answer);
+    //
+    const query = {
+      order: 'desc',
+      sort: 'votes',
+      site: this.site,
+      filter: '!6PLMObrfJqlhA',
+      ids: answerIds.join(';')
+    };
+    // Construct the call
+    const queryString = `?${Object.keys(query).map(key => `${key}=${query[key]}`).join('&')}`;
+    const url = new URL(StackExchangeSource.similarPath, StackExchangeSource.host);
+    // Actual query
+    url.search = queryString;
+    fetch(url.toString())
+      .then((response) => {
+        return response.json();
+      })
+      .then((response: AnswersAPIResponse) => {
+        const answersById = _.keyBy(response.items, item => item.answer_id);
+
+        response.items.map(item => {});
+      }); */
 }
