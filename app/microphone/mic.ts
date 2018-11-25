@@ -44,11 +44,11 @@ export class Mic {
 
         this.mic = this.wit.microphone;
 
-        let info = function (msg) {
+        let info = (msg) => {
             console.info(msg);
         };
 
-        let error = function (msg) {
+        let error = (msg) => {
             console.error(msg);
         };
 
@@ -59,7 +59,6 @@ export class Mic {
         this.mic.onaudiostart = () => {
             this.isRecording = true;
             info("Recording started");
-            error("");
         };
 
         this.mic.onaudioend = () => {
@@ -67,7 +66,7 @@ export class Mic {
             info("Recording stopped, processing started");
         };
 
-        this.mic.onresult = function (res) {
+        this.mic.onresult = (res) => {
             let ret: any = {};
 
             if (!res) {
@@ -122,7 +121,7 @@ export class Mic {
     }
 
     onLevelChange = (time?) => {
-        if (!this.hasBeenCalledMicOn && this.meter.volume > 0) {
+        if (!this.hasBeenCalledMicOn && this.meter.processor.volume > 0) {
             this.hasBeenCalledMicOn = true;
             this.onMicrophoneOn();
         }

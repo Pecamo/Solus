@@ -85,7 +85,7 @@ export class Microphone {
 		}
 	};
 
-	public mkthinking() {
+	public mkthinking = () => {
 		this.thinking = true;
 
 		if (this.elem) {
@@ -329,7 +329,7 @@ export class Microphone {
 					break;
 			}
 		} else {
-			console.log(`fsm error: ${this.state} + ${event}`, ary);
+			// console.log(`fsm error: ${this.state} + ${event}`, ary);
 		}
 
 		return s;
@@ -367,7 +367,7 @@ export class Microphone {
 
 	public handleResult (res) {
 		let f;
-		if (typeof (f = this.onerror) === 'function') {
+		if (typeof (f = this.onresult) === 'function') {
 			if (res) {
 				return f.call(window, res);
 			}

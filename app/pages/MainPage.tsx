@@ -46,6 +46,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 	componentDidMount() {
 		let elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
 		this.microphone = new Mic(elem, () => {
+			console.log("volume detected");
 			this.setState({ searchState: SearchState.SPEAKING });
 		}, (res) => {
 			console.log(res);
