@@ -107,7 +107,7 @@ export class StackExchangeSource implements Source {
           return {
             question,
             answer,
-            type: 'StackOverflow'
+            type: this.getDisplayName()
           };
         });
 

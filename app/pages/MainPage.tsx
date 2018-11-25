@@ -94,7 +94,6 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         const sources: Array<Source> = (context as Context).sources;
         const results = [];
 
-
         sources[0].handleQuestion(res)
           .then((response) => {
             console.log('RESPONSES : ', response);
@@ -150,9 +149,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     return (
       <div className={styles.container}>
         <div className={styles.content}>
-          <Popover className={styles.change_state} content={this.renderMenu()} position={Position.BOTTOM}>
+          {/*<Popover className={styles.change_state} content={this.renderMenu()} position={Position.BOTTOM}>
             <Button icon="share" text="Change state" />
-          </Popover>
+          </Popover>*/}
           {this.renderContent(currentContext)}
         </div>
       </div>
