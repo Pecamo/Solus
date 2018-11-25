@@ -11,7 +11,7 @@ import { MicState } from '../reducers/mic';
 import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
-import { ResultNode, Source } from '../types';
+import { ResultNode, ResultType, StackOverflowResult, Source } from '../types';
 import { Mic } from '../microphone/mic';
 import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
 import { toastShowAction } from '../actions/mic';
@@ -41,7 +41,7 @@ interface MainPageState {
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
-  microphone: Mic;
+  microphone?: Mic;
   micDiv: HTMLDivElement;
   curVolDiv: HTMLDivElement;
   thresholdVolDiv: HTMLDivElement;
@@ -94,6 +94,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         const sources: Array<Source> = (context as Context).sources;
         const results = [];
 
+
         sources[0].handleQuestion(res)
           .then((response) => {
             console.log('RESPONSES : ', response);
@@ -135,7 +136,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   componentDidUpdate() {
     if (this.micDiv) {
       // we assume the rest is also initialized
-      this.microphone.setElements(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
+      this.microphone && this.microphone.setElements(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
     }
   }
 
@@ -181,8 +182,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       };
     });
 
-    /*
-    const results: ResultProps[] = [
+    /*const results: ResultProps[] = [
       {
         source: 'Stack Overflow',
         content: {
@@ -195,7 +195,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             body:
                 `<p>Blah blah. Blah? <code>that feature</code>I also use the
 <a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
-<pre><code class="language-css">p { color: red }</code></pre></p>`
+<pre><code>p { color: red }</code></pre></p>`
           }
         } as any as StackOverflowResult,
       },

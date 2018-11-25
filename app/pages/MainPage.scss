@@ -3,6 +3,7 @@
 :local {
   // Remaining height of content when height of content above is substracted
   $remaining-height: calc(100vh - 270px);
+  $volume-height: 20px;
 
   .container {
     height: 100%;
@@ -53,8 +54,8 @@
 
   #volume {
     position: relative;
-    height: 20px;
-    border-radius: 10px;
+    height: $volume-height;
+    border-radius: $volume-height/2;
     background-color: #ecd8ac;
   }
 
@@ -62,10 +63,10 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: -1px;
     min-width: 20px !important;
     background-color: #967741;
-    border-radius: 10px;
+    border-radius: $volume-height/2 0 0 $volume-height/2;;
   }
 
   #threshold_volume {
@@ -75,7 +76,7 @@
     left: 0;
     width: 200px;
     background-color: #c7ad74;
-    border-radius: 10px;
+    border-radius: $volume-height/2 0 0 $volume-height/2;
   }
 
   #current_volume, #threshold_volume {

@@ -1,5 +1,6 @@
 import { Source } from '../types';
 import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
+import { LolWikiaSource } from '../sources/lolwikia';
 
 export interface Context {
   processName: RegExp;
@@ -31,7 +32,7 @@ const PDNContext = {
   sources: [Photography]
 };
 
-const LOLContext = {
+const LOLContext: Context = {
   processName: /^(LeagueClient|LeagueClientUx)$/,
   displayName: 'League of Legends',
   sources: [Arqade]

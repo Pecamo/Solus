@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Card, H4, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
 import { IFrameResult, ResultNode, ResultType } from '../../types';
 
+import * as hljs from 'highlight.js';
+
 const styles = require('./styles.scss');
 
 export interface ResultProps {
@@ -10,8 +12,12 @@ export interface ResultProps {
 }
 
 export class Result extends React.PureComponent<ResultProps> {
+  componentDidMount() {
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
+  }
+
   render() {
-    console.log('la vie cest drôle', this.props);
     return (
         <Card className={styles.result}>
           <Tag className={styles.source}>
@@ -28,7 +34,7 @@ export class Result extends React.PureComponent<ResultProps> {
         return (
           <>
             <H4>{this.decodeEntities(this.props.content.question.title)}</H4>
-            <H5>{this.props.content.question.link}</H5>
+            <p>{this.props.content.question.link}</p>
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
@@ -42,7 +48,7 @@ export class Result extends React.PureComponent<ResultProps> {
         return (
             <>
               <H4>{this.props.content.href.substr(this.props.content.href.lastIndexOf('/') + 1)}</H4>
-              <H5>{this.props.content.href}</H5>
+              <p>{this.props.content.href}</p>
               <ResultFetcher {...this.props.content}/>
             </>
         );
@@ -95,6 +101,11 @@ class ResultFetcher extends React.Component<IFrameResult, ResultFetcherState> {
       fetching: false,
       html: queried ? queried.innerHTML : '',
     });
+  }
+
+  componentDidUpdate() {
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
   }
 
   render() {

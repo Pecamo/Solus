@@ -19,7 +19,10 @@ const getFocusProcess = (cb: Function) => {
       console.log(`stderr: ${data}`);
     });
 
-    proc.on('close', (code: any) => {
+    proc.on('close', (code: number) => {
+      if (code > 0) {
+        cb('unknown');
+      }
     });
 
     // Windows
@@ -36,8 +39,11 @@ const getFocusProcess = (cb: Function) => {
       console.log(`Powershell error : ${data}`);
     });
 
-    child.on('exit', () => {
+    child.on('exit', (code: number) => {
       console.log('Powershell script finished');
+      if (code > 0) {
+        cb('unknown');
+      }
     });
 
     child.stdin.end();
@@ -54,7 +60,10 @@ const getFocusProcess = (cb: Function) => {
       console.log(`stderr: ${data}`);
     });
 
-    proc.on('close', (code: any) => {
+    proc.on('close', (code: number) => {
+      if (code > 0) {
+        cb('unknown');
+      }
     });
   }
 };

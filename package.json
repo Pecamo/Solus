@@ -176,6 +176,7 @@
     "@types/lodash": "^4.14.116",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
+    "highlight.js": "^9.13.1",
     "history": "^4.6.1",
     "jimp": "^0.5.4",
     "lodash": "4.17.11",
