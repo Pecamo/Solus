@@ -2,7 +2,7 @@
 
 :local {
   // Remaining height of content when height of content above is substracted
-  $remaining-height: calc(100vh - 330px);
+  $remaining-height: calc(100vh - 270px);
 
   .container {
     height: 100%;
@@ -47,11 +47,15 @@
     right: 30px;
   }
 
+  #microphone {
+    margin: 0 auto 30px;
+  }
+
   #volume {
     position: relative;
     height: 20px;
     border-radius: 10px;
-    background-color: #a7dbd8;
+    background-color: #ecd8ac;
   }
 
   #current_volume {
@@ -59,8 +63,8 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 20px;
-    background-color: #f38630;
+    min-width: 20px !important;
+    background-color: #967741;
     border-radius: 10px;
   }
 
@@ -70,7 +74,23 @@
     bottom: 0;
     left: 0;
     width: 200px;
-    background-color: #69d2e7;
+    background-color: #c7ad74;
     border-radius: 10px;
+  }
+
+  #current_volume, #threshold_volume {
+    // border-right: 1px solid #505050;
+  }
+
+  .mic_container {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mic_main {
+    width: 100%;
   }
 }
