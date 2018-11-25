@@ -30,19 +30,6 @@ export class Result extends React.PureComponent<ResultProps> {
 
   private renderContent = () => {
     switch (this.props.content.type) {
-      case ResultType.StackOverflow:
-        return (
-          <>
-            <H4>{this.decodeEntities(this.props.content.question.title)}</H4>
-            <p>{this.props.content.question.link}</p>
-            <div
-              className={styles.content}
-              dangerouslySetInnerHTML={{
-                __html: `<p>${this.props.content.answer.body}</p>`
-              }}
-            />
-          </>
-        );
       case ResultType.IFrame:
         // FIXME title
         return (
@@ -53,7 +40,19 @@ export class Result extends React.PureComponent<ResultProps> {
             </>
         );
       default:
-        return null;
+        // FIXME: not necessarily a stack exchange source, the content.type should contain the type of render
+        return (
+          <>
+            <H4>{this.decodeEntities(this.props.content.question.title)}</H4>
+            <p>{this.props.content.question.link}</p>
+            <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{
+                  __html: `<p>${this.props.content.answer.body}</p>`
+                }}
+            />
+          </>
+      );
     }
   }
 
