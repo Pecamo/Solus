@@ -147,7 +147,7 @@ class StackExchangeSource implements Source {
   }
 
   private getAnswersById(items: SimilarAPIResponse['items']) {
-    items.map(item => {
+    items.map((item) => {
       console.log(item.answers);
       item.answers.map((answer) => {
         // answer.score;
