@@ -93,15 +93,24 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         }
         const sources: Array<Source> = (context as Context).sources;
         const results = [];
+
+        sources[0].handleQuestion(res)
+          .then((response) => {
+            console.log('RESPONSES : ', response);
+            _.concat(results, response);
+            this.setState({
+              searchState: SearchState.DONE,
+              results: response
+            })
+          });
+
+        /*
         const promises = sources.map((source) => {
           return source.handleQuestion(res)
             .then((response) => {
               console.log('RESPONSES : ', response);
               _.concat(results, response);
-              /* this.setState({
-                searchState: SearchState.DONE,
-                results: response
-              }); */
+
             });
         });
         Promise.all(promises)
@@ -113,7 +122,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
                 searchState: SearchState.DONE
               });
             }, 500);
-          });
+          });*/
 
       });
 
