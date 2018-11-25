@@ -14,11 +14,15 @@ import {ResultNode, Source} from '../types';
 import { Mic } from '../microphone/mic';
 import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
 import { toastShowAction } from '../actions/mic';
+import ContextHandler from '../ContextHandler';
+import {CurrentProcessState} from '../reducers/currentProcess';
+import {Context} from '../contexts/allContexts';
 
 const styles = require('./MainPage.scss');
 
 export interface MainPageProps extends RouteComponentProps<any> {
   mic: MicState;
+  currentProcess: CurrentProcessState;
   toastShowAction: Function;
 }
 
@@ -41,6 +45,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   curVolDiv: HTMLDivElement;
   thresholdVolDiv: HTMLDivElement;
 
+  contextHandler: ContextHandler;
+
   readonly state: MainPageState = {
     searchState: SearchState.INIT,
     heardQuestion: '...',
@@ -49,6 +55,10 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
   setResults(results: MainPageState['results']) {
     this.state.results = results;
+  }
+
+  componentWillMount() {
+    this.contextHandler = new ContextHandler();
   }
 
   componentDidMount() {
@@ -100,13 +110,19 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   render() {
+    const { currentProcess } = this.props;
+    const currentContext = ContextHandler.getContextOfProcess(currentProcess);
+    if (!currentContext) {
+      console.error('???');
+      return (<div>???</div>);
+    }
     return (
       <div className={styles.container}>
         <div className={styles.content}>
           <Popover className={styles.change_state} content={this.renderMenu()} position={Position.BOTTOM}>
             <Button icon="share" text="Change state" />
           </Popover>
-          {this.renderContent()}
+          {this.renderContent(currentContext)}
         </div>
       </div>
     );
@@ -119,10 +135,10 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         <MenuItem text="Fetching" onClick={this.updateState(SearchState.FETCHING)}/>
         <MenuItem text="Done" onClick={this.updateState(SearchState.DONE)}/>
       </Menu>
-  )
+  );
 
-  private renderContent = () => {
-    const context = 'Stack Overflow';
+  private renderContent = (currentContext: Context) => {
+    const context = currentContext.displayName;
     const understood = this.state.heardQuestion;
 
     const results = this.state.results.map((result) => {
@@ -166,6 +182,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         }
       }
     ];*/
+
 
     switch (this.state.searchState) {
       case SearchState.INIT:
@@ -231,7 +248,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
   return {
-    mic: state.mic
+    mic: state.mic,
+    currentProcess: state.currentProcess
   };
 }
 
