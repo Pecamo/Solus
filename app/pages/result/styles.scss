@@ -15,6 +15,11 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+
+    a {
+      pointer-events: none;
+      cursor: crosshair;
+    }
   }
 
   .source {
