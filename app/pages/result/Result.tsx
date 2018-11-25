@@ -11,6 +11,7 @@ export interface ResultProps {
 
 export class Result extends React.PureComponent<ResultProps> {
   render() {
+    console.log('la vie cest drôle', this.props);
     return (
         <Card className={styles.result}>
           <Tag className={styles.source}>
@@ -43,7 +44,7 @@ export class Result extends React.PureComponent<ResultProps> {
           </>
         );
       default:
-        return this.props.content;
+        return null; //this.props.content;
     }
   }
 }
