@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { Card, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
-import * as showdown from 'showdown';
 import { IFrameResult, ResultNode, ResultType } from '../../types';
 
 const styles = require('./styles.scss');
-const converter = new showdown.Converter();
 
 export interface ResultProps {
   source: string;
@@ -32,7 +30,8 @@ export class Result extends React.PureComponent<ResultProps> {
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
-                __html: `<p>${converter.makeHtml(this.props.content.answer.body_markdown)}</p>`
+                // FIXME remove any later
+                __html: `<p>${(this.props.content.answer as any).body}</p>`
               }}
             />
           </>

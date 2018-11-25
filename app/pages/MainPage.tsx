@@ -65,12 +65,10 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             link: 'http://oui.la.vie',
           },
           answer: {
-            body_markdown:
-                `Lol
-                \`\`\`js
-                console.log("FNU");
-                \`\`\`
-                `
+            body:
+                `<p>Blah blah. Blah? <code>that feature</code>I also use the
+<a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
+<pre><code class="language-css">p { color: red }</code></pre></p>`
           }
         } as any as StackOverflowResult,
       },
