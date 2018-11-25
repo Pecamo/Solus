@@ -18,12 +18,12 @@ export type SOQuestion = {
   },
   is_answered : boolean,
   view_count : number,
-  accepted_answer_id : number,
+  accepted_answer_id? : number,
   answer_count : number,
   score : number,
   last_activity_date : number,
   creation_date : number,
-  last_edit_date : number,
+  last_edit_date? : number,
   question_id : number,
   link : string,
   title : string
@@ -41,15 +41,16 @@ export type SOAnswer = {
   is_accepted: boolean,
   score: number,
   last_activity_date: number,
-  last_edit_date: number,
+  last_edit_date?: number,
   creation_date: number,
   answer_id: number,
   question_id: number,
-  body_markdown: string
+  body_markdown: string,
+  body: string
 };
 
 export type StackOverflowResult = {
-  type: ResultType.StackOverflow,
+  type: 'StackOverflow',
   question: SOQuestion,
   answer: SOAnswer,
 };
