@@ -60,3 +60,27 @@ export type IFrameResult = {
   href: string,
   querySelector?: string,
 };
+
+export type Intent = {
+  body?: string,
+  end?: number,
+  start?: number,
+  suggested?: boolean,
+  value: string
+};
+
+export type SingleOrMultipleIntents = Intent | Array<Intent>;
+
+export type Entities = {[key: string]: SingleOrMultipleIntents;
+};
+
+export type Question = {
+  entities: Entities,
+  intent: string,
+  msg_body: string,
+  msg_id: string
+};
+
+export interface Source {
+  handleQuestion: (question: Question) => Promise<Array<ResultNode>>;
+}

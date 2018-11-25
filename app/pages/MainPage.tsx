@@ -12,7 +12,7 @@ import { Result, ResultProps } from './result/Result';
 
 import { ResultNode } from '../types';
 import { Mic } from '../microphone/mic';
-import { StackExchangeSite, StackExchangeSource } from '../back/sources/stackoverflow';
+import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
 
 const styles = require('./MainPage.scss');
 

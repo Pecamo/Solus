@@ -1,29 +1,5 @@
 import * as _ from 'lodash';
-import { SOAnswer, SOQuestion, StackOverflowResult } from '../../../types';
-
-interface Source {
-
-}
-
-type Intent = {
-  body?: string,
-  end?: number,
-  start?: number,
-  suggested?: boolean,
-  value: string
-};
-
-type SingleOrMultipleIntents = Intent | Array<Intent>;
-
-type Entities = {[key: string]: SingleOrMultipleIntents;
-};
-
-export type Question = {
-  entities: Entities,
-  intent: string,
-  msg_body: string,
-  msg_id: string
-};
+import {SOAnswer, SOQuestion, StackOverflowResult, Source, Question, SingleOrMultipleIntents} from '../types';
 
 export type SimilarAPIResponse = {
   items: Array<{
@@ -167,46 +143,4 @@ export class StackExchangeSource implements Source {
         return response.json();
       });
   }
-
-  /*
-  private getAnswersById(questions: SimilarAPIResponse['items']): Array<StackOverflowResult> {
-    if (questions.length === 0) {
-      return [];
-    }
-    const nodes = questions
-      .map((question) => {
-        if (question.answers.length === 0) {
-          return null;
-        }
-        const sorted = question.answers.sort((a, b) => a.score - b.score);
-        const best = sorted[0];
-        return {
-          question,
-          answerId: best.answer_id
-        };
-      })
-      .filter(question => !!question);
-    const answerIds = nodes.map(node => node ? node.answerId : null).filter(answer => !!answer);
-    //
-    const query = {
-      order: 'desc',
-      sort: 'votes',
-      site: this.site,
-      filter: '!6PLMObrfJqlhA',
-      ids: answerIds.join(';')
-    };
-    // Construct the call
-    const queryString = `?${Object.keys(query).map(key => `${key}=${query[key]}`).join('&')}`;
-    const url = new URL(StackExchangeSource.similarPath, StackExchangeSource.host);
-    // Actual query
-    url.search = queryString;
-    fetch(url.toString())
-      .then((response) => {
-        return response.json();
-      })
-      .then((response: AnswersAPIResponse) => {
-        const answersById = _.keyBy(response.items, item => item.answer_id);
-
-        response.items.map(item => {});
-      }); */
 }
