@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
+import { Card, H4, H5, Intent, Spinner, Tag } from '@blueprintjs/core';
 import { IFrameResult, ResultNode, ResultType } from '../../types';
 
 const styles = require('./styles.scss');
@@ -27,7 +27,8 @@ export class Result extends React.PureComponent<ResultProps> {
       case ResultType.StackOverflow:
         return (
           <>
-            <H5><a href={this.props.content.question.link}>{this.props.content.question.title}</a></H5>
+            <H4>{this.decodeEntities(this.props.content.question.title)}</H4>
+            <H5>{this.props.content.question.link}</H5>
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
@@ -37,16 +38,39 @@ export class Result extends React.PureComponent<ResultProps> {
           </>
         );
       case ResultType.IFrame:
+        // FIXME title
         return (
-          <>
-            <H5><a href={this.props.content.href}>{this.props.content.href}</a></H5>
-            <ResultFetcher {...this.props.content}/>
-          </>
+            <>
+              <H4>{this.props.content.href.substr(this.props.content.href.lastIndexOf('/') + 1)}</H4>
+              <H5>{this.props.content.href}</H5>
+              <ResultFetcher {...this.props.content}/>
+            </>
         );
       default:
-        return null; //this.props.content;
+        return null;
     }
   }
+
+  private decodeEntities = (() => {
+    // this prevents any overhead from creating the object each time
+    const element = document.createElement('div');
+
+    // regular expression matching HTML entities
+    const entity = /&(?:#x[a-f0-9]+|#[0-9]+|[a-z0-9]+);?/ig;
+
+    return (str: string) => {
+      // find and replace all the html entities
+      const replaced = str.replace(entity, (m: string): string => {
+        element.innerHTML = m;
+        return element.textContent || '';
+      });
+
+      // reset the value
+      element.textContent = '';
+
+      return replaced;
+    };
+  })();
 }
 
 interface ResultFetcherState {
@@ -65,6 +89,7 @@ class ResultFetcher extends React.Component<IFrameResult, ResultFetcherState> {
 
     const parsed: Document = new DOMParser().parseFromString(await res.text() , 'text/html');
     const queried = parsed.querySelector(this.props.querySelector || 'body');
+    // const anchors = queried.querySelector('a').forEach(a => a.removeAttribute('href'));
 
     this.setState({
       fetching: false,

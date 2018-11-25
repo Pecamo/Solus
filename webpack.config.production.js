@@ -25,7 +25,7 @@ module.exports = merge(baseConfig, {
     loaders: [
       // Extract all .global.css to style.css as is
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(css|scss|sass)$/,
         use: ExtractTextPlugin.extract({
           use: [{
             loader: 'css-loader',
