@@ -55,9 +55,14 @@ export type StackOverflowResult = {
   answer: SOAnswer,
 };
 
+export type LolWikiaResult = {
+  type: 'LolWikia'
+}
+
 export type IFrameResult = {
   type: ResultType.IFrame,
   href: string,
+  title: string,
   querySelector?: string,
 };
 
