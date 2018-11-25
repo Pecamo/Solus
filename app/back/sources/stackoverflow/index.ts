@@ -124,9 +124,11 @@ export class StackExchangeSource implements Source {
           };
         });
 
-        const filtered = nodes.filter(node => !!node);
+        console.log("UNDERSTOOD NODES : ", nodes);
 
-        return filtered as Array<StackOverflowResult>;
+        const filtered = nodes.filter(node => !!node && Object.keys(node).length !== 0);
+
+        return _.take(filtered, 3) as Array<StackOverflowResult>;
       });
   }
 
