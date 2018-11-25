@@ -1,3 +1,5 @@
+import {Question, SimilarAPIResponse} from './index';
+
 export const test: SimilarAPIResponse = {
   items: [{
     tags: [
@@ -97,7 +99,6 @@ export const test: SimilarAPIResponse = {
     last_activity_date: 1399471334,
     creation_date: 1399404023,
     question_id: 23503166,
-    body_markdown: "I&#39;ve created a loop in JS to calculate factorials - however, instead of getting the factorial, I&#39;m just only getting the first value of the for loop.  In the code below, I&#39;m just getting 1 for show(FirstFactorial(5));\r\n\r\nAny ideas on what&#39;s wrong here...?\r\n\r\n    function FirstFactorial (num) { \r\n      var myVar=1;\r\n      for(var i=1; i&lt;=num; i++){\r\n        myVar=myVar*i;\r\n        return myVar;\r\n    }\r\n    };\r\n    \r\n    show(FirstFactorial(5));",
     link: "https://stackoverflow.com/questions/23503166/for-loop-in-js-only-returns-first-value",
     title: "For loop in JS only returns first value?",
     body: "<p>I've created a loop in JS to calculate factorials - however, instead of getting the factorial, I'm just only getting the first value of the for loop.  In the code below, I'm just getting 1 for show(FirstFactorial(5));</p>\n\n<p>Any ideas on what's wrong here...?</p>\n\n<pre><code>function FirstFactorial (num) { \n  var myVar=1;\n  for(var i=1; i&lt;=num; i++){\n    myVar=myVar*i;\n    return myVar;\n}\n};\n\nshow(FirstFactorial(5));\n</code></pre>\n"
@@ -219,7 +220,6 @@ export const test: SimilarAPIResponse = {
       last_activity_date: 1542144285,
       creation_date: 1542133648,
       question_id: 53287359,
-      body_markdown: "I wrote this code in JS:\r\n\r\n    function startFunction() {\r\n\tp1 = document.getElementById(&#39;p1&#39;).innerHTML;\r\n\tfor (var i=1; i&lt;=p1.length; i++) {\r\n\t\t\talert(p1.slice(0, i));\r\n\t    }\r\n    }\r\n\r\nI call the function with onload event in html:\r\n\r\n    \t&lt;body onload=&quot;startFunction()&quot;&gt;\r\nAnd thi is the paragraph with *p1* id:\r\n\r\n        &lt;p id=&quot;p1&quot;&gt;Hi, I&#39;m&lt;/p&gt;\r\n\r\nHow can I make a delay for the for loop. I want my program to write the *p1* text letter by letter.\r\n\r\n\r\n",
       link: "https://stackoverflow.com/questions/53287359/timing-for-loop-in-js",
       title: "timing for loop in JS",
       body: "<p>I wrote this code in JS:</p>\n\n<pre><code>function startFunction() {\np1 = document.getElementById('p1').innerHTML;\nfor (var i=1; i&lt;=p1.length; i++) {\n        alert(p1.slice(0, i));\n    }\n}\n</code></pre>\n\n<p>I call the function with onload event in html:</p>\n\n<pre><code>    &lt;body onload=\"startFunction()\"&gt;\n</code></pre>\n\n<p>And thi is the paragraph with <em>p1</em> id:</p>\n\n<pre><code>    &lt;p id=\"p1\"&gt;Hi, I'm&lt;/p&gt;\n</code></pre>\n\n<p>How can I make a delay for the for loop. I want my program to write the <em>p1</em> text letter by letter.</p>\n"
@@ -267,7 +267,6 @@ export const test: SimilarAPIResponse = {
       creation_date: 1508181043,
       last_edit_date: 1508506719,
       question_id: 46777485,
-      body_markdown: "I am loading each div based on certain timeperiod which is defined in js file.\r\nI have 4 div&#39;s. I want to load div 4(ng-if=&quot;show ==4&quot;) only if list size is greater than zero(detailsList1 &gt; 0).Below is the code i have used:\r\n\r\n    &lt;div ng-if=&quot;show ==4&quot; ng-controller=&quot;detailsController&quot; ng-hide=&quot;$rootScope.detailsList1==0&quot;&gt;\r\n          &lt;div ng-repeat=&quot;data in details&quot; id=&quot;{{data.Id}}&quot;&gt;\r\n             &lt;div ng-repeat=&quot;(key, value) in data&quot; id=&quot;{{data.Id}}&quot;&gt;\r\n              {{value}}\r\n             &lt;/div&gt;\r\n         &lt;/div&gt;\r\n      &lt;/div&gt;\r\n\r\nIf the list size is zero it should not wait for the interval to complete, instead skip this div and load another div.\r\n\r\nSample demo:http://plnkr.co/edit/R4yYM522OS3PMIZ5zfzn?p=preview\r\n\r\nAny suggestions on how to skip the $interval if list to load in a particular div is zero",
       link: "https://stackoverflow.com/questions/46777485/for-loop-in-js-code",
       title: "for loop in js code",
       body: "<p>I am loading each div based on certain timeperiod which is defined in js file.\nI have 4 div's. I want to load div 4(ng-if=\"show ==4\") only if list size is greater than zero(detailsList1 > 0).Below is the code i have used:</p>\n\n<pre><code>&lt;div ng-if=\"show ==4\" ng-controller=\"detailsController\" ng-hide=\"$rootScope.detailsList1==0\"&gt;\n      &lt;div ng-repeat=\"data in details\" id=\"{{data.Id}}\"&gt;\n         &lt;div ng-repeat=\"(key, value) in data\" id=\"{{data.Id}}\"&gt;\n          {{value}}\n         &lt;/div&gt;\n     &lt;/div&gt;\n  &lt;/div&gt;\n</code></pre>\n\n<p>If the list size is zero it should not wait for the interval to complete, instead skip this div and load another div.</p>\n\n<p>Sample demo:<a href=\"http://plnkr.co/edit/R4yYM522OS3PMIZ5zfzn?p=preview\" rel=\"nofollow noreferrer\">http://plnkr.co/edit/R4yYM522OS3PMIZ5zfzn?p=preview</a></p>\n\n<p>Any suggestions on how to skip the $interval if list to load in a particular div is zero</p>\n"
@@ -302,7 +301,6 @@ type AnswersAPIResponse = {
   quota_max: number,
   quota_remaining: number
 };
-
 
 const test2: Question = {
   entities: {

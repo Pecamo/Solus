@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {ResultType, SOAnswer, SOQuestion, StackOverflowResult} from '../../../types';
+import { SOAnswer, SOQuestion, StackOverflowResult } from '../../../types';
 
 interface Source {
 
@@ -18,14 +18,14 @@ type SingleOrMultipleIntents = Intent | Array<Intent>;
 type Entities = {[key: string]: SingleOrMultipleIntents;
 };
 
-type Question = {
+export type Question = {
   entities: Entities,
   intent: string,
   msg_body: string,
   msg_id: string
 };
 
-type SimilarAPIResponse = {
+export type SimilarAPIResponse = {
   items: Array<{
     tags: Array<string>,
     answers: Array<{
@@ -46,7 +46,6 @@ type SimilarAPIResponse = {
       creation_date: number,
       answer_id: number,
       question_id: number,
-      body_markdown: string,
       body: string,
     }>
     owner: object,
@@ -61,7 +60,6 @@ type SimilarAPIResponse = {
     last_edit_date?: number,
     question_id: number,
     body: string,
-    body_markdown: string,
     title: string
   }>,
   has_more: boolean,
@@ -106,7 +104,8 @@ class StackExchangeSource implements Source {
             last_edit_date : item.last_edit_date,
             question_id : item.question_id,
             link : item.link,
-            title : item.title
+            title : item.title,
+            body: item.body
           };
 
           let answer: SOAnswer | undefined = undefined;

@@ -32,7 +32,7 @@ export class Result extends React.PureComponent<ResultProps> {
             <div
               className={styles.content}
               dangerouslySetInnerHTML={{
-                __html: `<p>${converter.makeHtml(this.props.content.answer.body_markdown)}</p>`
+                __html: `<p>${converter.makeHtml(this.props.content.answer.body)}</p>`
               }}
             />
           </>

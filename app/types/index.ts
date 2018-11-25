@@ -26,7 +26,8 @@ export type SOQuestion = {
   last_edit_date? : number,
   question_id : number,
   link : string,
-  title : string
+  title : string,
+  body: string
 };
 
 export type SOAnswer = {
@@ -45,7 +46,6 @@ export type SOAnswer = {
   creation_date: number,
   answer_id: number,
   question_id: number,
-  body_markdown: string,
   body: string
 };
 
