@@ -5,8 +5,8 @@ import { Microphone } from './Microphone';
 export class Mic {
     MAX_SILENCE_TIME = 3 * 1000;
     THRESHOLD_PERCENT = 0.3;
-    CURRENT_VOLUME_DIV = document.querySelector('#current-volume') as HTMLElement;
-    THRESHOLD_VOLUME_DIV = document.querySelector('#threshold-volume') as HTMLElement;
+    CURRENT_VOLUME_DIV = document.querySelector('#current-volume');
+    THRESHOLD_VOLUME_DIV = document.querySelector('#threshold-volume');
     meter: Meter;
     wit: Wit;
     onresult: Function;
@@ -21,24 +21,23 @@ export class Mic {
         this.onMicrophoneOn = onMicrophoneOn;
         this.audioContext = new AudioContext();
         this.wit = new Wit(elem, onerror, onresult);
+    }
 
+    public init () {
         // Try to get access to the microphone
         try {
             // Retrieve getUserMedia API with all the prefixes of the browsers
             // navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+            const constraints: MediaTrackConstraints & any = {};
+            constraints.audio = true;
+            constraints.echoCancelation = false;
+            constraints.autoGainControl = false;
+            constraints.noiseSuppression = false;
+            constraints.highpassFilter = false;
+
             // Ask for an audio input
-            navigator.getUserMedia({
-                "audio": {
-                    "mandatory": {
-                        "googEchoCancellation": "false",
-                        "googAutoGainControl": "false",
-                        "googNoiseSuppression": "false",
-                        "googHighpassFilter": "false"
-                    },
-                    "optional": []
-                },
-            } as any, this.onMicrophoneGranted, () => alert('Stream generation failed.'));
+            navigator.getUserMedia(constraints, this.onMicrophoneGranted, () => alert('Stream generation failed.'));
         } catch (e) {
             alert('getUserMedia threw exception :' + e);
         }
@@ -105,10 +104,12 @@ export class Mic {
         this.mic.connect("XJVMRCY6K4B54B2T3X4DATHDNJO6SFY7");
     }
 
-    onMicrophoneGranted (stream) {
+    onMicrophoneGranted = (stream) => {
         // Create an AudioNode from the stream.
         const mediaStreamSource = this.audioContext.createMediaStreamSource(stream);
-        this.THRESHOLD_VOLUME_DIV.style.width = `${this.THRESHOLD_PERCENT * 100}%`;
+        if (this.THRESHOLD_VOLUME_DIV instanceof HTMLElement) {
+            this.THRESHOLD_VOLUME_DIV.style.width = `${this.THRESHOLD_PERCENT * 100}%`;
+        }
 
         // Create a new volume meter and connect it.
         // createAudioMeter(audioContext, clipLevel, averaging, clipLag);
@@ -120,13 +121,16 @@ export class Mic {
         this.onLevelChange();
     }
 
-    onLevelChange (time?) {
+    onLevelChange = (time?) => {
         if (!this.hasBeenCalledMicOn && this.meter.volume > 0) {
             this.hasBeenCalledMicOn = true;
             this.onMicrophoneOn();
         }
 
-        this.CURRENT_VOLUME_DIV.style.width = `${this.meter.volume * 100}%`;
+        if (this.CURRENT_VOLUME_DIV  instanceof HTMLElement) {
+            this.CURRENT_VOLUME_DIV.style.width = `${this.meter.volume * 100}%`;
+        }
+
         if (this.meter.processor.checkClipping()) {
             if (!this.isRecording) {
                 this.mic.start();

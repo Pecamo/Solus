@@ -50,6 +50,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 		}, (res) => {
 			console.log(res);
 		});
+
+		this.microphone.init();
 	}
 
 	render() {
