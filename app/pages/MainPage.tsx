@@ -94,6 +94,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         const sources: Array<Source> = (context as Context).sources;
         const results = [];
 
+        /*
         sources[0].handleQuestion(res)
           .then((response) => {
             console.log('RESPONSES : ', response);
@@ -101,28 +102,26 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             this.setState({
               searchState: SearchState.DONE,
               results: response
-            })
+            });
           });
+          */
 
-        /*
         const promises = sources.map((source) => {
           return source.handleQuestion(res)
             .then((response) => {
               console.log('RESPONSES : ', response);
-              _.concat(results, response);
-
+              return response;
             });
         });
         Promise.all(promises)
-          .then(() => {
-            setTimeout(() => {
-              console.log("GOTTEN RESULTS ; ", results);
-              this.setState({
-                results,
-                searchState: SearchState.DONE
-              });
-            }, 500);
-          });*/
+          .then((responses) => {
+            const responsesFinal = _.flatten(_.concat([], responses));
+            console.log("FINAL", responsesFinal);
+            this.setState({
+              results: responsesFinal,
+              searchState: SearchState.DONE
+            });
+          });
 
       });
 
@@ -180,41 +179,6 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         content: result
       };
     });
-
-    /*const results: ResultProps[] = [
-      {
-        source: 'Stack Overflow',
-        content: {
-          type: ResultType.StackOverflow,
-          question: {
-            title: 'alors',
-            link: 'http://oui.la.vie',
-          },
-          answer: {
-            body:
-                `<p>Blah blah. Blah? <code>that feature</code>I also use the
-<a href="https://github.com/cosmologicon/pygame-text/" rel="nofollow noreferrer"><code>lib</code></a>
-<pre><code>p { color: red }</code></pre></p>`
-          }
-        } as any as StackOverflowResult,
-      },
-      {
-        source: 'Lol wikia',
-        content: {
-          type: ResultType.IFrame,
-          href: 'https://leagueoflegends.wikia.com/wiki/Cloud_Drake',
-          querySelector: 'aside',
-        }
-      },
-      {
-        source: 'Lol wikia', content: {
-          type: ResultType.IFrame,
-          href: 'https://leagueoflegends.wikia.com/wiki/Gromp',
-          querySelector: 'aside',
-        }
-      }
-    ];*/
-
 
     switch (this.state.searchState) {
       case SearchState.INIT:

@@ -1,4 +1,4 @@
-import {Source, Question, SingleOrMultipleIntents, Intent, IFrameResult, ResultType, ResultNode} from '../types';
+import { Source, Question, SingleOrMultipleIntents, Intent, IFrameResult, ResultType, ResultNode } from '../types';
 
 export class LolWikiaSource implements Source {
   static host = 'http://leagueoflegends.wikia.com';
@@ -8,7 +8,7 @@ export class LolWikiaSource implements Source {
     return 'League of Legends Wikia';
   }
 
-  handleQuestion(question: Question): Promise<Array<ResultNode>> {
+  handleQuestion(question: Question): Promise<Array<IFrameResult>> {
     let page: string = '';
     let title: string = '';
     let selector: string = 'aside';
