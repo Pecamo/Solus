@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as _ from 'lodash';
 
 import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
@@ -10,13 +11,13 @@ import { MicState } from '../reducers/mic';
 import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
-import {ResultNode, Source} from '../types';
+import { ResultNode, Source } from '../types';
 import { Mic } from '../microphone/mic';
 import { StackExchangeSite, StackExchangeSource } from '../sources/stackoverflow';
 import { toastShowAction } from '../actions/mic';
 import ContextHandler from '../ContextHandler';
-import {CurrentProcessState} from '../reducers/currentProcess';
-import {Context} from '../contexts/allContexts';
+import { CurrentProcessState } from '../reducers/currentProcess';
+import { Context } from '../contexts/allContexts';
 
 const styles = require('./MainPage.scss');
 
@@ -85,15 +86,35 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
           searchState: SearchState.FETCHING,
           heardQuestion: res.msg_body
         });
-        const source: Source = new StackExchangeSource(StackExchangeSite.STACKOVERFLOW);
-        source.handleQuestion(res)
-          .then((response) => {
-            console.log('RESPONSES : ', response);
-            this.setState({
-              searchState: SearchState.DONE,
-              results: response
+        const process = this.props.currentProcess;
+        const context: Context | undefined = ContextHandler.getContextOfProcess(process);
+        if (!context) {
+          console.error('Error Big Time, Monsieur.');
+        }
+        const sources: Array<Source> = (context as Context).sources;
+        const results = [];
+        const promises = sources.map((source) => {
+          return source.handleQuestion(res)
+            .then((response) => {
+              console.log('RESPONSES : ', response);
+              _.concat(results, response);
+              /* this.setState({
+                searchState: SearchState.DONE,
+                results: response
+              }); */
             });
+        });
+        Promise.all(promises)
+          .then(() => {
+            setTimeout(() => {
+              console.log("GOTTEN RESULTS ; ", results);
+              this.setState({
+                results,
+                searchState: SearchState.DONE
+              });
+            }, 500);
           });
+
       });
 
       this.microphone.init();
@@ -140,6 +161,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   private renderContent = (currentContext: Context) => {
     const context = currentContext.displayName;
     const understood = this.state.heardQuestion;
+
+    console.log("STATE LA VIE", this.state);
+    console.log('RESULTS ? ???????', this.state.results);
 
     const results = this.state.results.map((result) => {
       return {
