@@ -11,6 +11,7 @@ import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position,
 import { Result, ResultProps } from './result/Result';
 
 import { ResultNode, ResultType, StackOverflowResult } from '../types';
+import { Mic } from '../microphone/mic';
 
 const styles = require('./MainPage.scss');
 
@@ -31,13 +32,27 @@ interface MainPageState {
 }
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
+  microphone: Mic;
+
   readonly state: MainPageState = {
-    searchState: SearchState.DONE,
+    searchState: SearchState.INIT,
     results: []
   };
 
   setResults(results: MainPageState['results']) {
     this.state.results = results;
+  }
+
+  componentDidMount() {
+    const elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
+    this.microphone = new Mic(elem, () => {
+      console.log('volume detected');
+      this.setState({ searchState: SearchState.SPEAKING });
+    }, (res) => {
+      console.log(res);
+    });
+
+    this.microphone.init();
   }
 
   render() {
@@ -93,8 +108,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         }
       },
       {
-        source: 'Lol wikia',
-        content: {
+        source: 'Lol wikia', content: {
           type: ResultType.IFrame,
           href: 'https://leagueoflegends.wikia.com/wiki/Gromp',
           querySelector: 'aside',
@@ -131,8 +145,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         return (
             <>
               {this.renderResultHead(context, understood)}
-              <Text className={styles.best_guess}>Best guess: {guess}</Text>
-              {this.renderResults(results)}
+              <Text className={styles.best_guess}>Best guess: {guess}</Text>{this.renderResults(results)}
             </>
         );
       default:
@@ -141,22 +154,22 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   private renderResultHead = (context: string, understood: string) => (
-      <>
-        <Text>Your query for the context {context}:</Text>
+    <>
+      <Text>Your query for the context {context}:</Text>
 
-        <Card className={styles.understood}>
-          <Text ellipsize={true}>{understood}</Text>
-        </Card>
-      </>
+      <Card className={styles.understood}>
+        <Text ellipsize={true}>{understood}</Text>
+      </Card>
+    </>
   )
 
   private renderResults = (results: ResultProps[]) => (
-        <div className={styles.results}>
-          {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
-        </div>
-    )
+    <div className={styles.results}>
+      {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+    </div>
+  )
 
-  private updateState = (searchState: SearchState) => () => this.setState({ searchState });
+  private updateState = (searchState: SearchState) => () => this.setState({ searchState })
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
