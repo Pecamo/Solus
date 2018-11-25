@@ -146,7 +146,7 @@ export class StackExchangeSource implements Source {
       )
     );
     // 1.2 Remove non-existing tags
-    const validTags = tags.filter(tag => (tag in validTags));
+    // const validTags = tags.filter(tag => (tag in validTags));
     const query = {
       order: 'desc',
       sort: 'relevance',
