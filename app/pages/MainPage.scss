@@ -46,4 +46,31 @@
     top: 20px;
     right: 30px;
   }
+
+  #volume {
+    position: relative;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #a7dbd8;
+  }
+
+  #current_volume {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    background-color: #f38630;
+    border-radius: 10px;
+  }
+
+  #threshold_volume {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    background-color: #69d2e7;
+    border-radius: 10px;
+  }
 }

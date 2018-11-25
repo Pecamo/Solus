@@ -10,9 +10,10 @@ import { MicState } from '../reducers/mic';
 import { Button, Card, Intent, Menu, MenuItem, NonIdealState, Popover, Position, Spinner, Text } from '@blueprintjs/core';
 import { Result, ResultProps } from './result/Result';
 
-import { ResultNode, ResultType, StackOverflowResult } from '../types';
+import { ResultNode } from '../types';
 import { Mic } from '../microphone/mic';
-import {StackExchangeSite, StackExchangeSource} from '../back/sources/stackoverflow';
+import '../../wit/microphone/css/microphone.min.css';
+import { StackExchangeSite, StackExchangeSource } from '../back/sources/stackoverflow';
 
 const styles = require('./MainPage.scss');
 
@@ -35,6 +36,9 @@ interface MainPageState {
 
 class MainPage extends React.Component<MainPageProps, MainPageState> {
   microphone: Mic;
+  micDiv: HTMLDivElement;
+  curVolDiv: HTMLDivElement;
+  thresholdVolDiv: HTMLDivElement;
 
   readonly state: MainPageState = {
     searchState: SearchState.INIT,
@@ -47,8 +51,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
   }
 
   componentDidMount() {
-    const elem: HTMLElement = document.querySelector('.mic-icon') as HTMLElement;
-    this.microphone = new Mic(elem, () => {
+    this.microphone = new Mic(() => {
       console.log('volume detected');
       this.setState({ searchState: SearchState.SPEAKING });
     }, (res) => {
@@ -78,6 +81,14 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     this.microphone.init();
   }
 
+  componentDidUpdate() {
+    if (this.micDiv) {
+      console.log(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
+      // we assume the rest is also initialized
+      this.microphone.setElements(this.micDiv, this.curVolDiv, this.thresholdVolDiv);
+    }
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -98,12 +109,11 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         <MenuItem text="Fetching" onClick={this.updateState(SearchState.FETCHING)}/>
         <MenuItem text="Done" onClick={this.updateState(SearchState.DONE)}/>
       </Menu>
-  );
+  )
 
   private renderContent = () => {
     const context = 'Stack Overflow';
     const understood = this.state.heardQuestion;
-    const guess = '350 gold';
 
     const results = this.state.results.map((result) => {
       return {
@@ -157,12 +167,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
             />
         );
       case SearchState.SPEAKING:
-        return (
-          <>
-            <Text>Keep speaking! >:3</Text>
-            <div>La super barre de Sachdr</div>
-          </>
-        );
+        return this.renderMic();
       case SearchState.FETCHING:
         return (
             <>
@@ -176,8 +181,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         return (
             <>
               {this.renderResultHead(context, understood)}
-              {/*<Text className={styles.best_guess}>Best guess: {guess}</Text>*/}
-              {this.renderResults(results)}
+              <div className={styles.results}>
+                {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
+              </div>
             </>
         );
       default:
@@ -195,13 +201,22 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     </>
   )
 
-  private renderResults = (results: ResultProps[]) => (
-    <div className={styles.results}>
-      {results.map((el: ResultProps, index: number) => <Result key={index} {...el}/>)}
-    </div>
+  private renderMic = () => (
+    <>
+      <div>
+        <div id="microphone" ref={(ref: HTMLDivElement) => this.micDiv = ref}/>
+        <div id={styles.volume}>
+          <div id={styles.threshold_volume} ref={(ref: HTMLDivElement) => this.thresholdVolDiv = ref}/>
+          <div id={styles.current_volume} ref={(ref: HTMLDivElement) => this.curVolDiv = ref}/>
+        </div>
+      </div>
+      <pre id="result"/>
+      <div id="info"/>
+      <div id="error"/>
+    </>
   )
 
-  private updateState = (searchState: SearchState) => () => this.setState({ searchState })
+  private updateState = (searchState: SearchState) => () => this.setState({ searchState });
 }
 
 function mapStateToProps(state: IState): Partial<MainPageProps> {
