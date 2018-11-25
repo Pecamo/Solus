@@ -67,7 +67,7 @@ export type SimilarAPIResponse = {
   quota_remaining: number
 };
 
-enum StackExchangeSite {
+export enum StackExchangeSite {
   STACKOVERFLOW = 'stackoverflow', // IDEs
   BLENDER = 'blender', // Blender
   ARQADE = 'gaming', // Any video game
@@ -76,7 +76,7 @@ enum StackExchangeSite {
   TEX = 'tex' // Tex-edition software
 }
 
-class StackExchangeSource implements Source {
+export class StackExchangeSource implements Source {
 
   static host = 'https://api.stackexchange.com';
   static similarPath = '/2.2/similar';
@@ -108,7 +108,7 @@ class StackExchangeSource implements Source {
             body: item.body
           };
 
-          let answer: SOAnswer | undefined = undefined;
+          let answer: SOAnswer | undefined;
 
           if (item.answer_count === 0) {
             return {};

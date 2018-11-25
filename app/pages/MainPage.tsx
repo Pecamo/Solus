@@ -12,6 +12,7 @@ import { Result, ResultProps } from './result/Result';
 
 import { ResultNode, ResultType, StackOverflowResult } from '../types';
 import { Mic } from '../microphone/mic';
+import {StackExchangeSite, StackExchangeSource} from '../back/sources/stackoverflow';
 
 const styles = require('./MainPage.scss');
 
@@ -28,6 +29,7 @@ enum SearchState {
 
 interface MainPageState {
   searchState: SearchState;
+  heardQuestion: string;
   results: ResultNode[];
 }
 
@@ -36,6 +38,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
   readonly state: MainPageState = {
     searchState: SearchState.INIT,
+    heardQuestion: '...',
     results: []
   };
 
@@ -49,7 +52,27 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
       console.log('volume detected');
       this.setState({ searchState: SearchState.SPEAKING });
     }, (res) => {
-      console.log(res);
+      try {
+        if (!('msg_body' in res)) {
+          console.log('¯\\_(ツ)_/¯ I didnt understand');
+          return;
+        }
+        this.setState({
+          searchState: SearchState.FETCHING,
+          heardQuestion: res.msg_body
+        });
+        const source = new StackExchangeSource(StackExchangeSite.STACKOVERFLOW);
+        source.handleQuestion(res)
+          .then((response) => {
+            console.log('RESPONSES : ', response);
+            this.setState({
+              searchState: SearchState.DONE,
+              results: response
+            });
+          });
+      } catch (e) {
+        console.log('crash : ', e);
+      }
     });
 
     this.microphone.init();
@@ -79,9 +102,17 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
   private renderContent = () => {
     const context = 'Stack Overflow';
-    const understood = 'I want to...';
+    const understood = this.state.heardQuestion;
     const guess = '350 gold';
 
+    const results = this.state.results.map((result) => {
+      return {
+        source: 'StackOverflow',
+        content: result
+      };
+    });
+
+    /*
     const results: ResultProps[] = [
       {
         source: 'Stack Overflow',
@@ -114,7 +145,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
           querySelector: 'aside',
         }
       }
-    ];
+    ];*/
 
     switch (this.state.searchState) {
       case SearchState.INIT:
@@ -145,7 +176,8 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         return (
             <>
               {this.renderResultHead(context, understood)}
-              <Text className={styles.best_guess}>Best guess: {guess}</Text>{this.renderResults(results)}
+              {/*<Text className={styles.best_guess}>Best guess: {guess}</Text>*/}
+              {this.renderResults(results)}
             </>
         );
       default:
